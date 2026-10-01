@@ -1,0 +1,15 @@
+[
+  {
+    "name": "Replace with verified product name",
+    "categoryId": "solar-panels",
+    "brand": "Replace with verified brand",
+    "description": "Replace with verified product description",
+    "specs": "Replace with verified specifications",
+    "image": "/images/panel.svg",
+    "price": null,
+    "stock": 0,
+    "status": "draft",
+    "featured": false,
+    "source": "Add the source URL or verification notes"
+  }
+]

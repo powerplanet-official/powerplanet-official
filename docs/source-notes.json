@@ -1,0 +1,36 @@
+{
+  "facebook": {
+    "url": "https://www.facebook.com/Powerplanet.1/",
+    "pageTitle": "Power Planet | Lahore",
+    "publicTagline": "The Financial Sun Is Shining With Solar Energy",
+    "extracted": "Public Open Graph metadata only. Full posts and product catalog unavailable.",
+    "notVerified": [
+      "Street address",
+      "Product catalog",
+      "Prices and availability"
+    ]
+  },
+  "theme": {
+    "url": "https://w11stop.com/",
+    "green": "#3cc472",
+    "slate": "#3a4750",
+    "sectionFont": "Vollkorn",
+    "searchFont": "Ubuntu"
+  },
+  "userConfirmed": {
+    "phone": "0301 4101700",
+    "internationalPhone": "+92 301 4101700",
+    "whatsapp": "923014101700",
+    "source": "Provided directly by the user in this conversation"
+  },
+  "brandingUpdate": {
+    "paletteSource": "User-supplied white-background Power Planet logo reference",
+    "green": "#95bf3b",
+    "darkGreen": "#52721a",
+    "yellow": "#ffd42a",
+    "logoStatus": "Reference-based vector recreation installed as public/images/powerplanet-logo.svg. All lettering is outlined; no embedded raster or runtime font dependency.",
+    "brandLogos": "Local assets and original source URLs recorded in lib/featured-brands.json",
+    "homepage": "Four linked catalog-product slides, featured-brand carousel and solar category directory",
+    "serviceStrip": "User-provided first three benefit cards followed by the unchanged 30,000+ products reference card. Marketing copy supplied by user; not a live catalog count."
+  }
+}

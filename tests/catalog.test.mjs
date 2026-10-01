@@ -1,0 +1,16 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {catalogSelection,categoryIdsFor,inCategory,priceLabel} from '../lib/catalog.mjs';
+import {productSchema} from '../server/product-schema.mjs';
+const categories=[{id:'panels',parentId:null},{id:'batteries',parentId:null},{id:'bifacial',parentId:'panels'},{id:'astronergy',parentId:'panels'}];
+const items=[
+ {id:'a',name:'Astronergy 585W',brand:'Astronergy Solar',categoryId:'bifacial',categoryIds:['panels','astronergy'],status:'published',price:29250,availability:'in-stock'},
+ {id:'b',name:'Jinko 590W',brand:'Jinko',categoryId:'panels',status:'published',price:28000,availability:'out-of-stock'},
+ {id:'c',name:'Jinko battery',brand:'Jinko',categoryId:'batteries',status:'published',price:100000,availability:'in-stock'},
+ {id:'d',name:'On request panel',brand:'Jinko',categoryId:'panels',status:'published',price:null,availability:'on-request'},
+];
+test('products may belong to both brand and technology categories without duplicates',()=>{assert.ok(inCategory(items[0],categoryIdsFor(categories,'astronergy')));const r=catalogSelection(items,categories,'panels',new URLSearchParams());assert.equal(r.selected.length,3);assert.deepEqual(r.brandCounts,[['Astronergy Solar',1],['Jinko',2]]);});
+test('brand and availability filters intersect within the selected category',()=>{const r=catalogSelection(items,categories,'panels',new URLSearchParams('brand=Jinko&available=1'));assert.equal(r.selected.length,0);assert.equal(catalogSelection(items,categories,null,new URLSearchParams('brand=Jinko&available=1')).selected[0].id,'c');});
+test('multi-brand selection, price ranges and price sorting preserve source amounts',()=>{const r=catalogSelection(items,categories,'panels',new URLSearchParams('brand=Jinko&brand=Astronergy+Solar&min=28000&max=30000&sort=price-low'));assert.deepEqual(r.selected.map(p=>p.id),['b','a']);assert.equal(priceLabel(r.selected[1].price),'Rs. 29,250/-');assert.equal(catalogSelection(items,categories,'panels',new URLSearchParams('sort=price-high')).selected.at(-1).id,'d');});
+test('pagination clamps invalid pages, and a filter clears to the complete category',()=>{const many=Array.from({length:65},(_,i)=>({...items[0],id:String(i)}));const r=catalogSelection(many,categories,'panels',new URLSearchParams('page=99&limit=25'));assert.equal(r.page,3);assert.equal(r.visible.length,15);assert.equal(catalogSelection(items,categories,'panels',new URLSearchParams()).selected.length,3);});
+test('admin validation retains sale pricing, local product photos and source metadata',()=>{const p={...items[0],name:'Astronergy 585W',description:'Panel specification',specs:'Power: 585W',image:'/images/catalog/0123456789abcdef01234567.webp',images:['/images/catalog/0123456789abcdef01234567.webp'],stock:0,featured:true,originalPrice:32000,minQuantity:10,sourceUrl:'https://w11stop.com/astronergy-580w-n-type-solar-panel',sourceCheckedAt:'2026-09-29T00:00:00.000Z'};const result=productSchema.parse(p);assert.equal(result.minQuantity,10);assert.equal(result.originalPrice,32000);assert.equal(result.images.length,1);assert.equal(productSchema.safeParse({...p,originalPrice:20000}).success,false);assert.equal(productSchema.safeParse({...p,image:'/images/catalog/../../.env'}).success,false);});
