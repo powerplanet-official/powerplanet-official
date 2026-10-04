@@ -1,0 +1,65 @@
+/* Keep product rows swipeable without a visible scrollbar or toolbar. */
+.product-carousel {
+  min-width: 0;
+}
+.product-carousel-rail {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding: 4px 2px 14px;
+}
+.product-carousel-rail::-webkit-scrollbar {
+  display: none;
+}
+.product-carousel-rail > .product-card {
+  flex: 0 0 calc((100% - 60px) / 4);
+  min-width: 0;
+  scroll-snap-align: start;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.product-carousel-rail:focus-visible {
+  outline: 2px solid #668c2f;
+  outline-offset: 3px;
+}
+.deal-collection-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  margin-top: 14px;
+  color: #425d22;
+  font-size: 13px;
+  font-weight: 600;
+}
+.deal-collection-link:hover {
+  text-decoration: underline;
+}
+@media (min-width: 761px) and (max-width: 1100px) {
+  .product-carousel-rail > .product-card {
+    flex-basis: calc((100% - 40px) / 3);
+  }
+}
+@media (max-width: 760px) {
+  .product-carousel-rail > .product-card {
+    /* A glimpse of the next card makes horizontal browsing discoverable. */
+    flex-basis: calc((100% - 24px) / 2.12);
+  }
+  .solar-products-rail .product-name {
+    font-size: 13px;
+  }
+  .solar-products-rail .product-price strong {
+    font-size: 15px;
+  }
+  .solar-collection-banner {
+    border-radius: 18px;
+    box-shadow: 0 10px 24px #0b152815;
+  }
+  .solar-hero-slide:focus-visible {
+    outline: 3px solid #c9e980;
+    outline-offset: -3px;
+  }
+}

@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Jinko",
+    "source": "https://w11stop.com/image/cache/catalog/brand_logos/jinko-500x500.jpg",
+    "image": "/images/brands/jinko.jpg"
+  },
+  {
+    "name": "Longi",
+    "source": "https://w11stop.com/image/cache/catalog/2020/EDIT%20Brands/LONGI-500x500.jpg",
+    "image": "/images/brands/longi.jpg"
+  },
+  {
+    "name": "Trina Solar",
+    "source": "https://w11stop.com/image/cache/catalog/brand_logos/trinasolar-500x500.jpg",
+    "image": "/images/brands/trina-solar.jpg"
+  },
+  {
+    "name": "JA Solar",
+    "source": "https://w11stop.com/image/cache/catalog/brand_logos/JA-Solar-500x500.jpg",
+    "image": "/images/brands/ja-solar.jpg"
+  },
+  {
+    "name": "Canadian Solar",
+    "source": "https://w11stop.com/image/cache/catalog/Canadian%20Solar/canadian-solar-500x500w.jpg",
+    "image": "/images/brands/canadian-solar.jpg"
+  }
+]

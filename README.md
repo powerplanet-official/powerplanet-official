@@ -70,7 +70,11 @@ Run behind an HTTPS reverse proxy and set `SECURE_COOKIES=true` in `.env`. Use a
 
 ```bash
 npm test
+npm run format:check
 npm run build
+npm run test:browser
+npm run test:homepage-browser
+npm run test:payments-browser
 npm run test:catalog-browser # with the real catalog and local server running
 ```
 
@@ -119,6 +123,8 @@ A network timeout retains the order and reservation because Stripe may already h
 The website uses the supplied logo's green/yellow palette. Admin → Store settings → Website logo accepts the original PNG/JPEG/WebP (up to 2 MB), preserves its bytes and stores it in SQLite. Header and footer use the uploaded logo. Alternatively put the original PNG at `public/images/powerplanet-logo.png`; the installed fallback is a scalable SVG recreation of the supplied Power Planet reference at `public/images/powerplanet-logo.svg`, with all lettering outlined as paths. It has no embedded bitmap or runtime font dependency. Uploaded artwork can override it. Square uploaded artwork is framed with CSS, without changing the uploaded file. The default SVG fits the header, footer and admin branding without cropping. The service strip follows Our Catalog; its marketing copy was supplied by the user, including the final 30,000+ products text (not a computed catalog count).
 
 The hero has four slides for panels, inverters, batteries and portable power. Images/prices come from published catalog products; discounts only appear when a catalog original price exceeds its current price. The slides link to actual products, cycle every six seconds, support arrows/dots/swipe and pause on hover/focus or reduced-motion preferences. The first headline remains editable in Store settings. Featured Brand uses locally downloaded brand logos and links to matching catalog filters. Our Catalog links to store categories/subcategories. It uses the store's solar catalog; unrelated W11stop appliance/computing products have not been imported. Logo source URLs are recorded in `lib/featured-brands.json`.
+
+At widths up to 760px, the homepage uses a separate mobile layout: a full-width three-slide banner, followed by Solar Panels, Hybrid Solar Inverters, and Lithium Batteries & ESS Energy collections. Each collection includes linked artwork, horizontally scrollable product cards and relevant brand links. Mobile search sits below the sticky logo header; the category menu opens from that header. Each hero slide has a visible Shop collection link to its category. Above 760px, the original desktop sidebar, four-slide product hero, category tiles, product grids, promotions, brands and category directory remain. Homepage product rows on both layouts scroll horizontally with swipe, arrow and keyboard controls, a visible product counter, and a preview of the next card on mobile. Rows advance one product every five seconds while visible, and pause on hover, focus, touch or manual navigation. A play/pause button controls playback; reduced-motion preferences disable automatic scrolling. Only the active homepage is mounted. Mobile artwork lives in `public/images/solar-home/`; its banners are independent of the desktop hero title setting.
 
 ### SMTP order confirmations
 

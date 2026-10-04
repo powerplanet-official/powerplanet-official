@@ -1,0 +1,661 @@
+/* Reference storefront typography is served locally, including bold price numerals. */
+@font-face {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/roboto-bold.ttf') format('truetype');
+}
+/* Desktop is the original storefront. All mobile presentation stays below its breakpoint. */
+.mobile-homepage,
+.mobile-menu-toggle,
+.mobile-store-search,
+.mobile-footer-category {
+  display: none !important;
+}
+@media (max-width: 760px) {
+  .desktop-homepage,
+  .desktop-footer-category {
+    display: none !important;
+  }
+  .mobile-homepage,
+  .mobile-footer-category {
+    display: block !important;
+  }
+  .mobile-menu-toggle {
+    display: grid !important;
+  }
+  .mobile-store-search {
+    display: flex !important;
+  }
+  .solar-home-top {
+    padding-top: 20px;
+  }
+  .solar-hero {
+    min-width: 0;
+  }
+  .solar-hero-rail,
+  .solar-products-rail {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+  }
+  .solar-hero-rail::-webkit-scrollbar,
+  .solar-products-rail::-webkit-scrollbar {
+    display: none;
+  }
+  .solar-hero-slide {
+    flex: 0 0 100%;
+    min-width: 0;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+  .solar-hero-slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .solar-hero-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-height: 42px;
+  }
+  .solar-hero-controls > button {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    background: transparent;
+    color: #3a4750;
+  }
+  .solar-hero-controls .carousel-dots button,
+  .collection-brands .carousel-dots button {
+    width: 28px;
+    height: 28px;
+    background: radial-gradient(circle, #d9dcde 3px, transparent 4px);
+  }
+  .solar-hero-controls .carousel-dots .selected,
+  .collection-brands .carousel-dots .selected {
+    background: radial-gradient(circle, #4caf83 4px, transparent 5px);
+  }
+  .solar-collection-tabs {
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+    gap: 10px;
+    padding: 4px 0 24px;
+  }
+  .solar-collection-tabs a {
+    flex: 1 0 auto;
+    padding: 13px 18px;
+    background: #f4f5f6;
+    border: 1px solid #e6e7e9;
+    font:
+      400 15px/1.4 Ubuntu,
+      Arial,
+      sans-serif;
+    text-align: center;
+    color: #3a4750;
+  }
+  .solar-collection {
+    margin-bottom: 36px;
+    min-width: 0;
+  }
+  .solar-collection-layout {
+    display: grid;
+    grid-template-columns: minmax(240px, 30%) minmax(0, 1fr);
+    gap: 20px;
+    align-items: center;
+  }
+  .solar-collection-banner {
+    display: block;
+    border: 1px solid #e7e8ea;
+    background: #fff;
+    color: #fff;
+  }
+  .solar-collection-heading {
+    padding: 24px 16px;
+    text-align: center;
+    background: linear-gradient(145deg, #03111e, #222e4d);
+  }
+  .solar-collection-heading h2 {
+    font:
+      700 25px/1.15 Arial,
+      sans-serif;
+    text-transform: uppercase;
+    max-width: 360px;
+    margin: 0 auto 14px;
+    color: #fff;
+  }
+  .solar-collection-heading span {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: #fff;
+    border-radius: 20px;
+    padding: 5px 12px;
+    color: #18253e;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .solar-collection-art {
+    aspect-ratio: 1000 / 810;
+    overflow: hidden;
+  }
+  .solar-collection-art > img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .solar-products-carousel {
+    position: relative;
+    min-width: 0;
+  }
+  .solar-products-rail {
+    gap: 14px;
+    padding: 2px;
+  }
+  .solar-products-rail .product-card {
+    flex: 0 0 calc((100% - 28px) / 3);
+    scroll-snap-align: start;
+  }
+  .solar-products-arrow {
+    position: absolute;
+    z-index: 2;
+    top: 42%;
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 40px;
+    color: #fff;
+    background: #3a4750;
+    border: 3px solid #fff;
+  }
+  .solar-products-arrow.previous {
+    left: -10px;
+  }
+  .solar-products-arrow.next {
+    right: -10px;
+  }
+  .solar-products-arrow:disabled {
+    opacity: 0.35;
+    cursor: default;
+  }
+  .solar-products-rail .product-image {
+    height: 200px;
+    padding: 16px 12px 0;
+    background: #fff;
+  }
+  /* The reference's collection cards focus on the image, name, and price. Actions
+   remain available on the linked product page and in the main catalog. */
+  .solar-products-rail .product-badge,
+  .solar-products-rail .product-actions,
+  .solar-products-rail .brand,
+  .solar-products-rail .product-bottom {
+    display: none;
+  }
+  .solar-products-rail .product-info {
+    padding: 16px 10px 6px;
+  }
+  .solar-products-rail .product-name {
+    font:
+      400 13px/1.45 Ubuntu,
+      Arial,
+      sans-serif;
+    text-transform: uppercase;
+    color: #3a4750;
+    margin-bottom: 12px;
+    min-height: 57px;
+  }
+  .solar-products-rail .product-price {
+    padding-top: 0;
+    gap: 4px;
+  }
+  .solar-products-rail .product-price:before {
+    display: none;
+  }
+  .reference-prices strong {
+    font-family: Roboto, Arial, sans-serif;
+  }
+  .solar-products-rail .product-price strong {
+    font-size: 16px;
+  }
+  .solar-products-rail .product-price del {
+    font-size: 13px;
+  }
+  .solar-collection-empty {
+    padding: 24px;
+    line-height: 1.7;
+  }
+  .collection-brands {
+    margin: 28px 10px 0;
+  }
+  .collection-brands .brand-rail {
+    gap: 5px;
+  }
+  .collection-brands .brand-tile {
+    flex-basis: calc((100% - 35px) / 8);
+    height: 88px;
+    padding: 12px;
+    border-radius: 6px;
+  }
+  .collection-brands .brand-dots {
+    margin-top: 3px;
+    gap: 0;
+  }
+  .collection-brands .brand-arrow {
+    width: 30px;
+    height: 30px;
+  }
+  .home-catalog-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* Only the compact logo bar sticks; search scrolls away like the reference. */
+  .topbar,
+  .main-header .search,
+  .header-actions > a:not(.cart-button) {
+    display: none;
+  }
+  .main-header {
+    position: sticky;
+    top: 0;
+    z-index: 60;
+    background: #fff;
+    box-shadow: 0 3px 12px #0000000d;
+  }
+  .header-inner {
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr) 44px;
+    min-height: 64px;
+    height: 64px;
+    gap: 10px;
+    padding: 0 14px;
+  }
+  .mobile-menu-toggle {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    color: #3a4750;
+  }
+  .main-header .logo {
+    justify-self: center;
+    min-width: 0;
+    margin: 0;
+  }
+  .main-header .official-logo {
+    width: 158px !important;
+    height: 60px !important;
+  }
+  .header-actions {
+    margin: 0;
+    display: flex;
+  }
+  .header-actions .cart-button {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: 0;
+    padding: 0;
+  }
+  .header-actions .cart-button b {
+    top: 0;
+    right: 0;
+    background: #4caf83;
+    color: white;
+    font-size: 11px;
+    min-width: 18px;
+    height: 18px;
+  }
+  .mobile-store-search {
+    display: flex;
+    margin: 8px 14px 10px;
+    height: 42px;
+    border: 1px solid #64717a;
+    border-radius: 22px;
+    overflow: hidden;
+  }
+  .mobile-store-search input {
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    padding: 0 14px;
+    font:
+      400 16px Ubuntu,
+      Arial,
+      sans-serif;
+  }
+  .mobile-store-search button {
+    width: 48px;
+    background: #3a4750;
+    color: #fff;
+    display: grid;
+    place-items: center;
+  }
+  .navigation {
+    display: none;
+  }
+  .navigation.mobile-open {
+    display: block;
+    position: fixed;
+    inset: 64px 0 0;
+    z-index: 55;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    background: #fff;
+    color: #3a4750;
+  }
+  .mobile-open .nav-inner {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    padding: 0 14px;
+  }
+  .mobile-open .category-toggle,
+  .mobile-open .nav-quote {
+    display: none;
+  }
+  .mobile-open .nav-links {
+    display: flex;
+    flex: none;
+    gap: 20px;
+    min-height: 48px;
+    margin: 0;
+    justify-content: flex-start;
+  }
+  .mobile-open .nav-links > a {
+    display: block;
+    font-size: 14px;
+    padding: 0;
+    color: #3a4750;
+  }
+  .mobile-open .nav-links > a:nth-child(n + 3),
+  .mobile-open .nav-links > a:after {
+    display: none;
+  }
+  .mobile-open .solar-mega-menu {
+    position: static;
+    width: 100%;
+    max-height: none;
+    padding: 18px 0;
+    box-shadow: none;
+    grid-template-columns: 1fr;
+  }
+  .mobile-open .solar-mega-menu a {
+    font-size: 15px;
+    min-height: 40px;
+  }
+  .solar-home-top {
+    padding-top: 0;
+  }
+  .solar-collection-tabs {
+    gap: 8px;
+    padding-bottom: 20px;
+  }
+  .solar-collection-tabs a {
+    flex: 0 0 auto;
+    font-size: 13px;
+    padding: 12px;
+  }
+  .solar-collection-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+  }
+  .solar-collection {
+    scroll-margin-top: 76px;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-bottom: 34px;
+  }
+  .solar-collection-heading {
+    padding: 22px 20px;
+  }
+  .solar-collection-heading h2 {
+    font-size: clamp(24px, 6.2vw, 32px);
+  }
+  .solar-products-rail {
+    gap: 12px;
+  }
+  .solar-products-rail .product-card {
+    flex-basis: calc((100% - 12px) / 2);
+  }
+  .solar-products-rail .product-image {
+    height: clamp(145px, 43vw, 240px);
+    padding: 12px 8px 0;
+  }
+  .solar-products-rail .product-name {
+    font-size: 13px;
+    line-height: 1.45;
+    min-height: 76px;
+    overflow-wrap: anywhere;
+  }
+  .solar-products-rail .product-info {
+    padding: 14px 8px 4px;
+  }
+  .solar-products-rail .product-price strong {
+    font-size: 15px;
+  }
+  .solar-products-arrow {
+    width: 32px;
+    height: 40px;
+  }
+  .collection-brands {
+    margin: 28px 0 0;
+  }
+  .collection-brands .brand-tile {
+    flex-basis: calc((100% - 15px) / 4);
+    height: 82px;
+    padding: 9px;
+  }
+  .collection-brands .brand-arrow {
+    display: none;
+  }
+  .home-catalog-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .showcase-heading h2 {
+    font-size: 28px;
+  }
+  .home-catalog-grid section > a {
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 8px 0;
+  }
+  /* Avoid the previous 7–11px controls on catalog and product pages. */
+  .reference-product-name,
+  .reference-list-view .reference-product-name {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .reference-prices strong {
+    font-size: 16px;
+  }
+  .reference-prices del,
+  .reference-inquiry,
+  .reference-pagination,
+  .reference-view-controls .reference-mobile-filter,
+  .reference-view-controls > a {
+    font-size: 12px;
+  }
+  .reference-sort-controls select,
+  .reference-stepper input {
+    font-size: 16px;
+  }
+  .reference-sort-controls label {
+    font-size: 12px;
+  }
+  .reference-cart-button {
+    font-size: 12px;
+  }
+  .reference-card-actions button {
+    width: 32px;
+    height: 32px;
+  }
+  .reference-cart-group {
+    min-height: 44px;
+  }
+  .product-detail > div > p,
+  .detail-meta p,
+  .product-detail .detail-meta,
+  .reference-detail-description,
+  .reference-list-view .reference-list-description,
+  .catalog-note,
+  .quote-banner p,
+  .footer-grid p,
+  .store-promise p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .footer-grid > div > a:not(.logo):not(.social) {
+    font-size: 14px;
+  }
+  .footer-grid h3,
+  .store-promise h3 {
+    font-size: 14px;
+  }
+  .chat-launcher {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    padding: 0;
+  }
+  .chat-launcher span,
+  .chat-launcher i {
+    display: none;
+  }
+
+  /* Portrait artwork gives the mobile hero more space without distorting products. */
+  .solar-home-top {
+    width: 100%;
+    padding: 0;
+    margin: 0 0 22px;
+  }
+  .solar-hero {
+    position: relative;
+    background: #07101b;
+    padding-bottom: 34px;
+  }
+  .solar-hero-slide img {
+    aspect-ratio: 4 / 5;
+    width: 100%;
+    height: auto;
+    min-height: 480px;
+    object-fit: contain;
+    background: #07101b;
+  }
+  .solar-hero-controls {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    min-height: 34px;
+    height: 34px;
+    gap: 3px;
+  }
+  .solar-hero-controls > button {
+    color: #fff;
+    height: 32px;
+    width: 32px;
+  }
+  .solar-hero-controls .carousel-dots {
+    gap: 0;
+  }
+  .solar-hero-controls .carousel-dots button {
+    background: radial-gradient(circle, #82919f 3px, transparent 4px);
+  }
+  .solar-hero-controls .carousel-dots button.selected {
+    background: radial-gradient(circle, #4caf83 4px, transparent 5px);
+  }
+  .solar-collection {
+    padding: 0 14px;
+  }
+  .solar-collection-banner {
+    position: relative;
+    border: 0;
+    overflow: hidden;
+    background: #0b1528;
+  }
+  .solar-collection-heading {
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(#04121e, #101b31);
+    padding: 26px 16px 18px;
+  }
+  .solar-collection-heading h2 {
+    font-size: clamp(25px, 6.9vw, 35px);
+    line-height: 1.06;
+    margin-bottom: 14px;
+  }
+  .solar-collection-heading h2::after {
+    content: '';
+    display: block;
+    width: 74%;
+    height: 2px;
+    margin: 10px auto 0;
+    background: #fff;
+  }
+  .solar-collection-art {
+    position: relative;
+    aspect-ratio: 1.25;
+    overflow: hidden;
+    background: #111c32;
+  }
+  /* Display the product photography from the original banners. The text in
+     those images sits outside this crop, keeping the live category title legible. */
+  .solar-collection-art img {
+    position: absolute;
+    width: 100%;
+    max-width: none;
+    height: auto;
+    bottom: -20%;
+    left: 0;
+  }
+  .collection-hybrid-inverters .solar-collection-heading {
+    background: linear-gradient(#040b11, #151c28);
+  }
+  .collection-hybrid-inverters .solar-collection-art img {
+    width: auto;
+    height: 100%;
+    left: auto;
+    right: 0;
+    bottom: 0;
+  }
+  .collection-lithium-ion-batteries .solar-collection-heading {
+    background: linear-gradient(#18011d, #410342);
+  }
+  .collection-lithium-ion-batteries .solar-collection-art img {
+    width: auto;
+    height: 100%;
+    left: auto;
+    right: 0;
+    bottom: 0;
+  }
+  .solar-products-rail .product-name {
+    min-height: 57px;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  .solar-products-rail .product-image {
+    height: clamp(150px, 45vw, 240px);
+  }
+  .solar-products-rail .product-price strong {
+    font-size: 14px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .solar-hero-rail,
+  .solar-products-rail {
+    scroll-behavior: auto;
+  }
+}
