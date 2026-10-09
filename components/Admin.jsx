@@ -4,6 +4,7 @@ import Link from 'next/link';
 import AdminOrders from './AdminOrders';
 import BrandingSettings from './BrandingSettings';
 import BrandLogo from './BrandLogo';
+import { readApiResponse } from '../lib/api-response.mjs';
 import {
   Sun,
   LayoutDashboard,
@@ -62,7 +63,7 @@ async function api(path, method = 'GET', body) {
     headers: { 'Content-Type': 'application/json' },
     ...(body !== undefined ? { body: JSON.stringify(body) } : {}),
   });
-  const data = await response.json();
+  const data = await readApiResponse(response);
   if (!response.ok) {
     const e = new Error(data.error || 'The request could not be completed');
     e.status = response.status;

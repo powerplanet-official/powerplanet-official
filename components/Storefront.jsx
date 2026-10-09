@@ -10,6 +10,7 @@ import BrandLogo from './BrandLogo';
 import SolarCatalog, { SolarMegaMenu, SolarProductDetail } from './SolarCatalog';
 import { available, priceLabel } from '../lib/catalog.mjs';
 import { solarCollections } from '../lib/homepage.mjs';
+import { readApiResponse } from '../lib/api-response.mjs';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import {
   Sun,
@@ -53,7 +54,7 @@ async function request(url, body) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body),
   });
-  const data = await r.json();
+  const data = await readApiResponse(r);
   if (!r.ok) throw new Error(data.error || 'Please try again');
   return data;
 }
@@ -104,7 +105,7 @@ export default function Storefront() {
     fetch('/api/store')
       .then((r) => {
         if (!r.ok) throw Error('The store could not be loaded. Please try again.');
-        return r.json();
+        return readApiResponse(r);
       })
       .then(setData)
       .catch((e) => setError(e.message));

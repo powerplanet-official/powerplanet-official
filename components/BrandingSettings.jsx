@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { readApiResponse } from '../lib/api-response.mjs';
 // Upload the store logo and refresh the preview after the server accepts it.
 export default function BrandingSettings() {
   const [busy, setBusy] = useState(false),
@@ -18,7 +19,7 @@ export default function BrandingSettings() {
         headers: { 'Content-Type': file.type },
         body: file,
       });
-      const result = await response.json();
+      const result = await readApiResponse(response);
       if (!response.ok) throw Error(result.error || 'Logo upload failed');
       setVersion(Date.now());
       setNotice('Logo updated in the website header and footer.');

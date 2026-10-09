@@ -3,12 +3,13 @@
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { CreditCard, Truck, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { readApiResponse } from '../lib/api-response.mjs';
 // Payment amounts arrive in minor units; convert them to rupees for display.
 const money = (amount) =>
   new Intl.NumberFormat('en-PK', { style: 'currency', currency: 'PKR' }).format(amount / 100);
 async function api(path, options) {
   const response = await fetch(path, options);
-  const data = await response.json();
+  const data = await readApiResponse(response);
   if (!response.ok) {
     const error = new Error(data.error || 'Please try again.');
     error.status = response.status;

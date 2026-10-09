@@ -66,6 +66,10 @@ npm start
 
 Run behind an HTTPS reverse proxy and set `SECURE_COOKIES=true` in `.env`. Use a persistent disk for `data/`; back up the SQLite database using SQLite's backup tooling or while the app is stopped. Do not deploy SQLite to an ephemeral serverless filesystem. Run one Node API instance per database. Configure process supervision, a real domain and HTTPS before public launch. `.env` must remain private. Remove ADMIN_PASSWORD from `.env` after provisioning; reset by setting it and rerunning `npm run admin:create`, which invalidates existing admin sessions.
 
+### Split Vercel/API deployment
+
+When the Next.js frontend is deployed on Vercel and this API is hosted elsewhere, set Vercel's production `BACKEND_URL` to the API origin only, for example `https://api.example.com` (do not append `/api`). Redeploy after changing it. The Next.js rewrite forwards browser requests from `/api/*` to `${BACKEND_URL}/api/*`, so the API host must keep its Node process running continuously and return JSON for `https://api.example.com/api/health`. A hosting HTML error page, login redirect, or maintenance page will not be valid API output.
+
 ## Validation
 
 ```bash
