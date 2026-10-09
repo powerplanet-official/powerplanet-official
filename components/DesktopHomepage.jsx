@@ -85,7 +85,7 @@ export default function DesktopHomepage({ products, categories, settings, render
             </div>
           </div>
         </aside>
-        <DealHero products={products} categories={categories} settings={settings} />
+        <DealHero />
       </section>
 
       <section className="container section">

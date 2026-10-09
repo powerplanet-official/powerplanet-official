@@ -5,8 +5,9 @@ export function serveLogo(req,res){
   res.set('Cache-Control','no-cache');
   const saved=get('branding','logo');
   if(saved)return res.type(saved.mime).send(Buffer.from(saved.data,'base64'));
+  // Serve the client's actual artwork byte-for-byte; never fall back to a redraw.
   const supplied=resolve('public/images/powerplanet-logo.png');
-  return res.sendFile(existsSync(supplied)?supplied:resolve('public/images/powerplanet-logo.svg'));
+  return res.sendFile(existsSync(supplied)?supplied:resolve('public/images/powerplanet-logo-original.jpeg'));
 }
 export function uploadLogo(req,res){
   const bytes=req.body;

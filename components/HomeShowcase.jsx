@@ -3,16 +3,11 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import ProductCarousel from './ProductCarousel';
-import { ArrowRight, ChevronLeft, ChevronRight, Pause, Play, Sun, Zap } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Pause, Play } from 'lucide-react';
 import brandAssets from '../lib/featured-brands.json';
 import mobileBrandAssets from '../lib/solar-mobile-brands.json';
-import {
-  homepageSlides,
-  mobileHomepageSlides,
-  solarCollections,
-  collectionProducts,
-} from '../lib/homepage.mjs';
-import { priceLabel, categoryIdsFor, inCategory } from '../lib/catalog.mjs';
+import { mobileHomepageSlides, solarCollections, collectionProducts } from '../lib/homepage.mjs';
+import { categoryIdsFor, inCategory } from '../lib/catalog.mjs';
 
 // Default to no animation until the browser’s motion preference is known.
 function useReducedMotion() {
@@ -26,155 +21,13 @@ function useReducedMotion() {
   }, []);
   return reduced;
 }
-// The desktop carousel keeps its original catalog-backed offers and styling.
-export function DealHero({ products, categories, settings }) {
-  const slides = useMemo(() => homepageSlides(products, categories), [products, categories]);
-  const [index, setIndex] = useState(0),
-    [paused, setPaused] = useState(false),
-    [hovered, setHovered] = useState(false),
-    [focused, setFocused] = useState(false);
-  const reduced = useReducedMotion(),
-    touchStart = useRef(null);
-  const slide =
-    index === 0 && settings?.heroTitle
-      ? { ...slides[index], title: settings.heroTitle }
-      : slides[index];
-  const move = (direction) =>
-    setIndex((current) => (current + direction + slides.length) % slides.length);
-  useEffect(() => {
-    if (paused || hovered || focused || reduced) return;
-    const timer = setInterval(() => {
-      if (!document.hidden) setIndex((i) => (i + 1) % slides.length);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, [paused, hovered, focused, reduced, slides.length]);
-  return (
-    <section
-      className={`deal-hero tone-${slide.tone}`}
-      role="region"
-      aria-roledescription="carousel"
-      aria-label="Solar deals"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      onFocusCapture={() => setFocused(true)}
-      onBlurCapture={(e) => {
-        if (!e.currentTarget.contains(e.relatedTarget)) setFocused(false);
-      }}
-      onTouchStart={(e) => {
-        touchStart.current = e.touches[0].clientX;
-      }}
-      onTouchEnd={(e) => {
-        if (touchStart.current !== null) {
-          const delta = e.changedTouches[0].clientX - touchStart.current;
-          if (Math.abs(delta) > 50) move(delta < 0 ? 1 : -1);
-          touchStart.current = null;
-        }
-      }}
-    >
-      <div className="deal-sun" aria-hidden="true">
-        <Sun />
-      </div>
-      <div
-        className="deal-content"
-        key={slide.category}
-        role="group"
-        aria-roledescription="slide"
-        aria-label={`${index + 1} of ${slides.length}`}
-      >
-        <div className="deal-copy">
-          <span className="deal-eyebrow">
-            <Zap size={15} />
-            {slide.eyebrow}
-          </span>
-          <h1>
-            {slide.title.split('\n').map((text, i) => (
-              <span key={i}>
-                {text}
-                <br />
-              </span>
-            ))}
-          </h1>
-          <p className="deal-product-name">
-            {slide.product?.name || 'Explore solar products for your home and business.'}
-          </p>
-          {slide.product && (
-            <div className="deal-price">
-              {slide.saving > 0 && <del>{priceLabel(slide.product.originalPrice)}</del>}
-              <strong>{priceLabel(slide.product.price)}</strong>
-            </div>
-          )}
-          <Link href={slide.href} className="primary">
-            {slide.saving > 0 ? 'Explore this deal' : 'Explore collection'}
-            <ArrowRight size={18} />
-          </Link>
-          <Link className="deal-collection-link" href={`/category/${slide.category}`}>
-            Browse the full collection <ArrowRight size={15} />
-          </Link>
-          <p className="deal-note">
-            {slide.product?.minQuantity > 1
-              ? `Minimum order: ${slide.product.minQuantity} units. `
-              : ''}
-            Confirm current price & availability with our team.
-          </p>
-        </div>
-        <Link
-          className="deal-art"
-          href={slide.href}
-          aria-label={slide.product ? `View ${slide.product.name}` : 'Explore solar collection'}
-        >
-          <span className="deal-orbit" />
-          <img
-            src={slide.image}
-            alt={slide.product?.name || 'Solar product collection'}
-            fetchPriority={index === 0 ? 'high' : 'auto'}
-          />
-          {slide.saving > 0 ? (
-            <span className="deal-saving">
-              Save<strong>{priceLabel(slide.saving)}</strong>
-            </span>
-          ) : (
-            <span className="deal-saving">
-              POWER PLANET<strong>The Power you Own</strong>
-            </span>
-          )}
-        </Link>
-      </div>
-      <div className="deal-controls">
-        <div className="carousel-dots">
-          {slides.map((s, i) => (
-            <button
-              key={s.category}
-              aria-label={`Show slide ${i + 1}`}
-              aria-pressed={i === index}
-              className={i === index ? 'selected' : ''}
-              onClick={() => setIndex(i)}
-            />
-          ))}
-        </div>
-        <span className="deal-counter">
-          0{index + 1} / 0{slides.length}
-        </span>
-        <div className="deal-arrows">
-          <button
-            aria-label={paused ? 'Play slideshow' : 'Pause slideshow'}
-            onClick={() => setPaused(!paused)}
-          >
-            {paused ? <Play size={16} /> : <Pause size={16} />}
-          </button>
-          <button aria-label="Previous slide" onClick={() => move(-1)}>
-            <ChevronLeft size={20} />
-          </button>
-          <button aria-label="Next slide" onClick={() => move(1)}>
-            <ChevronRight size={20} />
-          </button>
-        </div>
-      </div>
-    </section>
-  );
+// Both layouts share the same solar campaigns, with artwork composed for each screen.
+export function DealHero() {
+  return <MobileHero desktop />;
 }
 
 // Native scroll snapping preserves vertical page scrolling and horizontal touch gestures.
-export function MobileHero() {
+export function MobileHero({ desktop = false }) {
   const slides = useMemo(() => mobileHomepageSlides(), []);
   const rail = useRef(null);
   const [index, setIndex] = useState(0);
@@ -195,12 +48,13 @@ export function MobileHero() {
     if (paused || interacting || touching || reduced) return;
     const timer = setInterval(() => {
       if (!document.hidden) goToSlide(index + 1);
-    }, 6000);
+    }, 4000);
     return () => clearInterval(timer);
   }, [index, paused, interacting, touching, reduced]);
   return (
     <section
-      className="solar-hero"
+      className={`solar-hero${desktop ? ' desktop-solar-hero' : ''}`}
+      role="region"
       aria-roledescription="carousel"
       aria-label="Solar deals"
       onPointerEnter={(event) => {
@@ -240,10 +94,10 @@ export function MobileHero() {
             tabIndex={slideIndex === index ? 0 : -1}
           >
             <img
-              src={slide.image}
+              src={desktop ? slide.banner : slide.image}
               alt={slide.title}
-              width="1000"
-              height="1250"
+              width={desktop ? 1400 : 1000}
+              height={desktop ? 520 : 1250}
               fetchPriority={slideIndex === 0 ? 'high' : 'auto'}
             />
           </Link>
@@ -391,7 +245,7 @@ export function FeaturedBrands({ products, compact = false, label = 'Featured br
     const timer = setInterval(() => {
       if (!document.hidden && !rail.current?.contains(document.activeElement))
         go((page + 1) % pages);
-    }, 7000);
+    }, 5000);
     return () => clearInterval(timer);
   }, [reduced, hovered, pages, page]);
   if (!brands.length) return null;

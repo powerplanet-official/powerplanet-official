@@ -7,6 +7,7 @@ import Checkout from './Checkout';
 import { MobileHero, SolarCollections, MobileHomeCatalog } from './HomeShowcase';
 import DesktopHomepage from './DesktopHomepage';
 import BrandLogo from './BrandLogo';
+import ProductSearch from './ProductSearch';
 import SolarCatalog, { SolarMegaMenu, SolarProductDetail } from './SolarCatalog';
 import { available, priceLabel } from '../lib/catalog.mjs';
 import { solarCollections } from '../lib/homepage.mjs';
@@ -14,7 +15,6 @@ import { readApiResponse } from '../lib/api-response.mjs';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import {
   Sun,
-  Search,
   Heart,
   ChartNoAxesColumnIncreasing,
   ShoppingCart,
@@ -228,18 +228,7 @@ export default function Storefront() {
           <Link href="/" className="logo" aria-label="Powerplanet home">
             <BrandLogo />
           </Link>
-          <form className="search" action="/shop">
-            <input
-              name="q"
-              key={params.get('q')}
-              defaultValue={params.get('q') || ''}
-              placeholder="Search solar panels, inverters, batteries…"
-              aria-label="Search products"
-            />
-            <button aria-label="Search">
-              <Search size={21} />
-            </button>
-          </form>
+          <ProductSearch products={products} />
           <div className="header-actions">
             <Link className="header-account" href="/admin">
               <UserRound />
@@ -270,18 +259,7 @@ export default function Storefront() {
           </div>
         </div>
       </header>
-      <form className="mobile-store-search" action="/shop" role="search">
-        <input
-          name="q"
-          key={params.get('q')}
-          defaultValue={params.get('q') || ''}
-          placeholder="Search solar products…"
-          aria-label="Search solar products"
-        />
-        <button aria-label="Search solar products">
-          <Search size={20} />
-        </button>
-      </form>
+      <ProductSearch products={products} mobile />
       <nav
         id="store-category-navigation"
         className={`navigation ${menu ? 'mobile-open' : ''}`}

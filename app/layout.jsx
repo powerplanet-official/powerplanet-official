@@ -4,6 +4,7 @@ import './catalog.css';
 import './brand.css';
 import './mobile-storefront.css';
 import './product-carousel.css';
+import './storefront-updates.css';
 export const metadata = {
   title: {
     default: 'Powerplanet | Solar Panels, Inverters & Batteries',

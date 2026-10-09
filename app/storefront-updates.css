@@ -1,0 +1,144 @@
+/* The desktop banner uses the landscape original of the mobile campaign.
+   Keep its full composition visible instead of stretching portrait artwork. */
+@media (min-width: 761px) {
+  .desktop-solar-hero {
+    min-width: 0;
+    align-self: start;
+    background: #07101b;
+  }
+  .desktop-solar-hero .solar-hero-rail {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+  }
+  .desktop-solar-hero .solar-hero-rail::-webkit-scrollbar {
+    display: none;
+  }
+  .desktop-solar-hero .solar-hero-slide {
+    flex: 0 0 100%;
+    min-width: 0;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+  .desktop-solar-hero .solar-hero-slide img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1400 / 520;
+    object-fit: contain;
+  }
+  .desktop-solar-hero .solar-hero-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 38px;
+    gap: 6px;
+  }
+  .desktop-solar-hero .solar-hero-controls > button {
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    color: white;
+    background: transparent;
+  }
+  .desktop-solar-hero .carousel-dots button {
+    width: 28px;
+    height: 28px;
+    background: radial-gradient(circle, #82919f 3px, transparent 4px);
+  }
+  .desktop-solar-hero .carousel-dots .selected {
+    background: radial-gradient(circle, #4caf83 4px, transparent 5px);
+  }
+}
+
+/* Suggestions overlay the page without changing either header layout. */
+.product-search {
+  position: relative;
+  overflow: visible;
+}
+.product-search input {
+  min-width: 0;
+  border-radius: 24px 0 0 24px;
+}
+.product-search > button {
+  flex-shrink: 0;
+  border-radius: 0 24px 24px 0;
+}
+.search-suggestions {
+  position: absolute;
+  z-index: 120;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  padding: 6px;
+  background: #fff;
+  color: #3a4750;
+  border: 1px solid #e0e3da;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px #0002;
+  max-height: min(440px, 65vh);
+  overflow-y: auto;
+}
+.search-suggestion {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.search-suggestion:hover,
+.search-suggestion[aria-selected='true'] {
+  background: #f0f5e7;
+}
+.search-suggestion img {
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+.search-suggestion span {
+  font-size: 13px;
+  line-height: 1.4;
+}
+.search-suggestion strong {
+  display: block;
+  margin-top: 3px;
+  color: var(--product-red);
+}
+.search-all {
+  display: block;
+  padding: 10px;
+  border-top: 1px solid #e0e3da;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--brand-green-dark);
+}
+.search-suggestions p {
+  margin: 8px;
+  font-size: 13px;
+}
+.reference-category-filter label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 0;
+}
+.reference-category-filter label span {
+  flex: 1;
+}
+.reference-category-filter label small {
+  color: #747c82;
+}
+@media (max-width: 760px) {
+  .mobile-store-search.product-search {
+    z-index: 35;
+  }
+  .mobile-store-search .search-suggestions {
+    left: 0;
+    right: 0;
+  }
+}

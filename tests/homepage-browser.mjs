@@ -6,6 +6,8 @@ import {join} from 'node:path';
 import assert from 'node:assert/strict';
 const temp=mkdtempSync(join(tmpdir(),'powerplanet-homepage-'));process.env.DB_PATH=join(temp,'store.sqlite');
 const {app}=await import('../server/app.mjs');const {db,put,all}=await import('../server/db.mjs');
+// Match the production importer, which hides the initial demo products.
+for(const product of all('products'))put('products',{...product,status:'draft'});
 const catalog=JSON.parse(readFileSync('data/catalog-source/solar-catalog.json','utf8'));for(const c of catalog.categories)put('categories',c);for(const p of catalog.products)put('products',p);
 const api=await new Promise(resolve=>{const s=app.listen(0,'127.0.0.1',()=>resolve(s));});const apiOrigin=`http://127.0.0.1:${api.address().port}`;
 const base='http://localhost:3008',web=spawn(process.execPath,['node_modules/next/dist/bin/next','start','--hostname','127.0.0.1','--port','3008'],{stdio:['ignore','pipe','pipe']});let logs='',browser;web.stdout.on('data',d=>logs+=d);web.stderr.on('data',d=>logs+=d);
@@ -27,19 +29,31 @@ try{
  assert.equal(await desktop.getByRole('region',{name:'Featured brands'}).count(),1);
  assert.ok(await desktop.locator('.home-catalog-grid > section').count()>3);
  assert.equal(await desktop.locator('.home-catalog-grid').evaluate(e=>getComputedStyle(e).gridTemplateColumns.split(' ').length),4);
- assert.ok(await desktop.locator('.deal-hero').evaluate(e=>e.clientHeight>=455));
- for(let i=1;i<=4;i++){
+ assert.ok(await desktop.locator('.desktop-solar-hero').evaluate(e=>e.clientHeight>200));
+ assert.equal(await hero.locator('img').first().getAttribute('src'), '/images/solar-home/solar-range.png');
+ for(let i=1;i<=3;i++){
    await hero.getByRole('button',{name:`Show slide ${i}`,exact:true}).click();
-   assert.equal(await hero.getByRole('button',{name:`Show slide ${i}`,exact:true}).getAttribute('aria-pressed'),'true');
-   assert.ok((await hero.locator('.deal-copy .primary').getAttribute('href')).startsWith('/product/'));
+   await page.waitForFunction(index=>document.querySelectorAll('.solar-hero-controls .carousel-dots button')[index].getAttribute('aria-pressed')==='true',i-1);
+   assert.ok((await hero.locator('.solar-hero-slide').nth(i-1).getAttribute('href')).startsWith('/category/'));
  }
  await hero.getByRole('button',{name:'Next slide',exact:true}).click();
- assert.equal(await hero.getByRole('button',{name:'Show slide 1',exact:true}).getAttribute('aria-pressed'),'true');
+ await page.waitForFunction(()=>document.querySelector('.solar-hero-controls .carousel-dots button').getAttribute('aria-pressed')==='true');
  await hero.getByRole('button',{name:'Pause slideshow'}).click();
  await page.locator('img').evaluateAll(imgs=>imgs.forEach(img=>img.loading='eager'));
  await page.waitForFunction(()=>[...document.images].every(i=>i.complete));
- await page.screenshot({path:'docs/previews/desktop-restored-full.png',fullPage:true});
- await page.screenshot({path:'docs/previews/desktop-restored.png'});
+ await page.screenshot({path:'/tmp/desktop-restored-full.png',fullPage:true});
+ await page.screenshot({path:'/tmp/desktop-restored.png'});
+ // Exact uploaded artwork is shared by both logo placements without recoloring.
+ const logos = page.locator('.main-header .official-logo, .footer-logo .official-logo');
+ assert.equal(await logos.count(), 2);
+ assert.ok(await logos.evaluateAll(images => images.every(image => image.naturalWidth === 1280 && image.naturalHeight === 1280)));
+ assert.ok(await logos.evaluateAll(images => images.every(image => getComputedStyle(image).objectFit === 'cover' && getComputedStyle(image).filter === 'none')));
+ // Check hero autoplay timing before interacting with the product rails.
+ await hero.getByRole('button', {name:'Play slideshow'}).click();
+ await page.evaluate(()=>document.activeElement?.blur());
+ await page.mouse.move(0,0);
+ await page.waitForFunction(()=>document.querySelectorAll('.solar-hero-controls .carousel-dots button')[1].getAttribute('aria-pressed')==='true',{}, {timeout:5500});
+ await hero.getByRole('button', {name:'Pause slideshow'}).click();
  // Product rows advance automatically without a toolbar or visible scrollbar.
  const featured=page.getByRole('region',{name:'Featured Solar Products carousel',exact:true});
  const desktopRail=featured.locator('.product-carousel-rail');
@@ -84,9 +98,9 @@ try{
  await page.locator('img').evaluateAll(imgs=>imgs.forEach(img=>img.loading='eager'));
  await page.waitForFunction(()=>[...document.images].every(i=>i.complete));
  assert.deepEqual(await page.locator('.solar-collection-banner img, .solar-hero img, .brand-tile img').evaluateAll(imgs=>imgs.filter(i=>!i.naturalWidth).map(i=>i.src)),[]);
- await page.screenshot({path:'docs/previews/mobile-solar-home.png',fullPage:true});
- await page.screenshot({path:'docs/previews/mobile-solar-first-screen.png'});
- for(let i=0;i<3;i++){await collections.nth(i).scrollIntoViewIfNeeded();await page.screenshot({path:`docs/previews/mobile-collection-${i+1}.png`});}
+ await page.screenshot({path:'/tmp/mobile-solar-home.png',fullPage:true});
+ await page.screenshot({path:'/tmp/mobile-solar-first-screen.png'});
+ for(let i=0;i<3;i++){await collections.nth(i).scrollIntoViewIfNeeded();await page.screenshot({path:`/tmp/mobile-collection-${i+1}.png`});}
  // Each visible hero call to action opens its matching collection.
  for(let i=0;i<3;i++){
    await hero.getByRole('button',{name:`Show slide ${i+1}`,exact:true}).click();
@@ -139,6 +153,54 @@ try{
  await page.locator('.mobile-store-search input').fill('solar');
  await page.locator('.mobile-store-search button').click();
  await page.locator('.reference-product-grid').waitFor();assert.match(page.url(),/q=solar/);
+ // Search suggestions, submitted results, and browser navigation share one query.
+ await page.setViewportSize({width:1440,height:1000});
+ await page.goto(base);await hero.waitFor();
+ const search=page.locator('.main-header .product-search input');
+ await search.fill('585 watt astronergy');
+ await page.getByRole('option',{name:/Astronergy 585W/}).waitFor();
+ await page.screenshot({path:'/tmp/powerplanet-search-desktop.png'});
+ await search.press('ArrowDown');await search.press('Enter');
+ await page.waitForURL(/product\/w11-35462$/);
+ await page.goto(base);await hero.waitFor();
+ await search.fill('585 watt astronergy');await search.press('Enter');
+ await page.waitForURL(/q=585/);
+ await page.locator('.reference-product-card').waitFor();
+ assert.equal(await page.locator('.reference-product-card').count(),1);
+ assert.equal(await page.locator('.reference-product-card').getAttribute('data-product-id'),'w11-35462');
+ await page.goto(base+'/shop');
+ await page.locator('.reference-product-grid').waitFor();
+ await page.getByRole('checkbox',{name:/Out of Stock/}).check();
+ await page.waitForURL(/availability=out-of-stock/);
+ let shown=await page.locator('.reference-product-card').evaluateAll(cards=>cards.map(card=>card.dataset.productId));
+ assert.ok(shown.length>0&&shown.every(id=>catalog.products.find(product=>product.id===id)?.availability==='out-of-stock'));
+ await page.getByLabel('Minimum price',{exact:true}).fill('10000');
+ await page.getByLabel('Maximum price',{exact:true}).fill('50000');
+ await page.getByRole('button',{name:'Apply',exact:true}).click();
+ await page.waitForURL(/max=50000/);
+ await page.getByRole('button',{name:'Remove price filter'}).click();
+ await page.waitForURL(url=>!url.searchParams.has('min')&&!url.searchParams.has('max'));
+ await page.getByRole('button',{name:'Clear filters',exact:true}).click();
+ await page.waitForURL(base+'/shop');
+ await page.goto(base+'/category/solar-inverters');
+ await page.getByRole('checkbox',{name:/Hybrid Inverters/}).check();
+ await page.waitForURL(/category=hybrid-inverters/);
+ await page.getByLabel('Find a brand').fill('Solis');
+ await page.getByRole('checkbox',{name:/^Solis/}).check();
+ await page.waitForURL(/brand=Solis/);
+ assert.equal(await page.locator('.reference-product-card').count(),15);
+ await page.screenshot({path:'/tmp/powerplanet-filters-desktop.png'});
+ await page.goBack();
+ await page.waitForURL(url=>!url.searchParams.has('brand'));
+ assert.equal(await page.getByRole('checkbox',{name:/^Solis/}).isChecked(),false);
+ await page.setViewportSize({width:390,height:844});
+ await page.goto(base);await hero.waitFor();
+ const mobileSearch=page.locator('.mobile-store-search input');
+ await mobileSearch.fill('astronerqy 585 w');
+ await page.getByRole('option',{name:/Astronergy 585W/}).waitFor();
+ await page.screenshot({path:'/tmp/powerplanet-search-mobile.png'});
+ await page.getByRole('option',{name:/Astronergy 585W/}).tap();
+ await page.waitForURL(/product\/w11-35462$/);
  assert.deepEqual(errors,[]);
- console.log('PASS: original desktop restored (sidebar, four-slide hero, tiles, grids, promos, brands, directory); mobile-only three solar sections with larger full-width hero; automatic product scrolling, arrows, keyboard, reduced motion, native swipe, hero collection links, menu, search; no overflow and correct layout switching at eight widths.');
+ console.log('PASS: shared three-campaign desktop/mobile hero, original logo bytes and framing, faster autoplay, product rails, reduced motion, touch, category links, search, and no overflow at eight widths.');
 }catch(error){console.error(logs);throw error;}finally{await browser?.close();web.kill('SIGTERM');await new Promise(resolve=>api.close(resolve));db.close();rmSync(temp,{recursive:true,force:true});}

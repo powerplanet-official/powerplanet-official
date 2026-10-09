@@ -43,7 +43,7 @@ export default function ProductCarousel({ children, label, railClassName = '' })
       const gap = parseFloat(getComputedStyle(node).columnGap) || 0;
       const atEnd = node.scrollLeft + node.clientWidth >= node.scrollWidth - 3;
       node.scrollTo({ left: atEnd ? 0 : node.scrollLeft + cardWidth + gap, behavior: 'smooth' });
-    }, 5000);
+    }, 3500);
     return () => clearInterval(timer);
   }, [interacting, hovered, focused, reducedMotion, visible, products.length]);
 
@@ -59,9 +59,13 @@ export default function ProductCarousel({ children, label, railClassName = '' })
       className="product-carousel"
       role="region"
       aria-label={`${label} carousel`}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      onFocusCapture={() => setFocused(true)}
+      onPointerEnter={(event) => {
+        if (event.pointerType === 'mouse') setHovered(true);
+      }}
+      onPointerLeave={() => setHovered(false)}
+      onFocusCapture={(event) => {
+        if (event.target.matches(':focus-visible')) setFocused(true);
+      }}
       onBlurCapture={(event) => {
         if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false);
       }}

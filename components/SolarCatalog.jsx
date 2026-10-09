@@ -19,7 +19,13 @@ import {
   Check,
   ShoppingCart,
 } from 'lucide-react';
-import { available, catalogSelection, categoryIdsFor, inCategory } from '../lib/catalog.mjs';
+import {
+  available,
+  availabilityLabel,
+  catalogSelection,
+  categoryIdsFor,
+  inCategory,
+} from '../lib/catalog.mjs';
 
 // Respect each product’s minimum order and the basket limit of 100 units.
 export function Quantity({ value, onChange, min = 1, name = 'Quantity' }) {
@@ -153,6 +159,11 @@ export default function SolarCatalog({
   function update(key, value, multiple = false) {
     const next = new URLSearchParams(params);
     next.delete('page');
+    if (key === 'availability' && next.has('available')) {
+      next.delete('available');
+      if (!next.getAll('availability').includes('in-stock'))
+        next.append('availability', 'in-stock');
+    }
     if (multiple) {
       const old = next.getAll(key);
       next.delete(key);
@@ -173,11 +184,20 @@ export default function SolarCatalog({
     router.push(`${pathname}${next.size ? '?' + next : ''}`, { scroll: false });
     setBrandSearch('');
   }
+  function clearPrice() {
+    const next = new URLSearchParams(params);
+    ['min', 'max', 'page'].forEach((key) => next.delete(key));
+    setPendingQuery(next.toString());
+    router.push(`${pathname}${next.size ? '?' + next : ''}`, { scroll: false });
+  }
   const root = category?.parentId ? categories.find((c) => c.id === category.parentId) : category;
-  const related = categories.filter((c) => (root ? c.parentId === root.id : !c.parentId));
+  // Only offer descendants of the current category; sibling filters would
+  // otherwise be impossible to satisfy inside the current listing.
+  const related = categories.filter((c) => (category ? c.parentId === category.id : !c.parentId));
   const active = !!(
     result.brands.length ||
-    params.has('available') ||
+    result.availability.length ||
+    result.categoryFilters.length ||
     params.get('min') ||
     params.get('max')
   );
@@ -203,7 +223,7 @@ export default function SolarCatalog({
             <summary>
               Brands <ChevronDown size={19} />
             </summary>
-            {result.brandCounts.length > 8 && (
+            {(result.brandCounts.length > 8 || brandSearch) && (
               <input
                 className="brand-filter-search"
                 aria-label="Find a brand"
@@ -233,26 +253,21 @@ export default function SolarCatalog({
             <summary>
               Availability <ChevronDown size={19} />
             </summary>
-            <label>
-              <input
-                type="checkbox"
-                checked={params.has('available')}
-                onChange={() => update('available', params.has('available') ? '' : '1')}
-              />
-              <span>In Stock</span>
-              <small>
-                {
-                  result.base.filter(
-                    (p) =>
-                      available(p) && (!result.brands.length || result.brands.includes(p.brand)),
-                  ).length
-                }
-              </small>
-            </label>
+            {Object.entries(availabilityLabel).map(([value, label]) => (
+              <label key={value}>
+                <input
+                  type="checkbox"
+                  checked={result.availability.includes(value)}
+                  onChange={() => update('availability', value, true)}
+                />
+                <span>{label}</span>
+                <small>{result.availabilityCounts.get(value) || 0}</small>
+              </label>
+            ))}
           </details>
           <details open className="reference-filter-section">
             <summary>
-              Categories <ChevronDown size={19} />
+              {category ? 'Subcategories' : 'Categories'} <ChevronDown size={19} />
             </summary>
             <div className="reference-category-filter">
               {category && (
@@ -263,24 +278,24 @@ export default function SolarCatalog({
               )}
               {related.map((c) => {
                 const ids = categoryIdsFor(categories, c.id);
-                const count = products.filter(
-                  (p) =>
-                    inCategory(p, ids) &&
-                    (!result.brands.length || result.brands.includes(p.brand)),
+                const count = result.categoryBase.filter((product) =>
+                  inCategory(product, ids),
                 ).length;
                 return (
-                  <Link
-                    key={c.id}
-                    href={`/category/${c.id}${result.brands.length ? '?' + new URLSearchParams(result.brands.map((b) => ['brand', b])) : ''}`}
-                  >
+                  <label key={c.id}>
+                    <input
+                      type="checkbox"
+                      checked={result.categoryFilters.includes(c.id)}
+                      onChange={() => update('category', c.id, true)}
+                    />
                     <span>{c.name}</span>
                     <small>{count}</small>
-                  </Link>
+                  </label>
                 );
               })}
             </div>
           </details>
-          <details className="reference-filter-section">
+          <details open className="reference-filter-section">
             <summary>
               Price (PKR) <ChevronDown size={19} />
             </summary>
@@ -358,11 +373,13 @@ export default function SolarCatalog({
                   value={params.get('sort') || 'default'}
                   onChange={(e) => update('sort', e.target.value)}
                 >
-                  <option value="default">Default</option>
+                  <option value="default">{params.get('q') ? 'Relevance' : 'Default'}</option>
                   <option value="name">Name (A – Z)</option>
                   <option value="name-desc">Name (Z – A)</option>
                   <option value="price-low">Price (Low → High)</option>
                   <option value="price-high">Price (High → Low)</option>
+                  <option value="model">Model (A – Z)</option>
+                  <option value="model-desc">Model (Z – A)</option>
                 </select>
               </label>
               <label>
@@ -387,16 +404,23 @@ export default function SolarCatalog({
                   <X size={12} />
                 </button>
               ))}
-              {params.has('available') && (
-                <button onClick={() => update('available', '')}>
-                  In Stock
+              {result.availability.map((value) => (
+                <button key={value} onClick={() => update('availability', value, true)}>
+                  {availabilityLabel[value]}
                   <X size={12} />
                 </button>
-              )}
+              ))}
+              {result.categoryFilters.map((id) => (
+                <button key={id} onClick={() => update('category', id, true)}>
+                  {categories.find((category) => category.id === id)?.name}
+                  <X size={12} />
+                </button>
+              ))}
               {(params.get('min') || params.get('max')) && (
-                <span>
+                <button onClick={clearPrice} aria-label="Remove price filter">
                   Price: {params.get('min') || '0'} – {params.get('max') || 'Any'}
-                </span>
+                  <X size={12} />
+                </button>
               )}
             </div>
           )}
@@ -420,10 +444,11 @@ export default function SolarCatalog({
           ) : (
             <div className="reference-empty">
               <h2>No products match these filters.</h2>
-              <p>Try another brand or clear the selected filters.</p>
+              <p>Try another brand, model or capacity, or clear the selected filters.</p>
               <button className="secondary" onClick={clear}>
                 Clear filters
               </button>
+              {params.get('q') && <Link href="/shop">Browse all solar products</Link>}
             </div>
           )}
           <div className="reference-pagination">
