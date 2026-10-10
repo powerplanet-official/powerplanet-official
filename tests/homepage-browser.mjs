@@ -8,7 +8,7 @@ const temp=mkdtempSync(join(tmpdir(),'powerplanet-homepage-'));process.env.DB_PA
 const {app}=await import('../server/app.mjs');const {db,put,all}=await import('../server/db.mjs');
 // Match the production importer, which hides the initial demo products.
 for(const product of all('products'))put('products',{...product,status:'draft'});
-const catalog=JSON.parse(readFileSync('data/catalog-source/solar-catalog.json','utf8'));for(const c of catalog.categories)put('categories',c);for(const p of catalog.products)put('products',p);
+const catalog=JSON.parse(readFileSync('data/catalog-source/solar-catalog.json','utf8'));for(const c of catalog.categories)put('categories',c);for(const p of catalog.products)put('products',{...p,minQuantity:1});
 const api=await new Promise(resolve=>{const s=app.listen(0,'127.0.0.1',()=>resolve(s));});const apiOrigin=`http://127.0.0.1:${api.address().port}`;
 const base='http://localhost:3008',web=spawn(process.execPath,['node_modules/next/dist/bin/next','start','--hostname','127.0.0.1','--port','3008'],{stdio:['ignore','pipe','pipe']});let logs='',browser;web.stdout.on('data',d=>logs+=d);web.stderr.on('data',d=>logs+=d);
 try{
@@ -201,6 +201,9 @@ try{
  await page.screenshot({path:'/tmp/powerplanet-search-mobile.png'});
  await page.getByRole('option',{name:/Astronergy 585W/}).tap();
  await page.waitForURL(/product\/w11-35462$/);
+ await page.locator('.imported-product-detail').waitFor();
+ assert.equal(await page.getByRole('spinbutton',{name:'Quantity',exact:true}).inputValue(),'1');
+ await context.unrouteAll({behavior:'wait'});
  assert.deepEqual(errors,[]);
  console.log('PASS: shared three-campaign desktop/mobile hero, original logo bytes and framing, faster autoplay, product rails, reduced motion, touch, category links, search, and no overflow at eight widths.');
 }catch(error){console.error(logs);throw error;}finally{await browser?.close();web.kill('SIGTERM');await new Promise(resolve=>api.close(resolve));db.close();rmSync(temp,{recursive:true,force:true});}

@@ -20,7 +20,9 @@ mkdirSync('data/backups',{recursive:true});const backup=resolve(`data/backups/be
 db.exec('BEGIN');
 try{
  for(const c of snapshot.categories){const old=get('categories',c.id);put('categories',{...old,...c});}
- for(const p of selected){const old=get('products',p.id);put('products',{...p,stock:old?.stock||0});}
+ // Supplier bulk minimums must not become customer checkout restrictions.
+ // Preserve any minimum the store owner explicitly set after the initial reset.
+ for(const p of selected){const old=get('products',p.id);put('products',{...p,stock:old?.stock||0,minQuantity:old?.minQuantity||1});}
  // Only the explicit starter examples are retired; user-created products are left intact.
  for(const p of all('products'))if(/^preview-\d+$/.test(p.id)&&p.source==='Illustrative catalog entry — not extracted from Facebook')put('products',{...p,status:'draft',featured:false});
  const settings=get('settings','store');if(settings.catalogNotice?.startsWith('Catalog preview:'))put('settings',{...settings,catalogNotice:''});

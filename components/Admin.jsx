@@ -49,6 +49,7 @@ const emptyProduct = {
   brand: '',
   price: null,
   stock: 0,
+  minQuantity: 1,
   status: 'draft',
   featured: false,
   image: '/images/panel.svg',
@@ -963,6 +964,7 @@ function ProductForm({ item, categories, save, busy }) {
     ...item,
     price: item.price ?? '',
     originalPrice: item.originalPrice ?? '',
+    minQuantity: item.minQuantity || 1,
   });
   const updateField = (key, value) => setFormValues({ ...formValues, [key]: value });
   return (
@@ -975,6 +977,7 @@ function ProductForm({ item, categories, save, busy }) {
           price: formValues.price === '' ? null : Number(formValues.price),
           originalPrice: formValues.originalPrice === '' ? null : Number(formValues.originalPrice),
           stock: Number(formValues.stock),
+          minQuantity: Number(formValues.minQuantity),
         });
       }}
     >
@@ -1037,6 +1040,21 @@ function ProductForm({ item, categories, save, busy }) {
           />
         </label>
       </div>
+      <label>
+        Minimum order quantity
+        <input
+          type="number"
+          min="1"
+          max="100"
+          step="1"
+          required
+          value={formValues.minQuantity}
+          onChange={(e) => updateField('minQuantity', e.target.value)}
+        />
+        <small>
+          Starts at 1. Increase this only when you want a minimum order for this product.
+        </small>
+      </label>
       <div className="form-row">
         <label>
           Original price (before sale)

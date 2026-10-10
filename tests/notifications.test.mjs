@@ -38,9 +38,16 @@ test('SMTP settings use TLS, confirmations escape HTML and a local SMTP server a
   try{
     retryOrderNotifications(order.id);
     await processNotifications({email:async(job,o)=>{const result=await transport.sendMail({...confirmationEmail(o),from:'orders@example.test',to:job.to});assert.equal(result.accepted.length,1);return {providerId:result.messageId};}});
-    assert.match(received,/Order confirmed/);assert.match(received,/buyer@example.test/);
+    assert.match(received,/Order received/);assert.match(received,/buyer@example.test/);
     assert.equal(all('notifications').find(n=>n.orderId===order.id&&n.channel==='email').status,'accepted');
   }finally{transport.close();await new Promise(resolve=>smtp.close(resolve));}
+});
+test('unknown COD amounts stay unconfirmed in customer notifications',()=>{
+  const order={...all('orders')[0],paymentMethod:'cod',total:null,requiresConfirmation:true,items:[{id:'unknown',name:'Solar panel',quantity:1,unitAmount:null}]};
+  const mail=confirmationEmail(order);
+  assert.match(mail.text,/To be confirmed/);
+  assert.match(mail.html,/placed successfully/);
+  assert.ok(!mail.text.includes('PKR 0.00'));
 });
 test('provider failure is retryable and accepted messages are not resent',async()=>{
   const {order}=await checkout(payload());let calls=0;

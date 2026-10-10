@@ -53,6 +53,14 @@ Power Planet's logo comes from the public metadata of the supplied Facebook page
 
 The homepage hero displays the same three solar campaigns on desktop and mobile, using landscape and portrait artwork respectively. The basket supports checkout with Cash on Delivery or configured Stripe card payments, alongside quotation requests. Orders and quotations appear in admin. Order confirmations support Nodemailer SMTP and the Meta WhatsApp Business Cloud API after credentials are configured.
 
+## Catalog browsing and mobile navigation
+
+Product listings now open with a responsive brand-logo grid followed by illustrated solar categories, then the existing filters and product grid. Brand choices remain in the URL and carry through category navigation; only categories containing products for the selected brands are offered. Search results stay focused on results rather than repeating the discovery sections. No product records or category taxonomy are changed.
+
+On mobile, the category menu uses one expandable group at a time, larger touch targets, a searchable brand directory and a single scrolling drawer. Existing desktop mega-navigation is retained. This structure was checked against W11stop's solar/inverter listing and the supplied screenshots, while retaining Powerplanet styling and branding.
+
+Run `node --test tests/catalog-navigation.test.mjs` for discovery/link tests and `node tests/catalog-navigation-browser.mjs` after `npm run build` for fixture-based desktop/mobile checks. Browser previews are saved under `/tmp/powerplanet-catalog-*.png` and `/tmp/powerplanet-category-menu-mobile.png`; the test does not contact the live backend.
+
 ## JSON catalog import
 
 Use Products → Export for a full-format example, or `docs/catalog-import.example.json`. Import accepts an array of 1–500 records, maximum 2 MB. Import adds new records with fresh IDs; it does not overwrite products. Category IDs must already exist. All rows are validated before any are saved. Price may be null (request quote); stock is a nonnegative integer; status is draft, preview or published. Store data is at `data/store.sqlite` (ignored by Git).
@@ -90,7 +98,11 @@ The real-catalog browser test checks exact Astronergy pricing/photos/minimum qua
 
 The basket links to `/checkout`. Cash on Delivery works without gateway credentials. Checkout collects customer details and a delivery address in Pakistan. Admin → Orders shows the products, address, total, payment method and payment status. Move COD orders through new → processing → shipped → delivered; mark delivered only after collecting cash. Cancelling a new/processing COD order restores reserved stock.
 
-Only published products with a positive price and enough **confirmed stock quantity** can be purchased. Preview products, zero/unknown prices and unavailable/on-request products retain the quotation flow. The imported source catalog has zero confirmed warehouse stock by default: update stock and availability in Admin → Products before accepting orders. Totals are calculated from server catalog prices in PKR, using integer paisa; the client cannot set prices or mark orders paid. Delivery/installation charges are not collected online and must be agreed separately before dispatch, as disclosed at checkout. Orders above PKR 999,999.99 use the quotation flow.
+COD checkout accepts listed products even when price or stock is unconfirmed. The order and customer contact details are saved in Admin → Orders, and the customer sees “Your order has been placed successfully”; the team confirms price, availability and delivery directly. Unknown prices remain null and display “To be confirmed”, never a free/zero total. Only confirmed stock is reserved; cancellation restores only those reserved units. Unconfigured card payment is hidden. Card checkout still requires published products, a positive confirmed price, enough stock and a total within the provider limit; larger or unconfirmed orders can use COD. Totals come from the server in integer paisa, and payment is never marked received merely because an order was placed.
+
+Minimum quantities now start at **1**. On first backend startup after this update, an idempotent migration resets existing product minimums to 1 and records the previous values in the database's meta table under `minimum-order-quantity-one-v1`. Later changes in Admin → Products → Minimum order quantity survive restarts. New imported catalog products default to 1 and reimports preserve the store's chosen minimum. Existing orders and the original source snapshot are unchanged. Customers can reduce old basket quantities to 1 using the minus button.
+
+Deploy both frontend and backend for these checkout changes. Restart the backend to run the minimum-quantity migration; updating only Vercel leaves the old API validation in place.
 
 ### Configure Stripe
 

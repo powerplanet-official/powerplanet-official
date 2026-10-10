@@ -2,7 +2,9 @@
 
 import { useState } from 'react';
 const money = (value) =>
-  new Intl.NumberFormat('en-PK', { style: 'currency', currency: 'PKR' }).format(value / 100);
+  value == null
+    ? 'To be confirmed'
+    : new Intl.NumberFormat('en-PK', { style: 'currency', currency: 'PKR' }).format(value / 100);
 // Review fulfillment and payment states, with retries for failed order notifications.
 export default function AdminOrders({ orders, save, busy, notificationConfig, refresh }) {
   const [search, setSearch] = useState(''),
@@ -70,7 +72,10 @@ export default function AdminOrders({ orders, save, busy, notificationConfig, re
                     <b>{o.name}</b>
                     <p>{o.phone}</p>
                   </td>
-                  <td>{money(o.total)}</td>
+                  <td>
+                    {money(o.total)}
+                    {o.requiresConfirmation && <small>Contact customer to confirm</small>}
+                  </td>
                   <td>{o.paymentMethod === 'cod' ? 'Cash on Delivery' : 'Card'}</td>
                   <td>{o.paymentStatus.replaceAll('_', ' ')}</td>
                   <td>{o.status.replaceAll('_', ' ')}</td>
@@ -110,13 +115,21 @@ export default function AdminOrders({ orders, save, busy, notificationConfig, re
           <ul>
             {current.items.map((i) => (
               <li key={i.id}>
-                {i.name} × {i.quantity} — {money(i.unitAmount * i.quantity)}
+                {i.name} × {i.quantity} —{' '}
+                {money(i.unitAmount == null ? null : i.unitAmount * i.quantity)}
               </li>
             ))}
           </ul>
           <p>
             Total: <b>{money(current.total)}</b>
           </p>
+          {current.requiresConfirmation && (
+            <p className="admin-notice">
+              Order received successfully. Contact the customer to agree the final price,
+              availability and delivery before dispatch. Items without confirmed stock have not
+              reduced inventory.
+            </p>
+          )}
           <p>
             Payment: {current.paymentMethod.toUpperCase()} ·{' '}
             {current.paymentStatus.replaceAll('_', ' ')}

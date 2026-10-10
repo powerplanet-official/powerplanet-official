@@ -38,9 +38,39 @@ test('COD reserves stock, ignores forged price, is idempotent and protects custo
 });
 test('invalid basket and address never create an order or reserve stock',async()=>{
   const count=all('orders').length,stock=get('products',fixture.id).stock;
-  for(const patch of [{expectedTotal:100},{items:[]},{address:'bad'},{items:[{id:fixture.id,quantity:1}]},{items:[{id:fixture.id,quantity:100}]},{items:[{id:fixture.id,quantity:2},{id:fixture.id,quantity:2}]},{items:[{id:'missing',quantity:2}]}])await assert.rejects(checkout(payload(patch)));
-  for(const patch of [{price:0},{price:null},{status:'preview'},{status:'draft'},{availability:'on-request'},{availability:'out-of-stock'}]){put('products',{...fixture,...patch});await assert.rejects(checkout(payload()));}
+  for(const patch of [{items:[]},{address:'bad'},{items:[{id:fixture.id,quantity:1}]},{items:[{id:fixture.id,quantity:101}]},{items:[{id:fixture.id,quantity:2},{id:fixture.id,quantity:2}]},{items:[{id:'missing',quantity:2}]}])await assert.rejects(checkout(payload(patch)));
+  put('products',{...fixture,status:'draft'});await assert.rejects(checkout(payload()));
   put('products',{...fixture,stock});assert.equal(all('orders').length,count);assert.equal(get('products',fixture.id).stock,stock);
+});
+test('COD accepts unknown price and unavailable stock, persists contact details, and never invents stock',async()=>{
+  const original=get('products',fixture.id);
+  try{
+    for(const patch of [{price:null},{price:0},{status:'preview'},{availability:'on-request'},{availability:'out-of-stock'}]){
+      put('products',{...fixture,...patch,stock:0,minQuantity:1});
+      const data=payload({items:[{id:fixture.id,quantity:1}],expectedTotal:0});
+      const {order}=await checkout(data);
+      assert.equal(order.status,'new');
+      assert.equal(order.requiresConfirmation,true);
+      assert.equal(order.items[0].reservedQuantity,0);
+      assert.equal(get('products',fixture.id).stock,0);
+      assert.equal(get('orders',order.id).phone,data.phone);
+      if(patch.price===null||patch.price===0||patch.status==='preview')assert.equal(order.total,null);
+      assert.equal((await checkout(data)).order.id,order.id);
+      assert.equal((await request(`/admin/orders/${order.id}`,'PUT',{status:'cancelled'},{cookie})).status,200);
+      assert.equal(get('products',fixture.id).stock,0);
+    }
+  }finally{put('products',original);}
+});
+test('card checkout still requires a verified price, stock and matching total',async()=>{
+  const original=get('products',fixture.id);
+  try{
+    for(const patch of [{price:0},{price:null},{status:'preview'},{status:'draft'},{stock:0},{availability:'on-request'},{availability:'out-of-stock'}]){
+      put('products',{...fixture,...patch});
+      await assert.rejects(checkout(payload({paymentMethod:'card'})));
+    }
+    put('products',fixture);
+    await assert.rejects(checkout(payload({paymentMethod:'card',expectedTotal:100})),/prices have changed/);
+  }finally{put('products',original);}
 });
 test('card option stays disabled without configuration',async()=>{
   const secret=process.env.STRIPE_SECRET_KEY;delete process.env.STRIPE_SECRET_KEY;

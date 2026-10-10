@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import ProductPrice from './ProductPrice';
+import CatalogBrowse, { MobileCategoryMenu } from './CatalogBrowse';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import {
   Grid3X3,
@@ -208,7 +209,17 @@ export default function SolarCatalog({
   return (
     <section className="reference-catalog">
       <h1 className="reference-catalog-title">{title}</h1>
-      <div className="reference-catalog-layout">
+      {!params.get('q') && (
+        <CatalogBrowse
+          key={category?.id || 'all'}
+          products={products}
+          categories={categories}
+          category={category}
+          brands={result.brands}
+          onBrand={(brand) => update('brand', brand, true)}
+        />
+      )}
+      <div className="reference-catalog-layout" id="catalog-products">
         <aside
           className={`reference-filters ${filtersOpen ? 'is-open' : ''}`}
           aria-label="Product filters"
@@ -567,29 +578,32 @@ export function SolarMegaMenu({ categories, products, onNavigate }) {
     );
   }
   return (
-    <div className="solar-mega-menu">
-      <div className="solar-mega-brands">
-        <h3>Shop By Brands</h3>
-        {brands.map((b) => (
-          <Link href={`/shop?brand=${encodeURIComponent(b)}`} key={b} onClick={onNavigate}>
-            <ChevronRight size={16} />
-            {b}
-          </Link>
-        ))}
+    <>
+      <MobileCategoryMenu categories={categories} products={products} onNavigate={onNavigate} />
+      <div className="solar-mega-menu">
+        <div className="solar-mega-brands">
+          <h3>Shop By Brands</h3>
+          {brands.map((b) => (
+            <Link href={`/shop?brand=${encodeURIComponent(b)}`} key={b} onClick={onNavigate}>
+              <ChevronRight size={16} />
+              {b}
+            </Link>
+          ))}
+        </div>
+        <div className="solar-mega-column">
+          {group('solar-panels')}
+          {group('portable-systems')}
+        </div>
+        <div className="solar-mega-column">
+          {group('solar-inverters')}
+          {group('other-solar')}
+        </div>
+        <div className="solar-mega-column">
+          {group('solar-batteries')}
+          {group('solar-accessories')}
+        </div>
       </div>
-      <div className="solar-mega-column">
-        {group('solar-panels')}
-        {group('portable-systems')}
-      </div>
-      <div className="solar-mega-column">
-        {group('solar-inverters')}
-        {group('other-solar')}
-      </div>
-      <div className="solar-mega-column">
-        {group('solar-batteries')}
-        {group('solar-accessories')}
-      </div>
-    </div>
+    </>
   );
 }
 

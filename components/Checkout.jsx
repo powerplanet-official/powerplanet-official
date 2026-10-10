@@ -6,7 +6,9 @@ import { CreditCard, Truck, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import { readApiResponse } from '../lib/api-response.mjs';
 // Payment amounts arrive in minor units; convert them to rupees for display.
 const money = (amount) =>
-  new Intl.NumberFormat('en-PK', { style: 'currency', currency: 'PKR' }).format(amount / 100);
+  amount == null
+    ? 'To be confirmed'
+    : new Intl.NumberFormat('en-PK', { style: 'currency', currency: 'PKR' }).format(amount / 100);
 async function api(path, options) {
   const response = await fetch(path, options);
   const data = await readApiResponse(response);
@@ -30,9 +32,15 @@ export default function Checkout({ cart, products, done, params }) {
     lockedPayload = useRef(null);
   const orderId = params.get('order');
   useEffect(() => {
+    // A shorter success screen should not leave the customer at the old form's
+    // scroll position, below the order reference.
+    if (order?.id) window.scrollTo({ top: 0, behavior: 'instant' });
+  }, [order?.id]);
+  useEffect(() => {
     api('/api/payments/config')
       .then(setConfig)
-      .catch((e) => setError(e.message));
+      // Card discovery is optional; it must not block a cash-on-delivery order.
+      .catch(() => setConfig({ card: false }));
   }, []);
   useEffect(() => {
     if (!orderId) return;
@@ -78,7 +86,7 @@ export default function Checkout({ cart, products, done, params }) {
     }
   }, [order, done]);
   const lines = cart.map((item) => ({ ...item, product: products.find((p) => p.id === item.id) }));
-  const invalid = lines.some(
+  const cardUnavailable = lines.some(
     ({ product: p, quantity }) =>
       !p ||
       p.status !== 'published' ||
@@ -87,6 +95,13 @@ export default function Checkout({ cart, products, done, params }) {
       p.stock < quantity ||
       ['out-of-stock', 'on-request'].includes(p.availability) ||
       quantity < (p.minQuantity || 1),
+  );
+  const invalid = lines.some(
+    ({ product, quantity }) =>
+      !product || product.status === 'draft' || quantity < (product.minQuantity || 1),
+  );
+  const pricePending = lines.some(
+    ({ product }) => product?.status !== 'published' || !(product?.price > 0),
   );
   const total = lines.reduce(
     (sum, i) => sum + Math.round((i.product?.price || 0) * 100) * i.quantity,
@@ -104,7 +119,7 @@ export default function Checkout({ cart, products, done, params }) {
         ...details,
         paymentMethod: method,
         items: cart,
-        expectedTotal: total,
+        ...(method === 'card' ? { expectedTotal: total } : {}),
         whatsappConsent: whatsappConsent === 'on',
       };
       const fingerprint = JSON.stringify(payload);
@@ -137,6 +152,7 @@ export default function Checkout({ cart, products, done, params }) {
         window.location.assign(result.checkoutUrl);
         return;
       }
+      setOrder(result.order);
       window.history.replaceState(null, '', `/checkout?order=${result.order.id}`);
     } catch (e) {
       setError(e.message);
@@ -198,7 +214,9 @@ export default function Checkout({ cart, products, done, params }) {
         <CheckCircle2 size={44} />
         <h1>
           {confirmed
-            ? 'Your order is confirmed'
+            ? order.paymentMethod === 'cod'
+              ? 'Your order has been placed successfully'
+              : 'Your order is confirmed'
             : order?.status === 'cancelled'
               ? 'Payment was not completed'
               : 'Waiting for payment confirmation'}
@@ -206,7 +224,7 @@ export default function Checkout({ cart, products, done, params }) {
         <p>
           {confirmed
             ? order.paymentMethod === 'cod'
-              ? 'Pay cash when your order is delivered. Our team will contact you to arrange delivery.'
+              ? 'Thank you! Powerplanet will contact you to confirm availability, the final amount and delivery. No online payment is required.'
               : 'Your card payment has been verified. Our team will arrange your delivery.'
             : 'Your order is only confirmed after the payment provider verifies payment.'}
         </p>
@@ -220,7 +238,8 @@ export default function Checkout({ cart, products, done, params }) {
               Payment: <b>{order.paymentStatus.replaceAll('_', ' ')}</b>
             </p>
             <p>
-              Total: <b>{money(order.total)}</b>
+              {order.requiresConfirmation ? 'Product amount (team will confirm)' : 'Total'}:{' '}
+              <b>{money(order.total)}</b>
             </p>
           </>
         )}
@@ -353,29 +372,31 @@ export default function Checkout({ cart, products, done, params }) {
                   <small>Pay cash when you receive your order.</small>
                 </span>
               </label>
-              <label
-                className={`payment-choice ${method === 'card' ? 'selected' : ''} ${!config?.card ? 'unavailable' : ''}`}
-              >
-                <input
-                  type="radio"
-                  name="paymentChoice"
-                  value="card"
-                  disabled={!config?.card}
-                  checked={method === 'card'}
-                  onChange={() => setMethod('card')}
-                />
-                <CreditCard size={25} />
-                <span>
-                  <b>Credit / Debit Card</b>
-                  <small>
-                    {config?.card
-                      ? config.testMode
-                        ? 'Test mode — no real money is charged.'
-                        : 'Pay securely on Stripe Checkout.'
-                      : 'Currently unavailable. Please choose COD.'}
-                  </small>
-                </span>
-              </label>
+              {config?.card && !cardUnavailable && total <= 99999999 && (
+                <label
+                  className={`payment-choice ${method === 'card' ? 'selected' : ''} ${!config?.card ? 'unavailable' : ''}`}
+                >
+                  <input
+                    type="radio"
+                    name="paymentChoice"
+                    value="card"
+                    disabled={!config?.card}
+                    checked={method === 'card'}
+                    onChange={() => setMethod('card')}
+                  />
+                  <CreditCard size={25} />
+                  <span>
+                    <b>Credit / Debit Card</b>
+                    <small>
+                      {config?.card
+                        ? config.testMode
+                          ? 'Test mode — no real money is charged.'
+                          : 'Pay securely on Stripe Checkout.'
+                        : 'Currently unavailable. Please choose COD.'}
+                    </small>
+                  </span>
+                </label>
+              )}
             </fieldset>
           </fieldset>
           {error && (
@@ -385,11 +406,14 @@ export default function Checkout({ cart, products, done, params }) {
           )}
           {invalid && !submitted && (
             <p className="error">
-              Some items need a confirmed price or stock quantity.{' '}
-              <Link href="/quote">Request a quotation</Link> or update your basket.
+              An item was removed or its minimum quantity changed.{' '}
+              <Link href="/cart">Update your basket</Link> to continue.
             </p>
           )}
-          <button className="primary" disabled={busy || !config || (invalid && !submitted)}>
+          <button
+            className="primary"
+            disabled={busy || (method === 'card' && (!config?.card || cardUnavailable))}
+          >
             {busy
               ? 'Processing…'
               : submitted
@@ -398,10 +422,12 @@ export default function Checkout({ cart, products, done, params }) {
                   ? 'Place order — Cash on Delivery'
                   : 'Continue to secure card payment'}
           </button>
-          <p className="checkout-security">
-            <ShieldCheck size={17} /> Card details are entered only on the payment provider’s secure
-            page.
-          </p>
+          {method === 'card' && (
+            <p className="checkout-security">
+              <ShieldCheck size={17} /> Card details are entered only on the payment provider’s
+              secure page.
+            </p>
+          )}
         </form>
         <aside className="checkout-summary">
           <h2>Order summary</h2>
@@ -415,17 +441,20 @@ export default function Checkout({ cart, products, done, params }) {
               <b>
                 {i.product?.price > 0
                   ? money(Math.round(i.product.price * 100) * i.quantity)
-                  : 'Quote required'}
+                  : 'Team will confirm'}
               </b>
             </div>
           ))}
           <div className="checkout-total">
-            <span>Product total</span>
-            <b>{money(total)}</b>
+            <span>{method === 'cod' ? 'Estimated product total' : 'Product total'}</span>
+            <b>{pricePending ? 'Team will confirm' : money(total)}</b>
           </div>
           <p>
             Delivery or installation charges, if applicable, will be agreed with you separately
-            before dispatch. Card payment covers the products shown above.
+            before dispatch.{' '}
+            {method === 'cod'
+              ? 'Place your order and our team will contact you to confirm the details.'
+              : 'Card payment covers the products shown above.'}
           </p>
           <Link href="/cart">Edit basket</Link>
           <Link href="/quote">Request a quotation instead</Link>

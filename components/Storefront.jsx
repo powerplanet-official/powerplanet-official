@@ -523,7 +523,10 @@ export default function Storefront() {
                       })}
                     </div>
                     <div className="basket-bottom">
-                      <p>Checkout requires confirmed prices and stock.</p>
+                      <p>
+                        Place your order; our team will confirm availability, price and delivery
+                        with you.
+                      </p>
                       <Link href="/checkout" className="primary">
                         Proceed to checkout <ArrowRight size={17} />
                       </Link>
