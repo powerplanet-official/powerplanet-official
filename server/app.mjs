@@ -1,6 +1,6 @@
 import express from 'express';
 import helmet from 'helmet';
-import rateLimit from 'express-rate-limit';
+import { apiHeaders, apiRateLimit as rateLimit } from './http.mjs';
 import { randomBytes, scryptSync, timingSafeEqual, createHash, randomUUID } from 'node:crypto';
 import { z } from 'zod';
 import { db, all, get, put, remove } from './db.mjs';
@@ -10,6 +10,14 @@ import {notificationConfig,retryOrderNotifications} from './notifications.mjs';
 import {serveLogo,uploadLogo} from './branding.mjs';
 export const app=express();
 app.disable('x-powered-by');app.use(helmet());
+// Only trust proxy addresses explicitly confirmed by the hosting provider.
+if (process.env.TRUSTED_PROXY_ADDRESSES) {
+  app.set(
+    'trust proxy',
+    process.env.TRUSTED_PROXY_ADDRESSES.split(',').map(value => value.trim()),
+  );
+}
+app.use('/api', apiHeaders);
 app.post('/api/payments/stripe/webhook',express.raw({type:'application/json',limit:'1mb'}),stripeWebhook);
 app.use(express.json({limit:'2mb'}));
 app.use('/api',rateLimit({windowMs:60000,limit:180}));

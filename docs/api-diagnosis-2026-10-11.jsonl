@@ -1,0 +1,15 @@
+{"hostname":"powerplanet.pk","dns":{"A":["216.198.79.1"],"AAAA":"ENODATA","CNAME":"ENODATA"}}
+{"hostname":"api.powerplanet.pk","dns":{"A":["5.9.109.105"],"AAAA":"ENODATA","CNAME":"ENODATA"}}
+{"time":"2026-10-11T10:29:15.135Z","sample":1,"url":"https://api.powerplanet.pk/api/health","valid":false,"status":403,"contentType":"application/json","elapsedMs":679,"server":"Apache","location":null,"cache":null,"api":null,"requestId":null}
+{"time":"2026-10-11T10:29:15.768Z","sample":1,"url":"https://api.powerplanet.pk/api/store","valid":false,"status":403,"contentType":"application/json","elapsedMs":632,"server":"Apache","location":null,"cache":null,"api":null,"requestId":null}
+{"time":"2026-10-11T10:29:16.664Z","sample":1,"url":"https://powerplanet.pk/api/health","valid":false,"status":403,"contentType":"application/json","elapsedMs":895,"server":"Vercel","location":null,"cache":"MISS","api":null,"requestId":null}
+{"time":"2026-10-11T10:29:18.992Z","sample":1,"url":"https://powerplanet.pk/api/store","valid":true,"status":200,"contentType":"application/json; charset=utf-8","elapsedMs":2329,"server":"Vercel","location":null,"cache":"MISS","api":null,"requestId":null}
+{"time":"2026-10-11T10:29:19.718Z","sample":2,"url":"https://api.powerplanet.pk/api/health","valid":false,"status":403,"contentType":"application/json","elapsedMs":724,"server":"Apache","location":null,"cache":null,"api":null,"requestId":null}
+{"time":"2026-10-11T10:29:21.014Z","sample":2,"url":"https://api.powerplanet.pk/api/store","valid":false,"status":403,"contentType":"application/json","elapsedMs":1295,"server":"Apache","location":null,"cache":null,"api":null,"requestId":null}
+{"time":"2026-10-11T10:29:21.908Z","sample":2,"url":"https://powerplanet.pk/api/health","valid":false,"status":403,"contentType":"application/json","elapsedMs":894,"server":"Vercel","location":null,"cache":"MISS","api":null,"requestId":null}
+{"time":"2026-10-11T10:29:23.937Z","sample":2,"url":"https://powerplanet.pk/api/store","valid":true,"status":200,"contentType":"application/json; charset=utf-8","elapsedMs":2029,"server":"Vercel","location":null,"cache":"MISS","api":null,"requestId":null}
+{"time":"2026-10-11T10:29:24.425Z","sample":3,"url":"https://api.powerplanet.pk/api/health","valid":false,"status":403,"contentType":"application/json","elapsedMs":485,"server":"Apache","location":null,"cache":null,"api":null,"requestId":null}
+{"time":"2026-10-11T10:29:24.938Z","sample":3,"url":"https://api.powerplanet.pk/api/store","valid":false,"status":403,"contentType":"application/json","elapsedMs":512,"server":"Apache","location":null,"cache":null,"api":null,"requestId":null}
+{"time":"2026-10-11T10:29:25.577Z","sample":3,"url":"https://powerplanet.pk/api/health","valid":false,"status":403,"contentType":"application/json","elapsedMs":638,"server":"Vercel","location":null,"cache":"MISS","api":null,"requestId":null}
+{"time":"2026-10-11T10:29:26.186Z","sample":3,"url":"https://powerplanet.pk/api/store","valid":false,"status":403,"contentType":"application/json","elapsedMs":608,"server":"Vercel","location":null,"cache":"MISS","api":null,"requestId":null}
+{"requests":12,"failures":10}

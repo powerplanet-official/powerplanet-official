@@ -16,7 +16,7 @@ Store: use the localhost URL printed at startup (the current workspace uses port
 
 The setup command creates a private `.env` with a random administrator password if it does not exist. To choose credentials yourself, copy `.env.example` to `.env`, edit ADMIN_EMAIL/ADMIN_PASSWORD, then run `npm run admin:create`.
 
-Both processes start with `npm run dev`. Next.js proxies `/api/*` to the Node API at `127.0.0.1:4000`. The API is intentionally bound to localhost. API_PORT must match when building and running Next.js.
+Both processes start with `npm run dev`. Next.js proxies `/api/*` to the Node API at `127.0.0.1:4000`. The API listens on `0.0.0.0` for hosting compatibility; restrict direct port access with the host firewall. API_PORT must match when building and running Next.js.
 
 ## Included
 
@@ -76,7 +76,21 @@ Run behind an HTTPS reverse proxy and set `SECURE_COOKIES=true` in `.env`. Use a
 
 ### Split Vercel/API deployment
 
-When the Next.js frontend is deployed on Vercel and this API is hosted elsewhere, set Vercel's production `BACKEND_URL` to the API origin only, for example `https://api.example.com` (do not append `/api`). Redeploy after changing it. The Next.js rewrite forwards browser requests from `/api/*` to `${BACKEND_URL}/api/*`, so the API host must keep its Node process running continuously and return JSON for `https://api.example.com/api/health`. A hosting HTML error page, login redirect, or maintenance page will not be valid API output.
+When the Next.js frontend is deployed on Vercel and this API is hosted elsewhere, set Vercel's production `BACKEND_URL=https://api.powerplanet.pk` (do not append `/api`). Redeploy after changing it: the rewrite destination is included in the build. Builds on Vercel reject missing, insecure, path-based and known frontend-loop destinations. The reserved `/api/*` rewrite runs before page routing.
+
+On TezHost, use `server/index.mjs` as the Node entry point (`npm run start:api` for a process supervisor), with the application root set to this repository. It loads `.env` before initializing SQLite and workers. Do not run the combined `npm start` frontend/API launcher on the backend-only host. Use Node 22.13+ and an absolute persistent `DB_PATH`. Match `API_PORT` to the host's actual port assignment; if the platform supplies `PORT`, remove any conflicting `API_PORT` override.
+
+The API hostname must accept server-to-server requests without JavaScript challenges or clearance cookies. The confirmed production blocker on 11 October 2026 was Imunify360 bot protection. See [the investigation, hosting fix and acceptance checks](docs/api-reliability.md). Code changes alone cannot remove a challenge that runs before Node.
+
+API responses now include request IDs and default to `Cache-Control: no-store`; logo responses retain their existing revalidation policy. Rate-limit responses use JSON with HTTP 429 and Retry-After. Only set `TRUSTED_PROXY_ADDRESSES` after the host confirms the proxy IPs/CIDRs and forwarded-IP sanitization. Without the correct proxy configuration, Express can group visitors behind the proxy into one rate-limit bucket; blindly trusting all forwarded addresses allows spoofing.
+
+To inspect DNS and repeated cookie-free requests through both layers:
+
+```bash
+npm run diagnose:api -- https://powerplanet.pk https://api.powerplanet.pk 10
+```
+
+The command reports status, content type, response shape, redirect location and DNS records, and exits nonzero if any request fails. It does not retry failed requests or print catalog/customer contents.
 
 ## Validation
 

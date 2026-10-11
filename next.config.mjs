@@ -1,17 +1,18 @@
+import { backendOrigin } from './lib/backend-config.mjs';
 
 export default {
   output: 'standalone',
 
   async rewrites() {
-    const backendUrl =
-      process.env.BACKEND_URL ||
-      `http://127.0.0.1:${process.env.API_PORT || 4000}`;
+    const backendUrl = backendOrigin();
 
-    return [
-      {
-        source: '/api/:path*',
-        destination: `${backendUrl}/api/:path*`,
-      },
-    ];
+    return {
+      beforeFiles: [
+        {
+          source: '/api/:path*',
+          destination: `${backendUrl}/api/:path*`,
+        },
+      ],
+    };
   },
 };
