@@ -63,6 +63,8 @@ Run `node --test tests/catalog-navigation.test.mjs` for discovery/link tests and
 
 ## JSON catalog import
 
+Product forms support uploading a JPG, PNG or WebP from the administrator's computer (maximum 4 MB), with a preview before saving. Authenticated uploads are decoded, resized and stored as WebP in the backend SQLite database, so database backups include the photos. The frontend serves them through `/api/product-images/*`; no writable Vercel filesystem is required. Deploy both frontend and backend and run `npm ci --omit=dev` on the backend to install the production image-processing dependency. Existing product images remain until replaced. Uploaded files are retained even if the form is cancelled, so existing image URLs are never deleted implicitly.
+
 Use Products → Export for a full-format example, or `docs/catalog-import.example.json`. Import accepts an array of 1–500 records, maximum 2 MB. Import adds new records with fresh IDs; it does not overwrite products. Category IDs must already exist. All rows are validated before any are saved. Price may be null (request quote); stock is a nonnegative integer; status is draft, preview or published. Store data is at `data/store.sqlite` (ignored by Git).
 
 ## Production

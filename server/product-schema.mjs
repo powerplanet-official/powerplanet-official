@@ -1,6 +1,6 @@
 import { z } from 'zod';
 const text=z.string().trim().min(1).max(200);
-const image=z.string().max(2000).refine(s=>/^\/images\/(?:catalog\/[a-f0-9]{24}\.webp|[a-z0-9-]+\.(?:svg|jpg|png|webp))$/.test(s)||/^https:\/\//.test(s),'Use an HTTPS image URL or an imported catalog photo');
+const image=z.string().max(2000).refine(s=>/^\/images\/(?:catalog\/[a-f0-9]{24}\.webp|[a-z0-9-]+\.(?:svg|jpg|png|webp))$/.test(s)||/^\/api\/product-images\/[a-f0-9]{64}\.webp$/.test(s)||/^https:\/\//.test(s),'Use an HTTPS image URL or an imported catalog photo');
 export const productSchema=z.object({
   name:text,categoryId:text,categoryIds:z.array(text).max(100).default([]),
   brand:z.string().max(100).default(''),model:z.string().max(200).default(''),

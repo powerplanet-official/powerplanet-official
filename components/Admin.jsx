@@ -960,18 +960,59 @@ function Login({ onLogin }) {
 
 // Keep editable prices as strings; convert blanks to null only when saving.
 function ProductForm({ item, categories, save, busy }) {
+  const [uploadingImage, setUploadingImage] = useState(false);
+  const [imageError, setImageError] = useState('');
   const [formValues, setFormValues] = useState({
     ...item,
     price: item.price ?? '',
     originalPrice: item.originalPrice ?? '',
     minQuantity: item.minQuantity || 1,
   });
-  const updateField = (key, value) => setFormValues({ ...formValues, [key]: value });
+  const updateField = (key, value) => setFormValues((current) => ({ ...current, [key]: value }));
+
+  async function handleImageUpload(event) {
+    const file = event.target.files?.[0];
+    event.target.value = '';
+    if (!file) return;
+    setImageError('');
+    if (
+      !['image/jpeg', 'image/png', 'image/webp'].includes(file.type) ||
+      file.size > 4 * 1024 * 1024
+    ) {
+      setImageError('Choose a JPG, PNG or WebP image up to 4 MB.');
+      return;
+    }
+    setUploadingImage(true);
+    try {
+      const response = await fetch('/api/admin/product-images', {
+        method: 'POST',
+        headers: { 'Content-Type': file.type },
+        body: file,
+      });
+      const result = await readApiResponse(response);
+      if (!response.ok) throw new Error(result.error || 'Image upload failed. Please try again.');
+      setFormValues((current) => ({
+        ...current,
+        image: result.image,
+        images: [
+          result.image,
+          ...(current.images || []).filter(
+            (image) => image !== current.image && image !== result.image,
+          ),
+        ].slice(0, 20),
+      }));
+    } catch (error) {
+      setImageError(error.message);
+    } finally {
+      setUploadingImage(false);
+    }
+  }
   return (
     <form
       className="admin-form"
       onSubmit={(e) => {
         e.preventDefault();
+        if (uploadingImage) return;
         save({
           ...formValues,
           price: formValues.price === '' ? null : Number(formValues.price),
@@ -1088,20 +1129,33 @@ function ProductForm({ item, categories, save, busy }) {
           </select>
         </label>
         <label>
-          Product image URL
+          Upload product image
           <input
-            value={formValues.image}
-            required
-            onChange={(e) => updateField('image', e.target.value)}
-            placeholder="https://…"
+            type="file"
+            accept="image/jpeg,image/png,image/webp"
+            disabled={busy || uploadingImage}
+            onChange={handleImageUpload}
           />
         </label>
       </div>
       <small>
-        Imported real photos use /images/catalog/. You can also use an HTTPS image URL or a local
-        illustration: /images/panel.svg, /images/inverter.svg, /images/battery.svg,
-        /images/portable.svg, /images/accessory.svg.
+        Choose a JPG, PNG or WebP from your computer (up to 4 MB), then save the product.
       </small>
+      {uploadingImage && <p role="status">Uploading image…</p>}
+      {imageError && <p role="alert">{imageError}</p>}
+      {formValues.image && (
+        <img
+          src={formValues.image}
+          alt="Product image preview"
+          style={{
+            width: 160,
+            height: 160,
+            objectFit: 'contain',
+            border: '1px solid #ddd',
+            borderRadius: 8,
+          }}
+        />
+      )}
       <label>
         Description
         <textarea
@@ -1134,7 +1188,7 @@ function ProductForm({ item, categories, save, busy }) {
         />{' '}
         Featured on homepage
       </label>
-      <button className="primary" disabled={busy}>
+      <button className="primary" disabled={busy || uploadingImage}>
         <Save size={15} />
         {busy ? 'Saving…' : 'Save product'}
       </button>

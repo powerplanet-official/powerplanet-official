@@ -31,4 +31,31 @@ test('logo upload requires admin and preserves the original image bytes',async()
  const logo=await req('/branding/logo');assert.match(logo.headers.get('content-type'),/image\/jpeg/);assert.deepEqual(Buffer.from(await logo.arrayBuffer()),bytes);
  const invalid=await fetch(base+'/admin/branding/logo',{method:'PUT',headers:{'Content-Type':'image/png',cookie},body:'<svg onload="alert(1)"></svg>'});assert.equal(invalid.status,400);
 });
+test('product image upload is authenticated, validated, persistent and usable in products', async () => {
+ const bytes = readFileSync('public/images/powerplanet-profile.jpg');
+ const upload = (body, authenticated = true) => fetch(base + '/admin/product-images', {
+  method: 'POST', headers: { 'Content-Type': 'image/jpeg', ...(authenticated ? { cookie } : {}) }, body,
+ });
+ assert.equal((await upload(bytes, false)).status, 401);
+ assert.equal((await upload(Buffer.from('<svg onload="alert(1)"></svg>'))).status, 400);
+ const tooLarge = await upload(Buffer.alloc(4 * 1024 * 1024 + 1));
+ assert.equal(tooLarge.status, 413);
+ assert.match((await tooLarge.json()).error, /4 MB/);
+ const response = await upload(bytes);
+ assert.equal(response.status, 201);
+ const { image } = await response.json();
+ assert.match(image, /^\/api\/product-images\/[a-f0-9]{64}\.webp$/);
+ assert.equal((await (await upload(bytes)).json()).image, image);
+ const photo = await fetch(new URL(image, base));
+ assert.equal(photo.status, 200);
+ assert.match(photo.headers.get('content-type'), /image\/webp/);
+ assert.match(photo.headers.get('cache-control'), /immutable/);
+ const stored = Buffer.from(await photo.arrayBuffer());
+ assert.equal(stored.toString('ascii', 8, 12), 'WEBP');
+ assert.equal(all('product-images').length, 1);
+ assert.equal((await req('/admin/products/uploaded-photo', 'PUT', { ...product, image, images: [image] })).status, 200);
+ const catalog = await (await req('/store')).json();
+ assert.equal(catalog.products.find(p => p.id === 'uploaded-photo').image, image);
+ assert.equal((await req('/product-images/' + '0'.repeat(64) + '.webp')).status, 404);
+});
 test('cross-site writes and logged-out sessions are rejected',async()=>{const r=await fetch(base+'/quotes',{method:'POST',headers:{'Content-Type':'application/json','Sec-Fetch-Site':'cross-site'},body:'{}'});assert.equal(r.status,403);assert.equal((await req('/auth/logout','POST')).status,200);assert.equal((await req('/admin/overview')).status,401);});

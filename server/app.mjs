@@ -8,6 +8,7 @@ import { productSchema } from './product-schema.mjs';
 import { checkout, cancelCardOrder, paymentConfig, stripeWebhook, authorizedOrder, publicOrder, updateOrder, CheckoutError } from './payments.mjs';
 import {notificationConfig,retryOrderNotifications} from './notifications.mjs';
 import {serveLogo,uploadLogo} from './branding.mjs';
+import { serveProductImage, uploadProductImage } from './product-images.mjs';
 export const app=express();
 app.disable('x-powered-by');app.use(helmet());
 // Only trust proxy addresses explicitly confirmed by the hosting provider.
@@ -20,6 +21,8 @@ if (process.env.TRUSTED_PROXY_ADDRESSES) {
 app.use('/api', apiHeaders);
 app.post('/api/payments/stripe/webhook',express.raw({type:'application/json',limit:'1mb'}),stripeWebhook);
 app.use(express.json({limit:'2mb'}));
+// Public immutable photos should not consume the interactive API rate limit.
+app.get('/api/product-images/:filename', serveProductImage);
 app.use('/api',rateLimit({windowMs:60000,limit:180}));
 app.use((req,res,next)=>{if(!['GET','HEAD','OPTIONS'].includes(req.method)&&req.get('sec-fetch-site')==='cross-site')return res.status(403).json({error:'Cross-site requests are not allowed'});next();});
 const tokenHash=t=>createHash('sha256').update(t).digest('hex');
@@ -58,6 +61,17 @@ app.post('/api/chat',rateLimit({windowMs:60000,limit:30}),(req,res)=>{
  put('chats',{id:randomUUID(),message,reply,createdAt:new Date().toISOString()});res.json({reply,products:products.map(p=>p.id)});
 });
 app.use('/api/admin',auth);
+app.post(
+  '/api/admin/product-images',
+  express.raw({ type: ['image/jpeg', 'image/png', 'image/webp'], limit: '4mb' }),
+  (error, req, res, next) => {
+    if (error.type === 'entity.too.large') {
+      return res.status(413).json({ error: 'Choose an image up to 4 MB.' });
+    }
+    next(error);
+  },
+  uploadProductImage,
+);
 app.put('/api/admin/branding/logo',express.raw({type:['image/png','image/jpeg','image/webp'],limit:'2mb'}),uploadLogo);
 app.post('/api/admin/orders/:id/notifications/retry',(req,res)=>retryOrderNotifications(req.params.id)?res.json({ok:true}):res.status(404).json({error:'Order not found'}));
 app.get('/api/admin/overview',(req,res)=>res.json({products:all('products'),categories:all('categories').reverse(),quotes:all('quotes'),orders:all('orders').map(({keyHash,fingerprint,checkoutUrl,...order})=>({...order,notifications:all('notifications').filter(n=>n.orderId===order.id).map(({to,...n})=>n)})),notificationConfig:notificationConfig(),chats:all('chats').slice(0,100),faqs:all('faqs'),settings:get('settings','store')}));
