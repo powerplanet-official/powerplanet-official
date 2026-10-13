@@ -518,6 +518,9 @@
   .footer-grid > div > a:not(.logo):not(.social) {
     font-size: 14px;
   }
+  .footer-address {
+    font-size: 14px;
+  }
   .footer-grid h3,
   .store-promise h3 {
     font-size: 14px;

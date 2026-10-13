@@ -895,6 +895,18 @@ footer {
   color: var(--orange) !important;
   font-weight: 600;
 }
+.footer-address {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  color: #818589;
+  font-size: 11px;
+  font-style: normal;
+  line-height: 1.6;
+}
+.footer-address svg {
+  flex: none;
+}
 .footer-grid .admin-link {
   margin-top: 20px;
   font-size: 10px !important;

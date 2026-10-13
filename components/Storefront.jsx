@@ -48,6 +48,7 @@ import {
   UserRound,
 } from 'lucide-react';
 const currency = priceLabel;
+const defaultStoreAddress = 'E-175, New Airport Road Main, Bhatta Chowk, Lahore, Pakistan';
 async function request(url, body) {
   const r = await fetch(url, {
     method: 'POST',
@@ -146,6 +147,7 @@ export default function Storefront() {
       </div>
     );
   const { products, categories, settings } = data;
+  const storeAddress = settings.address?.trim() || defaultStoreAddress;
   const cartCount = cart.reduce((n, p) => n + p.quantity, 0);
   const add = (p, quantity = p.minQuantity || 1) => {
     const amount = Math.min(100, Math.max(p.minQuantity || 1, Math.floor(Number(quantity)) || 1));
@@ -199,8 +201,17 @@ export default function Storefront() {
         <div className="container topbar-inner">
           <span>Welcome to {settings.name} — Your solar energy partner</span>
           {settings.phone && (
-            <a className="topbar-phone" href={`tel:${settings.phone.replace(/\s/g, '')}`}>
-              <Phone size={12} /> CALL US AT: {settings.phone}
+            <a
+              className="topbar-phone"
+              href={
+                settings.whatsapp
+                  ? `https://wa.me/${settings.whatsapp}`
+                  : `tel:${settings.phone.replace(/\s/g, '')}`
+              }
+              {...(settings.whatsapp ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+            >
+              {settings.whatsapp ? <MessageCircle size={12} /> : <Phone size={12} />}
+              {settings.whatsapp ? 'WHATSAPP US AT:' : 'CALL US AT:'} {settings.phone}
             </a>
           )}
           <div>
@@ -580,12 +591,10 @@ export default function Storefront() {
                         {settings.email}
                       </a>
                     )}
-                    {settings.address && (
-                      <p>
-                        <MapPin size={21} />
-                        {settings.address}
-                      </p>
-                    )}
+                    <p>
+                      <MapPin size={21} />
+                      {storeAddress}
+                    </p>
                     <a href={settings.facebook} target="_blank" rel="noreferrer">
                       <Facebook size={21} />
                       Powerplanet on Facebook <ArrowRight size={16} />
@@ -701,6 +710,10 @@ export default function Storefront() {
               <MessageCircle size={18} /> Talk to our team
             </Link>
             {settings.phone && <a href={`tel:${settings.phone}`}>{settings.phone}</a>}
+            <address className="footer-address">
+              <MapPin size={18} aria-hidden="true" />
+              <span>{storeAddress}</span>
+            </address>
             <Link href="/admin" className="admin-link">
               <UserRound size={13} /> Store administration
             </Link>

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="680 0 370 370">
+  <title>Powerplanet</title>
+  <defs>
+    <linearGradient id="sun" x1=".7" y1="0" x2=".2" y2="1">
+      <stop stop-color="#fff31a" />
+      <stop offset=".5" stop-color="#ffd21b" />
+      <stop offset="1" stop-color="#f59a24" />
+    </linearGradient>
+    <clipPath id="sunHalf">
+      <path d="M680 0H993L798 235 850 235 755 365H680Z" />
+    </clipPath>
+    <clipPath id="solarSide">
+      <path d="M995 0H1050V370H755Z" />
+    </clipPath>
+    <clipPath id="solarDisc">
+      <circle cx="897" cy="193" r="133" />
+    </clipPath>
+  </defs>
+  <g clip-path="url(#sunHalf)">
+    <polygon
+      points="885,176 853.57,-2.25 851.87,52.36 823.09,5.92 830.90,59.99 794.50,19.25 811.58,71.15 768.66,37.35 794.49,85.49 746.35,59.66 780.15,102.58 728.25,85.50 768.99,121.90 714.92,114.09 761.36,142.87 706.75,144.57 757.49,164.84 704.00,176.00 757.49,187.16 706.75,207.43 761.36,209.13 714.92,237.91 768.99,230.10 728.25,266.50 780.15,249.42 746.35,292.34 794.49,266.51 768.66,314.65 811.58,280.85 794.50,332.75 830.90,292.01 823.09,346.08 851.87,299.64 853.57,354.25 873.84,303.51 885.00,357.00 896.16,303.51 916.43,354.25 918.13,299.64 946.91,346.08"
+      fill="url(#sun)"
+    />
+    <circle cx="885" cy="176" r="132" fill="url(#sun)" />
+  </g>
+  <g clip-path="url(#solarSide)">
+    <circle cx="897" cy="193" r="133" fill="#95bf3b" />
+    <g clip-path="url(#solarDisc)" fill="none" stroke="#fff" stroke-width="5">
+      <path d="M849 49 822 328M912 52 917 331M968 80 1012 287M775 129 1024 150M767 213 1028 227M799 279 996 293" />
+    </g>
+  </g>
+  <path
+    d="M992 3 803 235 855 234 766 353 992 126 917 126Z"
+    fill="#fff"
+    stroke="#e0e8e1"
+    stroke-width="1.1"
+  />
+</svg>
