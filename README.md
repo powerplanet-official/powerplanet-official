@@ -205,3 +205,9 @@ COD confirmations are queued atomically when the order is saved; card confirmati
 Repeated checkouts/webhooks do not create duplicate notification jobs. SMTP uses a stable Message-ID. A timeout can have an ambiguous provider outcome, so delivery is not guaranteed exactly once; a server restart while sending marks the job `review` for manual provider reconciliation. Existing historical orders are not automatically emailed on startup. Cancelled orders skip queued confirmations. Do not configure real credentials for automated tests.
 
 Validation: `npm test`, `npm run build`, `npm run test:payments-browser`, and `npm run test:homepage-browser`. Notification tests deliver an email to an isolated local SMTP test server and stub WhatsApp; they never send real customer messages. Homepage browser tests exercise slide navigation/autoplay/pause, brand pagination and links, catalog links, desktop/mobile overflow, and local brand-image loading.
+
+## SEO and indexing
+
+Public pages now render the catalog on the server with route-specific metadata, canonicals, factual JSON-LD, robots and a database-backed sitemap. Deploy both the API and frontend; the server uses `/api/store?view=storefront` and a short revalidation cache. Prices and source inventory are not treated as verified Google Offers.
+
+See [the SEO acceptance report](docs/seo/README.md) for audit evidence, route mapping, tests, hosting/Search Console actions and the 30/60/90-day monitoring plan. Run `npm run test:seo` after a production build. To regenerate the captured route map, run `npm run seo:inventory -- docs/seo/baseline/live-catalog.json.gz`.
