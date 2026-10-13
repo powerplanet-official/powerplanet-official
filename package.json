@@ -22,7 +22,9 @@
     "test:payments-browser": "node tests/payments-browser.mjs",
     "test:homepage-browser": "node tests/homepage-browser.mjs",
     "format": "prettier --write \"components/**/*.jsx\" \"app/**/*.{jsx,css}\"",
-    "format:check": "prettier --check \"components/**/*.jsx\" \"app/**/*.{jsx,css}\""
+    "format:check": "prettier --check \"components/**/*.jsx\" \"app/**/*.{jsx,css}\"",
+    "test:seo": "node tests/seo-browser.mjs && node tests/seo-unavailable.mjs",
+    "seo:inventory": "node scripts/seo/inventory.mjs"
   },
   "dependencies": {
     "express": "^5.1.0",

@@ -1,0 +1,14 @@
+[
+  {
+    "path": "/shop",
+    "status": 500
+  },
+  {
+    "path": "/product/w11-35462",
+    "status": 500
+  },
+  {
+    "path": "/sitemap.xml",
+    "status": 500
+  }
+]

@@ -9,6 +9,7 @@ import { checkout, cancelCardOrder, paymentConfig, stripeWebhook, authorizedOrde
 import {notificationConfig,retryOrderNotifications} from './notifications.mjs';
 import {serveLogo,uploadLogo} from './branding.mjs';
 import { serveProductImage, uploadProductImage } from './product-images.mjs';
+import { publicStorefrontData } from '../lib/public-store.mjs';
 export const app=express();
 app.disable('x-powered-by');app.use(helmet());
 // Only trust proxy addresses explicitly confirmed by the hosting provider.
@@ -37,7 +38,10 @@ app.post('/api/orders/:id/cancel',async(req,res)=>res.json(await cancelCardOrder
 app.get('/api/orders/:id',(req,res)=>{res.set('Cache-Control','no-store');res.json(publicOrder(authorizedOrder(req.params.id,req.get('authorization')?.replace(/^Bearer /,''))));});
 app.get('/api/branding/logo',serveLogo);
 app.get('/api/health',(req,res)=>res.json({ok:true}));
-app.get('/api/store',(req,res)=>res.json({products:all('products').filter(p=>p.status!=='draft'),categories:all('categories').reverse(),settings:get('settings','store'),faqs:all('faqs')}));
+app.get('/api/store',(req,res)=>{
+ const data={products:all('products').filter(p=>p.status!=='draft'),categories:all('categories').reverse(),settings:get('settings','store'),faqs:all('faqs')};
+ res.json(req.query.view==='storefront'?publicStorefrontData(data):data);
+});
 app.post('/api/auth/login',rateLimit({windowMs:15*60000,limit:12}), (req,res)=>{
  const {email,password}=req.body||{};if(typeof email!=='string'||typeof password!=='string'||password.length>256)return res.status(400).json({error:'Invalid credentials'});
  const a=db.prepare('SELECT * FROM admins WHERE email=?').get(email.toLowerCase());

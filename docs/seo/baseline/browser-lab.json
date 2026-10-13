@@ -1,0 +1,121 @@
+{
+  "base": "https://powerplanet.pk",
+  "capturedAt": "2026-10-13T07:18:29.654Z",
+  "note": "Single unthrottled lab samples. Event duration is not field INP; field Core Web Vitals require CrUX/Search Console.",
+  "pages": [
+    {
+      "path": "/",
+      "mobile": false,
+      "status": 200,
+      "title": "Powerplanet | Solar Panels, Inverters & Batteries",
+      "canonical": null,
+      "headings": [
+        "Solar Panels, Hybrid Solar Inverters, Lithium Batteries & ESS Energy"
+      ],
+      "productLinks": 40,
+      "overflow": false,
+      "lcp": 11388,
+      "cls": 0.0008339706441829561,
+      "maxEventDuration": 184,
+      "ttfb": 143.39999999850988,
+      "domContentLoaded": 4185.199999999255,
+      "transferBytes": 770455,
+      "errors": []
+    },
+    {
+      "path": "/category/solar-inverters",
+      "mobile": false,
+      "status": 200,
+      "title": "Powerplanet | Solar Panels, Inverters & Batteries",
+      "canonical": null,
+      "headings": [
+        "Solar Inverters"
+      ],
+      "productLinks": 40,
+      "overflow": false,
+      "lcp": 18000,
+      "cls": 0,
+      "maxEventDuration": null,
+      "ttfb": 15565.300000000745,
+      "domContentLoaded": 15655.099999997765,
+      "transferBytes": 222188,
+      "errors": []
+    },
+    {
+      "path": "/product/w11-35462",
+      "mobile": false,
+      "status": 200,
+      "title": "Powerplanet | Solar Panels, Inverters & Batteries",
+      "canonical": null,
+      "headings": [
+        "Astronergy 585W N-Type Bi-Facial PV Module"
+      ],
+      "productLinks": 0,
+      "overflow": false,
+      "lcp": 1620,
+      "cls": 0,
+      "maxEventDuration": null,
+      "ttfb": 149,
+      "domContentLoaded": 455.8999999985099,
+      "transferBytes": 36339,
+      "errors": []
+    },
+    {
+      "path": "/",
+      "mobile": true,
+      "status": 200,
+      "title": "Powerplanet | Solar Panels, Inverters & Batteries",
+      "canonical": null,
+      "headings": [
+        "Solar Panels, Hybrid Solar Inverters, Lithium Batteries & ESS Energy"
+      ],
+      "productLinks": 72,
+      "overflow": false,
+      "lcp": 6924,
+      "cls": 0,
+      "maxEventDuration": 96,
+      "ttfb": 134.80000000074506,
+      "domContentLoaded": 863.4000000022352,
+      "transferBytes": 1108809,
+      "errors": []
+    },
+    {
+      "path": "/category/solar-inverters",
+      "mobile": true,
+      "status": 200,
+      "title": "Powerplanet | Solar Panels, Inverters & Batteries",
+      "canonical": null,
+      "headings": [
+        "Solar Inverters"
+      ],
+      "productLinks": 40,
+      "overflow": false,
+      "lcp": 2768,
+      "cls": 0,
+      "maxEventDuration": null,
+      "ttfb": 252.80000000074506,
+      "domContentLoaded": 1352.5999999977648,
+      "transferBytes": 281873,
+      "errors": []
+    },
+    {
+      "path": "/product/w11-35462",
+      "mobile": true,
+      "status": 200,
+      "title": "Powerplanet | Solar Panels, Inverters & Batteries",
+      "canonical": null,
+      "headings": [
+        "Astronergy 585W N-Type Bi-Facial PV Module"
+      ],
+      "productLinks": 0,
+      "overflow": false,
+      "lcp": 1768,
+      "cls": 0,
+      "maxEventDuration": null,
+      "ttfb": 134.60000000149012,
+      "domContentLoaded": 467.70000000298023,
+      "transferBytes": 8124,
+      "errors": []
+    }
+  ]
+}

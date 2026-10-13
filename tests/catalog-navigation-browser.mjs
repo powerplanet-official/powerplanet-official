@@ -1,12 +1,25 @@
 import { chromium } from '@playwright/test';
 import { spawn } from 'node:child_process';
 import { readFileSync } from 'node:fs';
+import { createServer } from 'node:http';
+import { publicStorefrontData } from '../lib/public-store.mjs';
 import assert from 'node:assert/strict';
 
 // Read-only catalog fixtures; no live backend, orders, or production DB writes.
 const catalog = JSON.parse(readFileSync('data/catalog-source/solar-catalog.json', 'utf8'));
+const publicCatalog = {
+  products: catalog.products, categories: catalog.categories, faqs: [],
+  settings: { name: 'Powerplanet', whatsapp: '923014101700', facebook: 'https://www.facebook.com/Powerplanet.1/' },
+};
+// Server rendering and browser interactions use the same isolated public fixture.
+const api = createServer((request, response) => {
+  response.writeHead(200, { 'Content-Type': 'application/json' });
+  response.end(JSON.stringify(publicStorefrontData(publicCatalog)));
+});
+await new Promise((resolve) => api.listen(0, '127.0.0.1', resolve));
+const apiOrigin = `http://127.0.0.1:${api.address().port}`;
 const base = 'http://127.0.0.1:3018';
-const web = spawn(process.execPath, ['node_modules/next/dist/bin/next', 'start', '--hostname', '127.0.0.1', '--port', '3018'], { stdio: ['ignore', 'pipe', 'pipe'] });
+const web = spawn(process.execPath, ['node_modules/next/dist/bin/next', 'start', '--hostname', '127.0.0.1', '--port', '3018'], { env: { ...process.env, BACKEND_URL: apiOrigin }, stdio: ['ignore', 'pipe', 'pipe'] });
 let logs = '', browser;
 web.stdout.on('data', (chunk) => logs += chunk);
 web.stderr.on('data', (chunk) => logs += chunk);
@@ -81,4 +94,5 @@ try {
 } finally {
   await browser?.close();
   web.kill('SIGTERM');
+  await new Promise((resolve) => api.close(resolve));
 }

@@ -12,6 +12,7 @@ import SolarCatalog, { SolarMegaMenu, SolarProductDetail } from './SolarCatalog'
 import { available, priceLabel } from '../lib/catalog.mjs';
 import { solarCollections } from '../lib/homepage.mjs';
 import { readApiResponse } from '../lib/api-response.mjs';
+import { storeAddress as resolveStoreAddress } from '../lib/site-config.mjs';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import {
   Sun,
@@ -48,7 +49,6 @@ import {
   UserRound,
 } from 'lucide-react';
 const currency = priceLabel;
-const defaultStoreAddress = 'E-175, New Airport Road Main, Bhatta Chowk, Lahore, Pakistan';
 async function request(url, body) {
   const r = await fetch(url, {
     method: 'POST',
@@ -73,7 +73,7 @@ function useSaved(key, initial) {
   useEffect(() => {
     if (ready) localStorage.setItem(key, JSON.stringify(value));
   }, [value, ready, key]);
-  return [value, setValue];
+  return [value, setValue, ready];
 }
 // Match the CSS breakpoint and mount only the active homepage, avoiding hidden
 // image downloads, duplicate headings, and background carousels on phones.
@@ -83,34 +83,23 @@ function subscribeMobileViewport(onChange) {
   return () => viewport.removeEventListener('change', onChange);
 }
 const getMobileViewport = () => window.matchMedia('(max-width: 760px)').matches;
-const getServerViewport = () => false;
 
 // Shared shop shell and customer state used by the home, catalog, and basket routes.
-export default function Storefront() {
+export default function Storefront({ initialData, initialMobileView = false, breadcrumbs = [] }) {
   const mobileView = useSyncExternalStore(
     subscribeMobileViewport,
     getMobileViewport,
-    getServerViewport,
+    () => initialMobileView,
   );
-  const [data, setData] = useState(null),
-    [error, setError] = useState(''),
-    [menu, setMenu] = useState(false),
+  const data = initialData;
+  const [menu, setMenu] = useState(false),
     [toast, setToast] = useState('');
-  const [cart, setCart] = useSaved('pp-cart', []),
+  const [cart, setCart, cartReady] = useSaved('pp-cart', []),
     [wishlist, setWishlist] = useSaved('pp-wishlist', []),
     [compare, setCompare] = useSaved('pp-compare', []);
   const path = usePathname(),
     params = useSearchParams(),
     router = useRouter();
-  useEffect(() => {
-    fetch('/api/store')
-      .then((r) => {
-        if (!r.ok) throw Error('The store could not be loaded. Please try again.');
-        return readApiResponse(r);
-      })
-      .then(setData)
-      .catch((e) => setError(e.message));
-  }, []);
   useEffect(() => {
     setMenu(false);
   }, [path, params]);
@@ -128,26 +117,8 @@ export default function Storefront() {
       return () => clearTimeout(t);
     }
   }, [toast]);
-  if (error)
-    return (
-      <main className="loading">
-        <Sun size={42} />
-        <h1>Powerplanet</h1>
-        <p role="alert">{error}</p>
-        <button className="primary" onClick={() => location.reload()}>
-          Try again
-        </button>
-      </main>
-    );
-  if (!data)
-    return (
-      <div className="loading">
-        <Sun className="spin" size={40} />
-        <p>Loading your solar store…</p>
-      </div>
-    );
   const { products, categories, settings } = data;
-  const storeAddress = settings.address?.trim() || defaultStoreAddress;
+  const storeAddress = resolveStoreAddress(settings);
   const cartCount = cart.reduce((n, p) => n + p.quantity, 0);
   const add = (p, quantity = p.minQuantity || 1) => {
     const amount = Math.min(100, Math.max(p.minQuantity || 1, Math.floor(Number(quantity)) || 1));
@@ -360,25 +331,18 @@ export default function Storefront() {
           </>
         ) : (
           <div className="container inner-page">
-            <div className="breadcrumbs">
-              <Link href="/">Home</Link>
-              <ChevronRight size={13} />
-              <span>
-                {activeCategory?.name ||
-                  product?.name ||
-                  {
-                    '/shop': 'All Solar Products',
-                    '/wishlist': 'My Wishlist',
-                    '/compare': 'Compare Products',
-                    '/cart': 'Shopping Basket',
-                    '/checkout': 'Checkout',
-                    '/quote': 'Request a Quotation',
-                    '/contact': 'Contact Us',
-                    '/about': 'About Powerplanet',
-                  }[path] ||
-                  'Page not found'}
-              </span>
-            </div>
+            <nav className="breadcrumbs" aria-label="Breadcrumb">
+              {breadcrumbs.map((item, index) => (
+                <span className="breadcrumb-item" key={item.path}>
+                  {index > 0 && <ChevronRight size={13} aria-hidden="true" />}
+                  {index === breadcrumbs.length - 1 ? (
+                    <span aria-current="page">{item.name}</span>
+                  ) : (
+                    <Link href={item.path}>{item.name}</Link>
+                  )}
+                </span>
+              ))}
+            </nav>
             {isShop ? (
               <SolarCatalog
                 products={products}
@@ -554,21 +518,30 @@ export default function Storefront() {
                 )}
               </>
             ) : path === '/checkout' ? (
-              <Checkout
-                key={params.get('order') || 'checkout'}
-                cart={cart}
-                products={products}
-                params={params}
-                done={(items) =>
-                  setCart((current) =>
-                    current.flatMap((i) => {
-                      const ordered = items.find((x) => x.id === i.id);
-                      const quantity = i.quantity - (ordered?.quantity || 0);
-                      return quantity > 0 ? [{ ...i, quantity }] : [];
-                    }),
-                  )
-                }
-              />
+              // Restore the saved basket before mounting checkout, so its draft
+              // recovery effect can find the form on a direct SSR page load.
+              cartReady ? (
+                <Checkout
+                  key={params.get('order') || 'checkout'}
+                  cart={cart}
+                  products={products}
+                  params={params}
+                  done={(items) =>
+                    setCart((current) =>
+                      current.flatMap((i) => {
+                        const ordered = items.find((x) => x.id === i.id);
+                        const quantity = i.quantity - (ordered?.quantity || 0);
+                        return quantity > 0 ? [{ ...i, quantity }] : [];
+                      }),
+                    )
+                  }
+                />
+              ) : (
+                <>
+                  <h1>Checkout</h1>
+                  <p role="status">Loading your basket…</p>
+                </>
+              )
             ) : path === '/quote' || path === '/contact' ? (
               <div className="contact-layout">
                 <div>
@@ -750,6 +723,8 @@ function ProductCard({ p, add, wish, compare, wished, compared }) {
             src={p.image}
             alt={p.name}
             loading="lazy"
+            width="500"
+            height="500"
             onError={(e) => {
               e.currentTarget.onerror = null;
               e.currentTarget.src = '/images/panel.svg';

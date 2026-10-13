@@ -1,0 +1,575 @@
+{
+  "base": "http://127.0.0.1:3021",
+  "checks": [
+    {
+      "path": "/",
+      "status": 200,
+      "title": "Solar Panels, Inverters & Batteries in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk",
+      "robots": "index, follow",
+      "productLinks": 40,
+      "bytes": 1284401
+    },
+    {
+      "path": "/shop",
+      "status": 200,
+      "title": "Solar Products in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/shop",
+      "robots": "index, follow",
+      "productLinks": 40,
+      "bytes": 1225936
+    },
+    {
+      "path": "/shop?page=2",
+      "status": 200,
+      "title": "Solar Products in Pakistan – Page 2 | Powerplanet",
+      "canonical": "https://powerplanet.pk/shop?page=2",
+      "robots": "index, follow",
+      "productLinks": 40,
+      "bytes": 1225007
+    },
+    {
+      "path": "/shop?brand=Solis",
+      "status": 200,
+      "title": "Solis Solar Products in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/shop?brand=Solis",
+      "robots": "index, follow",
+      "productLinks": 40,
+      "bytes": 1224226
+    },
+    {
+      "path": "/shop?brand=Solis&page=2",
+      "status": 200,
+      "title": "Solis Solar Products in Pakistan – Page 2 | Powerplanet",
+      "canonical": "https://powerplanet.pk/shop?brand=Solis&page=2",
+      "robots": "index, follow",
+      "productLinks": 34,
+      "bytes": 1214557
+    },
+    {
+      "path": "/category/solar-inverters",
+      "status": 200,
+      "title": "Solar Inverters in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/solar-inverters",
+      "robots": "index, follow",
+      "productLinks": 40,
+      "bytes": 1224124
+    },
+    {
+      "path": "/category/solar-inverters?page=2",
+      "status": 200,
+      "title": "Solar Inverters in Pakistan – Page 2 | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/solar-inverters?page=2",
+      "robots": "index, follow",
+      "productLinks": 40,
+      "bytes": 1222823
+    },
+    {
+      "path": "/product/w11-35462",
+      "status": 200,
+      "title": "Astronergy 585W N-Type Bi-Facial PV Module | Powerplanet",
+      "canonical": "https://powerplanet.pk/product/w11-35462",
+      "robots": "index, follow",
+      "productLinks": 0,
+      "bytes": 1150230
+    },
+    {
+      "path": "/about",
+      "status": 200,
+      "title": "About Powerplanet | Powerplanet",
+      "canonical": "https://powerplanet.pk/about",
+      "robots": "index, follow",
+      "productLinks": 0,
+      "bytes": 1144300
+    },
+    {
+      "path": "/contact",
+      "status": 200,
+      "title": "Contact Powerplanet in Lahore | Powerplanet",
+      "canonical": "https://powerplanet.pk/contact",
+      "robots": "index, follow",
+      "productLinks": 0,
+      "bytes": 1147510
+    },
+    {
+      "path": "/quote",
+      "status": 200,
+      "title": "Request a Solar Product Quotation | Powerplanet",
+      "canonical": "https://powerplanet.pk/quote",
+      "robots": "index, follow",
+      "productLinks": 0,
+      "bytes": 1147508
+    },
+    {
+      "path": "/cart",
+      "status": 200,
+      "title": "Shopping Basket | Powerplanet",
+      "canonical": "https://powerplanet.pk/cart",
+      "robots": "noindex, follow",
+      "productLinks": 0,
+      "bytes": 1143191
+    },
+    {
+      "path": "/checkout?order=private-order",
+      "status": 200,
+      "title": "Checkout | Powerplanet",
+      "canonical": "https://powerplanet.pk/checkout",
+      "robots": "noindex, follow",
+      "productLinks": 0,
+      "bytes": 1142146
+    },
+    {
+      "path": "/wishlist",
+      "status": 200,
+      "title": "My Wishlist | Powerplanet",
+      "canonical": "https://powerplanet.pk/wishlist",
+      "robots": "noindex, follow",
+      "productLinks": 0,
+      "bytes": 1143048
+    },
+    {
+      "path": "/compare",
+      "status": 200,
+      "title": "Compare Solar Products | Powerplanet",
+      "canonical": "https://powerplanet.pk/compare",
+      "robots": "noindex, follow",
+      "productLinks": 0,
+      "bytes": 1143166
+    },
+    {
+      "path": "/shop?q=inverter",
+      "status": 200,
+      "title": "Search results for “inverter” in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/shop?q=inverter",
+      "robots": "noindex, follow",
+      "productLinks": 40,
+      "bytes": 1215907
+    },
+    {
+      "path": "/shop?brand=Solis&min=1000",
+      "status": 200,
+      "title": "Solis Solar Products in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/shop?brand=Solis&min=1000",
+      "robots": "noindex, follow",
+      "productLinks": 40,
+      "bytes": 1224215
+    },
+    {
+      "path": "/shop?sort=price-low",
+      "status": 200,
+      "title": "Solar Products in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/shop",
+      "robots": "noindex, follow",
+      "productLinks": 40,
+      "bytes": 1226152
+    },
+    {
+      "path": "/shop?limit=50&page=2",
+      "status": 200,
+      "title": "Solar Products in Pakistan – Page 2 | Powerplanet",
+      "canonical": "https://powerplanet.pk/shop?page=2&limit=50",
+      "robots": "noindex, follow",
+      "productLinks": 100,
+      "bytes": 1316449
+    },
+    {
+      "path": "/shop?utm_source=test",
+      "status": 200,
+      "title": "Solar Products in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/shop",
+      "robots": "index, follow",
+      "productLinks": 40,
+      "bytes": 1226094
+    },
+    {
+      "path": "/category/solar-packages",
+      "status": 200,
+      "title": "Solar Packages in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/solar-packages",
+      "robots": "index, follow",
+      "productLinks": 40,
+      "bytes": 1215017
+    },
+    {
+      "path": "/missing-seo-page",
+      "status": 404
+    },
+    {
+      "path": "/product/missing-product",
+      "status": 404
+    },
+    {
+      "path": "/category/missing-category",
+      "status": 404
+    },
+    {
+      "path": "/product/w11-35462/extra",
+      "status": 404
+    },
+    {
+      "path": "/shop?page=999999",
+      "status": 404
+    },
+    {
+      "path": "/shop?page=0",
+      "status": 404
+    },
+    {
+      "path": "/category/solar-panels",
+      "status": 200,
+      "title": "Solar Panels in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/solar-panels",
+      "robots": "index, follow",
+      "productLinks": 40,
+      "bytes": 1217141
+    },
+    {
+      "path": "/category/bi-facial-solar-panels",
+      "status": 200,
+      "title": "Bi-Facial Solar Panels in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/bi-facial-solar-panels",
+      "robots": "index, follow",
+      "productLinks": 24,
+      "bytes": 1192252
+    },
+    {
+      "path": "/category/longi-solar-panels",
+      "status": 200,
+      "title": "Longi Solar Panels in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/longi-solar-panels",
+      "robots": "index, follow",
+      "productLinks": 8,
+      "bytes": 1165224
+    },
+    {
+      "path": "/category/jinko-solar-panels",
+      "status": 200,
+      "title": "Jinko Solar Panels in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/jinko-solar-panels",
+      "robots": "index, follow",
+      "productLinks": 8,
+      "bytes": 1165442
+    },
+    {
+      "path": "/category/canadian-solar-panels",
+      "status": 200,
+      "title": "Canadian Solar Panels in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/canadian-solar-panels",
+      "robots": "index, follow",
+      "productLinks": 12,
+      "bytes": 1171928
+    },
+    {
+      "path": "/category/ja-solar-panels",
+      "status": 200,
+      "title": "JA Solar Panels in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/ja-solar-panels",
+      "robots": "index, follow",
+      "productLinks": 6,
+      "bytes": 1162514
+    },
+    {
+      "path": "/category/trina-solar-panels",
+      "status": 200,
+      "title": "Trina Solar Panels in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/trina-solar-panels",
+      "robots": "index, follow",
+      "productLinks": 4,
+      "bytes": 1159300
+    },
+    {
+      "path": "/category/astronergy-solar-panels",
+      "status": 200,
+      "title": "Astronergy Solar Panels in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/astronergy-solar-panels",
+      "robots": "index, follow",
+      "productLinks": 2,
+      "bytes": 1156595
+    },
+    {
+      "path": "/category/hybrid-inverters",
+      "status": 200,
+      "title": "Hybrid Inverters in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/hybrid-inverters",
+      "robots": "index, follow",
+      "productLinks": 40,
+      "bytes": 1222509
+    },
+    {
+      "path": "/category/on-grid-inverters",
+      "status": 200,
+      "title": "On Grid Inverters in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/on-grid-inverters",
+      "robots": "index, follow",
+      "productLinks": 40,
+      "bytes": 1220190
+    },
+    {
+      "path": "/category/off-grid-inverters",
+      "status": 200,
+      "title": "Off Grid Inverters in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/off-grid-inverters",
+      "robots": "index, follow",
+      "productLinks": 40,
+      "bytes": 1218053
+    },
+    {
+      "path": "/category/all-in-one-ess-inverters",
+      "status": 200,
+      "title": "All In One ESS Inverters in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/all-in-one-ess-inverters",
+      "robots": "index, follow",
+      "productLinks": 8,
+      "bytes": 1167320
+    },
+    {
+      "path": "/category/solar-pump-inverters",
+      "status": 200,
+      "title": "Solar Pump Inverters in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/solar-pump-inverters",
+      "robots": "index, follow",
+      "productLinks": 40,
+      "bytes": 1218389
+    },
+    {
+      "path": "/category/smart-meters-export-managers",
+      "status": 200,
+      "title": "Smart Meters & Export Managers in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/smart-meters-export-managers",
+      "robots": "index, follow",
+      "productLinks": 22,
+      "bytes": 1187737
+    },
+    {
+      "path": "/category/parallel-kits-wi-fi-devices",
+      "status": 200,
+      "title": "Parallel Kits & Wi-Fi Devices in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/parallel-kits-wi-fi-devices",
+      "robots": "index, follow",
+      "productLinks": 16,
+      "bytes": 1178026
+    },
+    {
+      "path": "/category/solar-batteries",
+      "status": 200,
+      "title": "Solar Batteries in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/solar-batteries",
+      "robots": "index, follow",
+      "productLinks": 40,
+      "bytes": 1223948
+    },
+    {
+      "path": "/category/lithium-ion-batteries",
+      "status": 200,
+      "title": "Lithium-Ion Batteries in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/lithium-ion-batteries",
+      "robots": "index, follow",
+      "productLinks": 40,
+      "bytes": 1224840
+    },
+    {
+      "path": "/category/tall-tubular-deep-cycle-batteries",
+      "status": 200,
+      "title": "Tall Tubular Deep Cycle Batteries in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/tall-tubular-deep-cycle-batteries",
+      "robots": "index, follow",
+      "productLinks": 38,
+      "bytes": 1211971
+    },
+    {
+      "path": "/category/lead-acid-batteries",
+      "status": 200,
+      "title": "Lead Acid Batteries in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/lead-acid-batteries",
+      "robots": "index, follow",
+      "productLinks": 8,
+      "bytes": 1165325
+    },
+    {
+      "path": "/category/low-voltage-lithium-batteries",
+      "status": 200,
+      "title": "Low Voltage Lithium Batteries in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/low-voltage-lithium-batteries",
+      "robots": "index, follow",
+      "productLinks": 40,
+      "bytes": 1224319
+    },
+    {
+      "path": "/category/high-voltage-lithium-batteries",
+      "status": 200,
+      "title": "High Voltage Lithium Batteries in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/high-voltage-lithium-batteries",
+      "robots": "index, follow",
+      "productLinks": 40,
+      "bytes": 1218462
+    },
+    {
+      "path": "/category/bess-lithium-systems",
+      "status": 200,
+      "title": "BESS Lithium Systems in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/bess-lithium-systems",
+      "robots": "index, follow",
+      "productLinks": 2,
+      "bytes": 1156313
+    },
+    {
+      "path": "/category/portable-systems",
+      "status": 200,
+      "title": "Portable Power Systems in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/portable-systems",
+      "robots": "index, follow",
+      "productLinks": 40,
+      "bytes": 1216739
+    },
+    {
+      "path": "/category/solar-accessories",
+      "status": 200,
+      "title": "Solar Accessories in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/solar-accessories",
+      "robots": "index, follow",
+      "productLinks": 30,
+      "bytes": 1197629
+    },
+    {
+      "path": "/category/ac-dc-wires",
+      "status": 200,
+      "title": "AC / DC Wires in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/ac-dc-wires",
+      "robots": "index, follow",
+      "productLinks": 2,
+      "bytes": 1154702
+    },
+    {
+      "path": "/category/ac-dc-breakers-fuses",
+      "status": 200,
+      "title": "AC / DC Breakers & Fuses in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/ac-dc-breakers-fuses",
+      "robots": "index, follow",
+      "productLinks": 10,
+      "bytes": 1167260
+    },
+    {
+      "path": "/category/solar-mounting-structures",
+      "status": 200,
+      "title": "Solar Mounting Structures in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/solar-mounting-structures",
+      "robots": "index, follow",
+      "productLinks": 2,
+      "bytes": 1155311
+    },
+    {
+      "path": "/category/distribution-boxes-changeovers",
+      "status": 200,
+      "title": "Distribution Boxes & Changeovers in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/distribution-boxes-changeovers",
+      "robots": "index, follow",
+      "productLinks": 12,
+      "bytes": 1171420
+    },
+    {
+      "path": "/category/other-solar",
+      "status": 200,
+      "title": "Other Solar Products in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/other-solar",
+      "robots": "index, follow",
+      "productLinks": 40,
+      "bytes": 1215076
+    },
+    {
+      "path": "/category/solar-charge-controllers",
+      "status": 200,
+      "title": "Solar Charge Controllers in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/solar-charge-controllers",
+      "robots": "index, follow",
+      "productLinks": 36,
+      "bytes": 1209896
+    },
+    {
+      "path": "/category/solar-street-lights",
+      "status": 200,
+      "title": "Solar Street Lights in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/solar-street-lights",
+      "robots": "index, follow",
+      "productLinks": 40,
+      "bytes": 1214167
+    },
+    {
+      "path": "/category/solar-water-heaters",
+      "status": 200,
+      "title": "Solar Water Heaters in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/solar-water-heaters",
+      "robots": "index, follow",
+      "productLinks": 2,
+      "bytes": 1155906
+    },
+    {
+      "path": "/category/solar-submersible-pumps",
+      "status": 200,
+      "title": "Solar Submersible Pumps in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/solar-submersible-pumps",
+      "robots": "index, follow",
+      "productLinks": 40,
+      "bytes": 1214675
+    },
+    {
+      "path": "/category/solar-combo-deals",
+      "status": 200,
+      "title": "Solar Combo Deals in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/solar-combo-deals",
+      "robots": "index, follow",
+      "productLinks": 40,
+      "bytes": 1215572
+    },
+    {
+      "path": "/category/ecoflow-portable-home-system",
+      "status": 200,
+      "title": "Ecoflow Portable Home System in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/ecoflow-portable-home-system",
+      "robots": "index, follow",
+      "productLinks": 40,
+      "bytes": 1216468
+    },
+    {
+      "path": "/category/tigfox-portable-home-system",
+      "status": 200,
+      "title": "Tigfox Portable Home System in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/tigfox-portable-home-system",
+      "robots": "index, follow",
+      "productLinks": 2,
+      "bytes": 1156159
+    },
+    {
+      "path": "/category/itel-portable-home-system",
+      "status": 200,
+      "title": "Itel Portable Home System in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/itel-portable-home-system",
+      "robots": "index, follow",
+      "productLinks": 6,
+      "bytes": 1162442
+    },
+    {
+      "path": "/category/hithium-portable-power-stations",
+      "status": 200,
+      "title": "Hithium Portable Power Stations in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/hithium-portable-power-stations",
+      "robots": "index, follow",
+      "productLinks": 12,
+      "bytes": 1173047
+    },
+    {
+      "path": "/shop?page=2",
+      "status": 200,
+      "title": "Solar Products in Pakistan – Page 2 | Powerplanet",
+      "canonical": "https://powerplanet.pk/shop?page=2",
+      "robots": "index, follow",
+      "productLinks": 40,
+      "bytes": 1225007
+    }
+  ],
+  "note": "Local production build, isolated public catalog fixture. No production database writes.",
+  "sitemapUrls": 1237,
+  "apiCalls": 1,
+  "javascriptDisabledNavigation": "passed",
+  "wwwRedirect": "308, path/query preserved",
+  "status": "passed"
+}

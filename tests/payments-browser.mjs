@@ -16,7 +16,7 @@ const server=await new Promise(resolve=>{const s=app.listen(0,'127.0.0.1',()=>re
 const apiOrigin=`http://127.0.0.1:${server.address().port}`;
 const port=process.env.TEST_WEB_PORT||'3007';
 const base=`http://localhost:${port}`;
-const web=spawn(process.execPath,['node_modules/next/dist/bin/next','start','--hostname','127.0.0.1','--port',port],{stdio:['ignore','pipe','pipe']});
+const web=spawn(process.execPath,['node_modules/next/dist/bin/next','start','--hostname','127.0.0.1','--port',port],{env:{...process.env,BACKEND_URL:apiOrigin},stdio:['ignore','pipe','pipe']});
 let logs='',browser;web.stdout.on('data',b=>logs+=b);web.stderr.on('data',b=>logs+=b);
 try{
  for(let i=0;i<60;i++){try{if((await fetch(base)).ok)break;}catch{}if(i===59)throw Error(logs);await new Promise(r=>setTimeout(r,300));}

@@ -515,7 +515,7 @@
   align-items: center;
   gap: 5px;
 }
-.reference-pagination button {
+.reference-pagination a {
   display: grid;
   place-items: center;
   min-width: 31px;
@@ -525,12 +525,12 @@
   color: #505c65;
   font-size: 12px;
 }
-.reference-pagination button[aria-current='page'] {
+.reference-pagination a[aria-current='page'] {
   background: #3cc472;
   color: white;
   border-color: #3cc472;
 }
-.reference-pagination button:disabled {
+.reference-pagination a[aria-disabled='true'] {
   cursor: default;
   opacity: 0.4;
 }

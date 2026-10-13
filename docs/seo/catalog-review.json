@@ -1,0 +1,2267 @@
+{
+  "source": "docs/seo/baseline/live-catalog.json.gz",
+  "note": "Review queue, not verified corrections. Imported claims and stock need merchant confirmation. Existing visible product data have not been changed.",
+  "issues": [
+    {
+      "id": "w11-39609",
+      "name": "Volnex Wifi Dongle",
+      "url": "https://powerplanet.pk/product/w11-39609",
+      "source": "https://w11stop.com/volnex-wifi-dongle-price-in-pakistan",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-27093",
+      "name": "Reliable Electric Hybrid 13 X 15 Distribution Box",
+      "url": "https://powerplanet.pk/product/w11-27093",
+      "source": "https://w11stop.com/reliable-electric-hybrid 13 X 15-distribution-box",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-27094",
+      "name": "Reliable Electric Grid Tied 12 X 18 Distribution Box",
+      "url": "https://powerplanet.pk/product/w11-27094",
+      "source": "https://w11stop.com/reliable-electric-grid12 X 18-distribution-box",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-27095",
+      "name": "Reliable Electric External Disconnector 12 X 14 Switch Box",
+      "url": "https://powerplanet.pk/product/w11-27095",
+      "source": "https://w11stop.com/reliable-electric 12 X 14-switch-box",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-27092",
+      "name": "Reliable Electric 18Ways High Quality Distribution Box",
+      "url": "https://powerplanet.pk/product/w11-27092",
+      "source": "https://w11stop.com/reliable-electric-18ways-distribution-box",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-27090",
+      "name": "Reliable Electric 10Ways High Quality Distribution Box",
+      "url": "https://powerplanet.pk/product/w11-27090",
+      "source": "https://w11stop.com/reliable-electric-10ways-distribution-box",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-11501",
+      "name": "SNIX LP12-18 Lead Acid Battery - 12V - 18AH",
+      "url": "https://powerplanet.pk/product/w11-11501",
+      "source": "https://w11stop.com/snix-lead-acid-battery-lp12-18",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4536",
+      "name": "Galvanized Iron Frame for Solar Panel (60 Inch, 18 Gauge)",
+      "url": "https://powerplanet.pk/product/w11-4536",
+      "source": "https://w11stop.com/galvanized-60-inch-18-guage",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-8916",
+      "name": "Inverex ITT-185 AH-12V Tubular Battery",
+      "url": "https://powerplanet.pk/product/w11-8916",
+      "source": "https://w11stop.com/inverex-itt-185-ah-12v",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-8909",
+      "name": "Inverex ITT-150 AH-12V Tubular Battery",
+      "url": "https://powerplanet.pk/product/w11-8909",
+      "source": "https://w11stop.com/inverex-itt-150ah-12v",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-3684",
+      "name": "Long Lead-acid battery 12V 12AH",
+      "url": "https://powerplanet.pk/product/w11-3684",
+      "source": "https://w11stop.com/long-lead-fleece-battery-12v-12ah",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-32955",
+      "name": "Long 12V 12AH T-Terminal (WP12-12BT) Lead-acid Battery",
+      "url": "https://powerplanet.pk/product/w11-32955",
+      "source": "https://w11stop.com/long-12v-12ah-lead-acid-battery",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-25694",
+      "name": "Hi Power LP4-4 Dry Lead-acid Battery 4V 4Ah",
+      "url": "https://powerplanet.pk/product/w11-25694",
+      "source": "https://w11stop.com/hi-power-lp4-4-battery",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-32861",
+      "name": "Pilot PT12-230 230Ah OPZS Tubular Battery",
+      "url": "https://powerplanet.pk/product/w11-32861",
+      "source": "https://w11stop.com/pilot-pt12-230-tubular-battery",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-26977",
+      "name": "Daewoo DLS-120 Maintenance Free Lead Acid Sealed Battery",
+      "url": "https://powerplanet.pk/product/w11-26977",
+      "source": "https://w11stop.com/daewoo-dls-120-lead-acid-battery",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-26971",
+      "name": "Daewoo DL-60 Maintenance Free Lead Acid Sealed Battery",
+      "url": "https://powerplanet.pk/product/w11-26971",
+      "source": "https://w11stop.com/daewoo-dl-60-lead-acid-battery",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-26969",
+      "name": "Daewoo DL-50 Maintenance Free Lead Acid Sealed Battery",
+      "url": "https://powerplanet.pk/product/w11-26969",
+      "source": "https://w11stop.com/daewoo-dl-50-lead-acid-battery",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-32674",
+      "name": "GM DC 6mm 90m Coil Wire",
+      "url": "https://powerplanet.pk/product/w11-32674",
+      "source": "https://w11stop.com/gm-dc-6mm-90m-coil-wire",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-39616",
+      "name": "Inverex INV 5.1kW IP21 48 Voltage Lithium Battery",
+      "url": "https://powerplanet.pk/product/w11-39616",
+      "source": "https://w11stop.com/inverex-inv-5-1kw-ip21-48-voltage-lithium-battery-price-in-pakistan",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-16116",
+      "name": "Exide CNG 65L Lead Acid Battery 11 Plates 45 AH",
+      "url": "https://powerplanet.pk/product/w11-16116",
+      "source": "https://w11stop.com/exide-cng-65l-battery-45-ah",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-27011",
+      "name": "Exide CN-50 9PL 36Ah Lead Acid Battery",
+      "url": "https://powerplanet.pk/product/w11-27011",
+      "source": "https://w11stop.com/exide-cn-50-lead-acid-battery",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-26987",
+      "name": "Daewoo DIB-260 Deep Cycle Lead Acid Sealed Battery",
+      "url": "https://powerplanet.pk/product/w11-26987",
+      "source": "https://w11stop.com/daewoo-dib-260-lead-acid-battery",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-26986",
+      "name": "Daewoo DIB-225 Deep Cycle Lead Acid Sealed Battery",
+      "url": "https://powerplanet.pk/product/w11-26986",
+      "source": "https://w11stop.com/daewoo-dib-225-lead-acid-battery",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-26985",
+      "name": "Daewoo DIB-200 Deep Cycle Lead Acid Sealed Battery",
+      "url": "https://powerplanet.pk/product/w11-26985",
+      "source": "https://w11stop.com/daewoo-dib-200-lead-acid-battery",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-26982",
+      "name": "Daewoo DIB-165 Deep Cycle Lead Acid Sealed Battery",
+      "url": "https://powerplanet.pk/product/w11-26982",
+      "source": "https://w11stop.com/daewoo-dib-165-lead-acid-battery",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-26981",
+      "name": "Daewoo DIB-135 Deep Cycle Lead Acid Sealed Battery",
+      "url": "https://powerplanet.pk/product/w11-26981",
+      "source": "https://w11stop.com/daewoo-dib-135-lead-acid-battery",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-26980",
+      "name": "Daewoo DIB-110 Deep Cycle Lead Acid Sealed Battery",
+      "url": "https://powerplanet.pk/product/w11-26980",
+      "source": "https://w11stop.com/daewoo-dib-110-lead-acid-battery",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-26991",
+      "name": "Daewoo DHV-250 Deep Cycle Lead Acid Sealed Battery",
+      "url": "https://powerplanet.pk/product/w11-26991",
+      "source": "https://w11stop.com/daewoo-dhv-250-lead-acid-battery",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-26990",
+      "name": "Daewoo DHV-195 Deep Cycle Lead Acid Sealed Battery",
+      "url": "https://powerplanet.pk/product/w11-26990",
+      "source": "https://w11stop.com/daewoo-dhv-195-lead-acid-battery",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-26989",
+      "name": "Daewoo DHV-150 Deep Cycle Lead Acid Sealed Battery",
+      "url": "https://powerplanet.pk/product/w11-26989",
+      "source": "https://w11stop.com/daewoo-dhv-150-lead-acid-battery",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-26926",
+      "name": "AGS GX-200R 175Ah 27Pl Tubular Battery",
+      "url": "https://powerplanet.pk/product/w11-26926",
+      "source": "https://w11stop.com/ags-gx-200r-tubular-battery",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-26925",
+      "name": "AGS GR-48 35Ah Tubular Battery",
+      "url": "https://powerplanet.pk/product/w11-26925",
+      "source": "https://w11stop.com/ags-gr-48-tubular-battery",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-26924",
+      "name": "AGS GR-46 30Ah Tubular Battery",
+      "url": "https://powerplanet.pk/product/w11-26924",
+      "source": "https://w11stop.com/ags-gr-46-tubular-battery",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-26923",
+      "name": "AGS CGR-40 24Ah Tubular Battery",
+      "url": "https://powerplanet.pk/product/w11-26923",
+      "source": "https://w11stop.com/ags-cgr-40-tubular-battery",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-32993",
+      "name": "Lipo Battery 11.1V 2200 mAh",
+      "url": "https://powerplanet.pk/product/w11-32993",
+      "source": "https://w11stop.com/lipo-battery-11.1v-2200-mah",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-39770",
+      "name": "MaxPower MP-1200 Ultra Lithium Ion Battery 12.8V 100Ah",
+      "url": "https://powerplanet.pk/product/w11-39770",
+      "source": "https://w11stop.com/maxpower-mp-1200-ultra-lithium-ion-battery",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-39615",
+      "name": "Inverex 2.5kW 100Ah IP21 Lithium Battery",
+      "url": "https://powerplanet.pk/product/w11-39615",
+      "source": "https://w11stop.com/inverex-2-5kw-100ah-ip21-lithium-battery-pice-in-pakistan",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4535",
+      "name": "Galvanized Iron Frame for Solar Panel (60 Inch, 16 Gauge)",
+      "url": "https://powerplanet.pk/product/w11-4535",
+      "source": "https://w11stop.com/galvanized-60-inch-16-guage",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-18466",
+      "name": "CNC AC Breaker 4 Pole MCB",
+      "url": "https://powerplanet.pk/product/w11-18466",
+      "source": "https://w11stop.com/cnc-ac-breaker-4-pole-mcb",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-18471",
+      "name": "CNC AC Breaker 3 Pole MCCB",
+      "url": "https://powerplanet.pk/product/w11-18471",
+      "source": "https://w11stop.com/cnc-ac-breaker-3-pole-mccb",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-18464",
+      "name": "CNC AC Breaker 3 Pole MCB",
+      "url": "https://powerplanet.pk/product/w11-18464",
+      "source": "https://w11stop.com/cnc-ac-breaker-3-pole-mcb",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-18462",
+      "name": "CNC AC Breaker 2 Pole MCB",
+      "url": "https://powerplanet.pk/product/w11-18462",
+      "source": "https://w11stop.com/cnc-ac-breaker-2-pole-mcb",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-15339",
+      "name": "DSE-9450 48 Volt 50 Amp Intelligent Battery Charger",
+      "url": "https://powerplanet.pk/product/w11-15339",
+      "source": "https://w11stop.com/dse-9450-intelligent-battery-charger",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-9943",
+      "name": "Single Axis Solar Tracker",
+      "url": "https://powerplanet.pk/product/w11-9943",
+      "source": "https://w11stop.com/single-axis-solar-tracker",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-28844",
+      "name": "Tesla Smart Geyser White Remote",
+      "url": "https://powerplanet.pk/product/w11-28844",
+      "source": "https://w11stop.com/tesla-smart-geyser-remote",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-13271",
+      "name": "Tesla Infinity HLE Parallel Kit",
+      "url": "https://powerplanet.pk/product/w11-13271",
+      "source": "https://w11stop.com/tesla-infinity-hle-parallel-kit",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-9942",
+      "name": "Simple Dual Axis Solar Tracker",
+      "url": "https://powerplanet.pk/product/w11-9942",
+      "source": "https://w11stop.com/simple-dual-solar-tracker",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-3804",
+      "name": "10 Amp Battery Charger",
+      "url": "https://powerplanet.pk/product/w11-3804",
+      "source": "https://w11stop.com/apkina-battery-charger",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-13899",
+      "name": "SunMaxx Battery Charger 30A",
+      "url": "https://powerplanet.pk/product/w11-13899",
+      "source": "https://w11stop.com/sunmaxx-battery-charger-30a",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-13897",
+      "name": "SunMaxx Battery Charger 20A",
+      "url": "https://powerplanet.pk/product/w11-13897",
+      "source": "https://w11stop.com/sunmaxx-battery-charger-20a",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-13896",
+      "name": "SunMaxx Battery Charger 10A",
+      "url": "https://powerplanet.pk/product/w11-13896",
+      "source": "https://w11stop.com/sunmaxx-battery-charger-10a",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4554",
+      "name": "DAB SS6 C5 Oil Cooled (30,000 Less) 7.5 HP Solar Submersible Pump",
+      "url": "https://powerplanet.pk/product/w11-4554",
+      "source": "https://w11stop.com/dab-ss6-c5-7.5-hp-pump",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4557",
+      "name": "DAB SS6 C8 10 HP Solar Submersible Pump",
+      "url": "https://powerplanet.pk/product/w11-4557",
+      "source": "https://w11stop.com/dab-ss6-c8-10-hp-pump",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4556",
+      "name": "DAB SS6 C7 10 HP Solar Submersible Pump",
+      "url": "https://powerplanet.pk/product/w11-4556",
+      "source": "https://w11stop.com/dab-ss6-c7-10-hp-pump",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4555",
+      "name": "DAB SS6 C6 Oil Cooled (30,000 Less) 7.5 HP Solar Submersible Pump",
+      "url": "https://powerplanet.pk/product/w11-4555",
+      "source": "https://w11stop.com/dab-ss6-c6-7.5-hp-pump",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4550",
+      "name": "DAB SS6 A 11 5.5 HP Solar Submersible Pump",
+      "url": "https://powerplanet.pk/product/w11-4550",
+      "source": "https://w11stop.com/dab-ss6-a-11-5.5-hp-pump",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4549",
+      "name": "DAB S4 F18 7.5 HP Solar Submersible Pump",
+      "url": "https://powerplanet.pk/product/w11-4549",
+      "source": "https://w11stop.com/dab-s4-f18-7.5-hp-pump",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4574",
+      "name": "DAB SS8 B-2 B.2 25 HP Solar Submersible Pump",
+      "url": "https://powerplanet.pk/product/w11-4574",
+      "source": "https://w11stop.com/dab-ss7-b-2b.2-25-hp-pump",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4573",
+      "name": "DAB SS7 B-3 25 HP Solar Submersible Pump",
+      "url": "https://powerplanet.pk/product/w11-4573",
+      "source": "https://w11stop.com/dab-ss7-b-3-25-hp-pump",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4572",
+      "name": "DAB SS7 B-2 15 HP Solar Submersible Pump",
+      "url": "https://powerplanet.pk/product/w11-4572",
+      "source": "https://w11stop.com/dab-ss7-b-2-15-hp-pump",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4571",
+      "name": "DAB SS7 B-1 7.5 HP Solar Submersible Pump",
+      "url": "https://powerplanet.pk/product/w11-4571",
+      "source": "https://w11stop.com/dab-ss7-b-1-7.5-hp-pump",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4570",
+      "name": "DAB SS7 B-1 25 HP Solar Submersible Pump",
+      "url": "https://powerplanet.pk/product/w11-4570",
+      "source": "https://w11stop.com/dab-ss7-b-1-25-hp-pump",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4568",
+      "name": "DAB SS6 E10 25 HP Solar Submersible Pump",
+      "url": "https://powerplanet.pk/product/w11-4568",
+      "source": "https://w11stop.com/dab-ss6-e10-25-hp-pump",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4567",
+      "name": "DAB SS6 E8 20 HP Solar Submersible Pump",
+      "url": "https://powerplanet.pk/product/w11-4567",
+      "source": "https://w11stop.com/dab-ss6-e8-20-hp-pump",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4566",
+      "name": "DAB SS6 E5 12.5 HP Solar Submersible Pump",
+      "url": "https://powerplanet.pk/product/w11-4566",
+      "source": "https://w11stop.com/dab-ss6-e5-12.5-hp-pump",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4565",
+      "name": "DAB Solar Submersible Pump SS6 E4 (10 Hp)",
+      "url": "https://powerplanet.pk/product/w11-4565",
+      "source": "https://w11stop.com/dab-solar-submersible-pump-ss6-e4-10-hp",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4562",
+      "name": "DAB SS6 D13 30 HP Solar Submersible Pump",
+      "url": "https://powerplanet.pk/product/w11-4562",
+      "source": "https://w11stop.com/dab-ss6-d13-30-hp-pump",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4558",
+      "name": "DAB SS6 C10 12.5 HP Solar Submersible Pump",
+      "url": "https://powerplanet.pk/product/w11-4558",
+      "source": "https://w11stop.com/dab-ss6-c10-12.5-hp-pump",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4553",
+      "name": "DAB SS6 C4 Oil Cooled (30,000 less) 5.5 HP Solar Submersible Pump",
+      "url": "https://powerplanet.pk/product/w11-4553",
+      "source": "https://w11stop.com/dab-ss6-c4-5.5-hp-pump",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4552",
+      "name": "DAB SS6 B 10 7.5 HP Solar Submersible Pump",
+      "url": "https://powerplanet.pk/product/w11-4552",
+      "source": "https://w11stop.com/dab-ss6-b-10-7.5-hp-pump",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4542",
+      "name": "DAB S4 D 29 4 HP Solar Submersible Pump",
+      "url": "https://powerplanet.pk/product/w11-4542",
+      "source": "https://w11stop.com/dab-s4-d-29-4-hp-pump",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4541",
+      "name": "DAB S4 D 25 3 HP Solar Submersible Pump",
+      "url": "https://powerplanet.pk/product/w11-4541",
+      "source": "https://w11stop.com/dab-s4-d-25-3-hp-pump",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4539",
+      "name": "DAB S4 D 17 2 HP Solar Submersible Pump",
+      "url": "https://powerplanet.pk/product/w11-4539",
+      "source": "https://w11stop.com/dab-s4-d-17-2-hp-pump",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4537",
+      "name": "DAB S4 D 13 1.5 HP Solar Submersible Pump",
+      "url": "https://powerplanet.pk/product/w11-4537",
+      "source": "https://w11stop.com/dab-s4-d-13-pump",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4575",
+      "name": "DAB Cooling Linear For 4\" Solar Submersible Pump",
+      "url": "https://powerplanet.pk/product/w11-4575",
+      "source": "https://w11stop.com/dab-cooling-linear",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-5502",
+      "name": "SE All in One Solar Street Light 40 watt (Aluminum)",
+      "url": "https://powerplanet.pk/product/w11-5502",
+      "source": "https://w11stop.com/solar-street-light-40-watt",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-31489",
+      "name": "SE UFO Series 200 Solar Light 200W",
+      "url": "https://powerplanet.pk/product/w11-31489",
+      "source": "https://w11stop.com/se-ufo-200-solar-light",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-31486",
+      "name": "SE UFO Series 150 Solar Light 150W",
+      "url": "https://powerplanet.pk/product/w11-31486",
+      "source": "https://w11stop.com/se-ufo-150-solar-light",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-31485",
+      "name": "SE UFO Series 100 Solar Light 100W",
+      "url": "https://powerplanet.pk/product/w11-31485",
+      "source": "https://w11stop.com/se-ufo-100-solar-light",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-31494",
+      "name": "SE Super Smart AIO 80 Solar Light 80W 2 Chip",
+      "url": "https://powerplanet.pk/product/w11-31494",
+      "source": "https://w11stop.com/se-super-smart-aio-80-solar-light",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-31502",
+      "name": "SE Super Smart AIO 180 Solar Light 180W 6 Chip",
+      "url": "https://powerplanet.pk/product/w11-31502",
+      "source": "https://w11stop.com/se-super-smart-aio-180-solar-light",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-31501",
+      "name": "SE Super Smart AIO 150 Solar Light 150W 5 Chip",
+      "url": "https://powerplanet.pk/product/w11-31501",
+      "source": "https://w11stop.com/se-super-smart-aio-150-solar-light",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-31499",
+      "name": "SE Super Smart AIO 120 Solar Light 120W 4 Chip",
+      "url": "https://powerplanet.pk/product/w11-31499",
+      "source": "https://w11stop.com/se-super-smart-aio-120-solar-light",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-31500",
+      "name": "SE Super Smart AIO 100 Solar Light 100W 3 Chip",
+      "url": "https://powerplanet.pk/product/w11-31500",
+      "source": "https://w11stop.com/se-super-smart-aio-100-solar-light",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-31492",
+      "name": "SE Super Series 50 Solar Light 50W",
+      "url": "https://powerplanet.pk/product/w11-31492",
+      "source": "https://w11stop.com/se-super-50-solar-light",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-31498",
+      "name": "SE Super Series 100 Solar Light 100W",
+      "url": "https://powerplanet.pk/product/w11-31498",
+      "source": "https://w11stop.com/se-super-100-solar-light",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-31504",
+      "name": "SE SPY Series FL50 Flood Solar Light 50W",
+      "url": "https://powerplanet.pk/product/w11-31504",
+      "source": "https://w11stop.com/se-fl50-flood-solar-light",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-31507",
+      "name": "SE SPY Series FL300 Flood Solar Light 300W",
+      "url": "https://powerplanet.pk/product/w11-31507",
+      "source": "https://w11stop.com/se-fl300-flood-solar-light",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-31503",
+      "name": "SE SPY Series FL200 Flood Solar Light 200W",
+      "url": "https://powerplanet.pk/product/w11-31503",
+      "source": "https://w11stop.com/se-fl200-flood-solar-light",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-31505",
+      "name": "SE SPY Series FL150 Flood Solar Light 150W",
+      "url": "https://powerplanet.pk/product/w11-31505",
+      "source": "https://w11stop.com/se-fl150-flood-solar-light",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-31506",
+      "name": "SE SPY Series FL100 Flood Solar Light 100W",
+      "url": "https://powerplanet.pk/product/w11-31506",
+      "source": "https://w11stop.com/se-fl100-flood-solar-light",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-31484",
+      "name": "SE High Bay Series 200 Solar Light 200W",
+      "url": "https://powerplanet.pk/product/w11-31484",
+      "source": "https://w11stop.com/se-high-bay-200-solar-light",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-31482",
+      "name": "SE High Bay Series 150 Solar Light 150W",
+      "url": "https://powerplanet.pk/product/w11-31482",
+      "source": "https://w11stop.com/se-high-bay-150-solar-light",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-31481",
+      "name": "SE High Bay Series 100 Solar Light 50W",
+      "url": "https://powerplanet.pk/product/w11-31481",
+      "source": "https://w11stop.com/se-high-bay-100-solar-light",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-6893",
+      "name": "LED Solar Street Light 90 Watt",
+      "url": "https://powerplanet.pk/product/w11-6893",
+      "source": "https://w11stop.com/solar-street-light-90-watt",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-37330",
+      "name": "Sogo Smart Solar Led Street Light 60W",
+      "url": "https://powerplanet.pk/product/w11-37330",
+      "source": "https://w11stop.com/sogo-smart-solar-led-street-light-60w",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-6891",
+      "name": "LED Solar Street Light 60 Watt",
+      "url": "https://powerplanet.pk/product/w11-6891",
+      "source": "https://w11stop.com/street-light-60-watt",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-6890",
+      "name": "LED Solar Street Light 30 Watt",
+      "url": "https://powerplanet.pk/product/w11-6890",
+      "source": "https://w11stop.com/solar-street-light-30-watt",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-3950",
+      "name": "Solar Charge Controller 60 Amp – 12v/24v PWM",
+      "url": "https://powerplanet.pk/product/w11-3950",
+      "source": "https://w11stop.com/solar-charge-controller-60-amp",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-3949",
+      "name": "Solar Charge Controller 50 Amp – 12v/ 24v PWM",
+      "url": "https://powerplanet.pk/product/w11-3949",
+      "source": "https://w11stop.com/solar-charge-controller-50-amp",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-3947",
+      "name": "Solar Charge Controller 20 Amp – 12v/24v PWM",
+      "url": "https://powerplanet.pk/product/w11-3947",
+      "source": "https://w11stop.com/solar-charge-controller-20-amp",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-35419",
+      "name": "Tesla Geyser Adapter",
+      "url": "https://powerplanet.pk/product/w11-35419",
+      "source": "https://w11stop.com/tesla-geyser-adapter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-13895",
+      "name": "SunMaxx Solar Charge Controller 30A With Ampere Show Option",
+      "url": "https://powerplanet.pk/product/w11-13895",
+      "source": "https://w11stop.com/sunmaxx-solar-controller-30a",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-13893",
+      "name": "SunMaxx Solar Charge Controller 20A with 2 USB Port",
+      "url": "https://powerplanet.pk/product/w11-13893",
+      "source": "https://w11stop.com/sunmaxx-solar-controller-20a",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-3946",
+      "name": "Solar Charge Controller 10 Amp – 12v/24v PWM",
+      "url": "https://powerplanet.pk/product/w11-3946",
+      "source": "https://w11stop.com/solar-charge-controller-10-amp",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-3948",
+      "name": "Solar Charge Controller 30 Amp – 12v/24v PWM",
+      "url": "https://powerplanet.pk/product/w11-3948",
+      "source": "https://w11stop.com/solar-charge-controller-30-amp",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-16203",
+      "name": "ONYX Inverter Logger Wifi / Ethernet",
+      "url": "https://powerplanet.pk/product/w11-16203",
+      "source": "https://w11stop.com/onyx-inverter-logger-ethernet",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-16202",
+      "name": "ONYX Smart Meter / Zero Export Device 6KW-50KW",
+      "url": "https://powerplanet.pk/product/w11-16202",
+      "source": "https://w11stop.com/onyx-smart-meter-export-device",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-13266",
+      "name": "Tesla Parallel Kit MKS",
+      "url": "https://powerplanet.pk/product/w11-13266",
+      "source": "https://w11stop.com/tesla-parallel-kit-mks",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-26418",
+      "name": "Huawei Smart Power Sensor",
+      "url": "https://powerplanet.pk/product/w11-26418",
+      "source": "https://w11stop.com/huawei-smart-power-sensor",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-31097",
+      "name": "Solis Smart Energy Meter",
+      "url": "https://powerplanet.pk/product/w11-31097",
+      "source": "https://w11stop.com/solis-smart-energy-meter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-24016",
+      "name": "Solis Single Phase Smart Energy Meter",
+      "url": "https://powerplanet.pk/product/w11-24016",
+      "source": "https://w11stop.com/index.php?route=product/product&product_id=24016",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-24015",
+      "name": "Solis EPM3-2 Export Power Manager",
+      "url": "https://powerplanet.pk/product/w11-24015",
+      "source": "https://w11stop.com/solis-epm3-2-power-manager",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-24017",
+      "name": "Solis DLB-W Data Logging Box",
+      "url": "https://powerplanet.pk/product/w11-24017",
+      "source": "https://w11stop.com/solis-dlb-w-data-logging-box",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-26386",
+      "name": "Knox Single Phase Smart Meter With Zero Export Device",
+      "url": "https://powerplanet.pk/product/w11-26386",
+      "source": "https://w11stop.com/knox-single-phase-smart-meter-export-device",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-15822",
+      "name": "Inverex Smart Meter 3PH 80 Amp",
+      "url": "https://powerplanet.pk/product/w11-15822",
+      "source": "https://w11stop.com/inverex-smart-meter-3ph",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4454",
+      "name": "SAJ VFD Drive 7.5 KW Solar Pump Inverter",
+      "url": "https://powerplanet.pk/product/w11-4454",
+      "source": "https://w11stop.com/saj-vfd-drive-7.5kw",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4453",
+      "name": "SAJ VFD Drive 5.5 KW Solar Pump Inverter",
+      "url": "https://powerplanet.pk/product/w11-4453",
+      "source": "https://w11stop.com/saj-vfd-drive-5.5kw",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4452",
+      "name": "SAJ VFD Drive 4 KW Solar Pump Inverter",
+      "url": "https://powerplanet.pk/product/w11-4452",
+      "source": "https://w11stop.com/saj-vfd-drive-4kw",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4461",
+      "name": "SAJ VFD Drive 37 KW Solar Pump Inverter",
+      "url": "https://powerplanet.pk/product/w11-4461",
+      "source": "https://w11stop.com/saj-vfd-drives-37-kw-solar-pump-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4460",
+      "name": "SAJ VFD Drive 30 KW Solar Pump Inverter",
+      "url": "https://powerplanet.pk/product/w11-4460",
+      "source": "https://w11stop.com/maxpower-vfd-drives-30-kw-solar-pump-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4459",
+      "name": "SAJ VFD Drive 22 KW Solar Pump Inverter",
+      "url": "https://powerplanet.pk/product/w11-4459",
+      "source": "https://w11stop.com/saj-vfd-drives-22-kw-solar-pump-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4458",
+      "name": "SAJ VFD Drive 18.5 KW Solar Pump Inverter",
+      "url": "https://powerplanet.pk/product/w11-4458",
+      "source": "https://w11stop.com/saj-vfd-drives-18.5-kw-solar-pump-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4457",
+      "name": "SAJ VFD Drive 15 KW Solar Pump Inverter",
+      "url": "https://powerplanet.pk/product/w11-4457",
+      "source": "https://w11stop.com/saj-vfd-drives-15-kw-solar-pump-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4455",
+      "name": "SAJ VFD Drive 11 KW Solar Pump Inverter",
+      "url": "https://powerplanet.pk/product/w11-4455",
+      "source": "https://w11stop.com/saj-vfd-drive-11kw",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-23705",
+      "name": "SAJ VFD Drive 55KW  Solar Pump Inverter",
+      "url": "https://powerplanet.pk/product/w11-23705",
+      "source": "https://w11stop.com/saj-vfd-drive-55kw-solar-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4619",
+      "name": "JFY 7.5 KW 400 V-3 Phase AC Solar Pump Inverter",
+      "url": "https://powerplanet.pk/product/w11-4619",
+      "source": "https://w11stop.com/jfy-7.5-kw-400-v3-phase-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4618",
+      "name": "JFY 5.5 KW 400 V-3 Phase AC Solar Pump Inverter",
+      "url": "https://powerplanet.pk/product/w11-4618",
+      "source": "https://w11stop.com/jfy-5.5-kw-400-v3-phase-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-10869",
+      "name": "Hyundai N700E-075HF Inverter 7.5KW / 10HP",
+      "url": "https://powerplanet.pk/product/w11-10869",
+      "source": "https://w11stop.com/hyundai-n700e-075hf-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-40016",
+      "name": "8kW Solis Solar Combo Deals (8kw + 16kWh)",
+      "url": "https://powerplanet.pk/product/w11-40016",
+      "source": "https://w11stop.com/8kw-solis-solar-combo-deals",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-40004",
+      "name": "8kW Knox Solar Combo Deals (8kW + 16.0kWh)",
+      "url": "https://powerplanet.pk/product/w11-40004",
+      "source": "https://w11stop.com/8kw-knox-solar-combo-deals-8kw-16kwh",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-39997",
+      "name": "8kW Knox Solar Combo Deal (8kW + 5.12kWh)",
+      "url": "https://powerplanet.pk/product/w11-39997",
+      "source": "https://w11stop.com/8kw-knox-solar-combo-deal-8kw-5-12kwh",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-40011",
+      "name": "8kW Knox Solar Combo Deal (8kW + 32kWh)",
+      "url": "https://powerplanet.pk/product/w11-40011",
+      "source": "https://w11stop.com/8kw-knox-solar-combo-deal-8kw-32kwh",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-40005",
+      "name": "8.5kW Knox Solar Combo Deals (8.5kW + 16.0kWh)",
+      "url": "https://powerplanet.pk/product/w11-40005",
+      "source": "https://w11stop.com/8-5kw-knox-solar-combo-deals-8-5kw-16-0kwh",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-39998",
+      "name": "8.5kW Knox Solar Combo Deal (8.5kW + 5.12kWh)",
+      "url": "https://powerplanet.pk/product/w11-39998",
+      "source": "https://w11stop.com/8-5kw-knox-solar-combo-deal-8-5kw-5-12kwh",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-40012",
+      "name": "8.5kW Knox Solar Combo Deal (8.5kW + 32kWh)",
+      "url": "https://powerplanet.pk/product/w11-40012",
+      "source": "https://w11stop.com/8-5kw-knox-solar-combo-deal-8-5kw-32kwh",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-40018",
+      "name": "6kW Solis Solar Combo Deals (6kW + 5.12kW)",
+      "url": "https://powerplanet.pk/product/w11-40018",
+      "source": "https://w11stop.com/6kw-solis-solar-combo-deals",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-40015",
+      "name": "6kW Solis Solar Combo Deal (6kW + 16kWh)",
+      "url": "https://powerplanet.pk/product/w11-40015",
+      "source": "https://w11stop.com/6kw-solis-solar-combo-deal-6kw-16kwh",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-40010",
+      "name": "6.5kW Knox Solar Combo Deal (6.5kW + 32kWh)",
+      "url": "https://powerplanet.pk/product/w11-40010",
+      "source": "https://w11stop.com/6-5kw-knox-solar-combo-deal-6-5kw-32kwh",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-40003",
+      "name": "6.5kW Knox Solar Combo Deal (6.5kW + 16.0kWh)",
+      "url": "https://powerplanet.pk/product/w11-40003",
+      "source": "https://w11stop.com/6-5kw-knox-solar-combo-deal-5-6kw-16.0kwh",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-40110",
+      "name": "6.2kW Ziewnic Solar Combo Deal 6.2kW + 5.12kWh",
+      "url": "https://powerplanet.pk/product/w11-40110",
+      "source": "https://w11stop.com/6.2kw-ziewnic-solar-combo-deal-6.2kw-5-12kwh",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-40009",
+      "name": "6.2kW Knox Solar Combo Deals (6.2kW +32kWh)",
+      "url": "https://powerplanet.pk/product/w11-40009",
+      "source": "https://w11stop.com/6-2kw-knox-solar-combo-deals-6-2kw-32kwh",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-40002",
+      "name": "6.2kW Knox Solar Combo Deals (6.2kW + 16.0kWH)",
+      "url": "https://powerplanet.pk/product/w11-40002",
+      "source": "https://w11stop.com/6-2kw-knox-solar-combo-deals-6-2kw-16-0-kwh",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-40008",
+      "name": "6.2kW Knox Solar Combo Deal (6.2kW + 32kWh)",
+      "url": "https://powerplanet.pk/product/w11-40008",
+      "source": "https://w11stop.com/6-2kw-knox-solar-combo-deal-6-2kw-32kwh",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-40001",
+      "name": "6.2kW Knox Solar Combo Deal (6.2kW + 16.0kWh)",
+      "url": "https://powerplanet.pk/product/w11-40001",
+      "source": "https://w11stop.com/6-2kw-knox-solar-combo-deal-6-2kw-16-0-kwh",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-40111",
+      "name": "4.2kW Ziewnic Solar Combo Deal 4.2kW + 2.56kWh",
+      "url": "https://powerplanet.pk/product/w11-40111",
+      "source": "https://w11stop.com/4-2kw-ziewnic-solar-combo-deal-4-2kw-2-56kwh",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-40000",
+      "name": "11.5kW Knox Solar Combo Deal (11.5kW + 5.12kWh)",
+      "url": "https://powerplanet.pk/product/w11-40000",
+      "source": "https://w11stop.com/11-5kw-knox-solar-combo-deal-11-5kw-5-12kwh",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-40014",
+      "name": "11.5kW Knox Solar Combo Deal (11.5kW + 32kWh)",
+      "url": "https://powerplanet.pk/product/w11-40014",
+      "source": "https://w11stop.com/11-5kw-knox-solar-combo-deal-11-5kw-32kwh",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-40007",
+      "name": "11.5kW Knox Solar Combo Deal (11.5kW + 16kWh)",
+      "url": "https://powerplanet.pk/product/w11-40007",
+      "source": "https://w11stop.com/11-5kw-knox-solar-combo-deals-11-5kw-16kwh",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-40017",
+      "name": "10kW Solis Solar Combo Deals (10kW + 16kWh)",
+      "url": "https://powerplanet.pk/product/w11-40017",
+      "source": "https://w11stop.com/10kw-solis-solar-combo-deals",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-40006",
+      "name": "10kW Knox Solar Combo Deals (10kW + 16.0kWh)",
+      "url": "https://powerplanet.pk/product/w11-40006",
+      "source": "https://w11stop.com/10kw-knox-solar-combo-deals-10kw-16-0kwh",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-39999",
+      "name": "10kW Knox Solar Combo Deal (10kW + 5.12kWh)",
+      "url": "https://powerplanet.pk/product/w11-39999",
+      "source": "https://w11stop.com/10kwh-knox-solar-combo-deal-10kw-5-12kwh",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-40013",
+      "name": "10kW Knox Solar Combo Deal (10kW + 32kWh)",
+      "url": "https://powerplanet.pk/product/w11-40013",
+      "source": "https://w11stop.com/10kw-knox-solar-combo-deal-10kw-32kwh",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-39752",
+      "name": "Ziewnic Lenox 16kW PV20000 Three Phase Hybrid Solar Inverter IP65",
+      "url": "https://powerplanet.pk/product/w11-39752",
+      "source": "https://w11stop.com/ziewnic-lenox-16kw-pv20000-three-phase-hybrid-solar-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-27285",
+      "name": "NRE N1220 MPPT 1200VA Hybrid Solar Inverter",
+      "url": "https://powerplanet.pk/product/w11-27285",
+      "source": "https://w11stop.com/nre-n1220-hybrid-solar-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-39774",
+      "name": "Maxpower Voltas HYD-40kW-H6 HV Hybrid Solar Inverter",
+      "url": "https://powerplanet.pk/product/w11-39774",
+      "source": "https://w11stop.com/maxpower-voltas-hyd-40kw-h6-hv-hybrid-solar-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-32924",
+      "name": "Inverex Yukon II 3.5KW Hybrid Solar Inverter",
+      "url": "https://powerplanet.pk/product/w11-32924",
+      "source": "https://w11stop.com/inverex-yukon-ii-3500-solar-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-15841",
+      "name": "SOFAR 30KW Three Phase On Grid Solar Inverter (10 Years Warranty)",
+      "url": "https://powerplanet.pk/product/w11-15841",
+      "source": "https://w11stop.com/sofar-30kw-three-phase-on-grid-solar-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-7389",
+      "name": "Solis 60KW On Grid Solar Inverter",
+      "url": "https://powerplanet.pk/product/w11-7389",
+      "source": "https://w11stop.com/solis-60kw-on-grid-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-12620",
+      "name": "Solis 5kW On Grid Solar Inverter",
+      "url": "https://powerplanet.pk/product/w11-12620",
+      "source": "https://w11stop.com/solis-5kw-on-grid-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-7388",
+      "name": "Solis 50kW On Grid Solar Inverter",
+      "url": "https://powerplanet.pk/product/w11-7388",
+      "source": "https://w11stop.com/solis-50kw-on-grid-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-7385",
+      "name": "Solis 30kW On-Grid Solar Inverter",
+      "url": "https://powerplanet.pk/product/w11-7385",
+      "source": "https://w11stop.com/solis-30kw-on-grid-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-7382",
+      "name": "Solis 25kW On Grid Solar Inverter",
+      "url": "https://powerplanet.pk/product/w11-7382",
+      "source": "https://w11stop.com/solis-25kw-on-grid-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-15992",
+      "name": "SOLIS 20KW On Grid Solar Inverter",
+      "url": "https://powerplanet.pk/product/w11-15992",
+      "source": "https://w11stop.com/solis-20-kw-3p-on-grid-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-7379",
+      "name": "Solis 15kW On Grid Solar Inverter",
+      "url": "https://powerplanet.pk/product/w11-7379",
+      "source": "https://w11stop.com/solis-15kw-3p-on-grid-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-7367",
+      "name": "Solis 10kW On Grid Solar Inverter",
+      "url": "https://powerplanet.pk/product/w11-7367",
+      "source": "https://w11stop.com/solis-10kw-on-grid-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-6261",
+      "name": "SAJ Sununo Plus 5Kw On-Grid Single Phase Solar Inverter",
+      "url": "https://powerplanet.pk/product/w11-6261",
+      "source": "https://w11stop.com/saj-sununo-plus-5kw-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-6281",
+      "name": "SAJ 50Kw 2MPPT 3 Phase Grid Tied Inverter",
+      "url": "https://powerplanet.pk/product/w11-6281",
+      "source": "https://w11stop.com/saj-50kw-grid-tied-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-6278",
+      "name": "SAJ 33Kw 2MPPT 3 Phase Grid Tied Inverter",
+      "url": "https://powerplanet.pk/product/w11-6278",
+      "source": "https://w11stop.com/saj-33kw-grid-tied-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-6276",
+      "name": "SAJ 25Kw 2MPPT 3 Phase Grid Tied Inverter",
+      "url": "https://powerplanet.pk/product/w11-6276",
+      "source": "https://w11stop.com/saj-25kw-grid-tied-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-6273",
+      "name": "SAJ 20Kw 2MPPT 3 Phase Grid Tied Inverter",
+      "url": "https://powerplanet.pk/product/w11-6273",
+      "source": "https://w11stop.com/saj-20kw-grid-tied-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-6271",
+      "name": "SAJ 10Kw 2MPPT 3 Phase Grid Tied Inverter",
+      "url": "https://powerplanet.pk/product/w11-6271",
+      "source": "https://w11stop.com/saj-10kw-grid-tied-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-39571",
+      "name": "MaxPower Voltas 6kw Single Phase On Grid Inverter",
+      "url": "https://powerplanet.pk/product/w11-39571",
+      "source": "https://w11stop.com/maxpower-voltas-6kw-single-phase-on-grid-inverter-price-in-pakistan",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-39578",
+      "name": "Maxpower Voltas 60kW Three Phase On Grid Solar Inverter (5 Years Warranty)",
+      "url": "https://powerplanet.pk/product/w11-39578",
+      "source": "https://w11stop.com/maxower-voltas-60kw-three-phase-on-grid-solar-inverter-price-in-pakistan",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-39572",
+      "name": "Maxpower Voltas 10kW Three Phase On grid Solar Inverter (5 Years Warranty)",
+      "url": "https://powerplanet.pk/product/w11-39572",
+      "source": "https://w11stop.com/maxpower-voltas-10kw-three-phase-on-grid-inverter-price-in-pakistan",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-23814",
+      "name": "KNOX AWS 50k-LT Anti Reverse Smart Meter/Home upto 4 units Manager",
+      "url": "https://powerplanet.pk/product/w11-23814",
+      "source": "https://w11stop.com/knox-aws-50k-lt-anti-reverse-smart-meter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-26383",
+      "name": "Knox 6kW G2 On Grid Solar Inverter",
+      "url": "https://powerplanet.pk/product/w11-26383",
+      "source": "https://w11stop.com/knox-6kw-on-grid-solar-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-35450",
+      "name": "Sineng 30 kW On-Grid Three Phase Solar Inverter",
+      "url": "https://powerplanet.pk/product/w11-35450",
+      "source": "https://w11stop.com/sineng-30-kw-on-grid-solar-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-35449",
+      "name": "Sineng 25 kW On-Grid Three Phase Solar Inverter",
+      "url": "https://powerplanet.pk/product/w11-35449",
+      "source": "https://w11stop.com/sineng-25-kw-on-grid-solar-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-35448",
+      "name": "Sineng 20 kW On-Grid Three Phase Solar Inverter",
+      "url": "https://powerplanet.pk/product/w11-35448",
+      "source": "https://w11stop.com/sineng-20-kw-on-grid-solar-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-35447",
+      "name": "Sineng 15 kW On-Grid Three Phase Solar Inverter",
+      "url": "https://powerplanet.pk/product/w11-35447",
+      "source": "https://w11stop.com/sineng-15-kw-on-grid-solar-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-35446",
+      "name": "Sineng 12 kW On-Grid Three Phase Solar Inverter",
+      "url": "https://powerplanet.pk/product/w11-35446",
+      "source": "https://w11stop.com/sineng-12-kw-on-grid-solar-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-35445",
+      "name": "Sineng 10 kW On-Grid Three Phase Solar Inverter",
+      "url": "https://powerplanet.pk/product/w11-35445",
+      "source": "https://w11stop.com/sineng-10-kw-on-grid-solar-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-9797",
+      "name": "SMA 6Kw On-Grid Inverter [STP 6000TL]",
+      "url": "https://powerplanet.pk/product/w11-9797",
+      "source": "https://w11stop.com/sma-6kw-on-grid-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-16200",
+      "name": "ONYX 35KW 5G Series On-Grid Inverter SM-35K-G3P",
+      "url": "https://powerplanet.pk/product/w11-16200",
+      "source": "https://w11stop.com/onyx-35kw-5g-on-grid-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-9799",
+      "name": "SMA 25Kw On-Grid Inverter [STP 25000TL]",
+      "url": "https://powerplanet.pk/product/w11-9799",
+      "source": "https://w11stop.com/sma-25kw-on-grid-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-16196",
+      "name": "ONYX 12KW 5G Series On-Grid Inverter SM-12K-G3P",
+      "url": "https://powerplanet.pk/product/w11-16196",
+      "source": "https://w11stop.com/onyx-12kw-5g-on-grid-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-9800",
+      "name": "SMA 20Kw On-Grid Inverter [STP 20000TL]",
+      "url": "https://powerplanet.pk/product/w11-9800",
+      "source": "https://w11stop.com/sma-20kw-on-grid-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-16194",
+      "name": "ONYX 8KW 5G Series On-Grid Inverter SM-8K-G3P",
+      "url": "https://powerplanet.pk/product/w11-16194",
+      "source": "https://w11stop.com/onyx-8kw-5g-on-grid-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-16193",
+      "name": "ONYX 6KW 5G Series On-Grid Inverter SM-6K-G3P",
+      "url": "https://powerplanet.pk/product/w11-16193",
+      "source": "https://w11stop.com/onyx-6kw-5g-on-grid-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-15840",
+      "name": "SOFAR 24kW Three Phase On Grid Solar Inverter ( 10 Years Warranty)",
+      "url": "https://powerplanet.pk/product/w11-15840",
+      "source": "https://w11stop.com/sofar-24kw-three-phase-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-9801",
+      "name": "SMA 10Kw On-Grid Inverter [STP 10000TL]",
+      "url": "https://powerplanet.pk/product/w11-9801",
+      "source": "https://w11stop.com/sma-10kw-on-grid-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-15839",
+      "name": "SOFAR 20kW Three Phase On Grid Solar Inverter (10 Years Warranty)",
+      "url": "https://powerplanet.pk/product/w11-15839",
+      "source": "https://w11stop.com/sofar-three-phase-on-grid-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-15843",
+      "name": "SOFAR 50kW Three Phase On Grid Solar Inverter (10 Years Warranty)",
+      "url": "https://powerplanet.pk/product/w11-15843",
+      "source": "https://w11stop.com/sofar-50000tl-three-phase-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-15842",
+      "name": "SOFAR 40000TL Three Phase Inverter",
+      "url": "https://powerplanet.pk/product/w11-15842",
+      "source": "https://w11stop.com/sofar-40000tl-three-phase-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-16026",
+      "name": "Sungrow 33 KW On-grid Solar Inverter",
+      "url": "https://powerplanet.pk/product/w11-16026",
+      "source": "https://w11stop.com/sungrow-sg33cx-string-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-16182",
+      "name": "Sungrow 5 KW On-grid Solar Inverter",
+      "url": "https://powerplanet.pk/product/w11-16182",
+      "source": "https://w11stop.com/sungrow-5-kw-on-grid-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-39841",
+      "name": "Fronus LV 8kW IP65 Hybrid Solar Inverter",
+      "url": "https://powerplanet.pk/product/w11-39841",
+      "source": "https://w11stop.com/fronus-lv-8kw-ip65-hybrid-solar-inverter-price-in-pakistan",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-23698",
+      "name": "SOFAR GTX 3000-H4 10KWh Hybrid Inverter Solar Battery",
+      "url": "https://powerplanet.pk/product/w11-23698",
+      "source": "https://w11stop.com/sofar-gtx-3000-h4-solar-battery",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-32110",
+      "name": "Solax 110Kw On-Grid Solar Inverter",
+      "url": "https://powerplanet.pk/product/w11-32110",
+      "source": "https://w11stop.com/solax-110kw-on-grid-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-32109",
+      "name": "Solax 100Kw On-Grid Solar Inverter",
+      "url": "https://powerplanet.pk/product/w11-32109",
+      "source": "https://w11stop.com/solax-100kw-on-grid-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-32107",
+      "name": "Solax 60Kw On-Grid Solar Inverter",
+      "url": "https://powerplanet.pk/product/w11-32107",
+      "source": "https://w11stop.com/solax-60kw-on-grid-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-32105",
+      "name": "Solax 50Kw On-Grid Solar Inverter",
+      "url": "https://powerplanet.pk/product/w11-32105",
+      "source": "https://w11stop.com/solax-50kw-on-grid-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4482",
+      "name": "Solax 30Kw On-Grid Solar Inverter",
+      "url": "https://powerplanet.pk/product/w11-4482",
+      "source": "https://w11stop.com/solax-30kw-on-grid-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4483",
+      "name": "Solax 25Kw On-Grid Solar Inverter",
+      "url": "https://powerplanet.pk/product/w11-4483",
+      "source": "https://w11stop.com/solax-25kw-on-grid-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4481",
+      "name": "Solax 20Kw On-Grid Solar Inverter",
+      "url": "https://powerplanet.pk/product/w11-4481",
+      "source": "https://w11stop.com/solax-20kw-on-grid-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4480",
+      "name": "Solax 15Kw On-Grid Solar Inverter",
+      "url": "https://powerplanet.pk/product/w11-4480",
+      "source": "https://w11stop.com/solax-15kw-on-grid-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4479",
+      "name": "Solax 10Kw On-Grid Solar Inverter",
+      "url": "https://powerplanet.pk/product/w11-4479",
+      "source": "https://w11stop.com/solax-10kw-on-grid-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-4477",
+      "name": "Solax 5Kw On-Grid Solar Inverter",
+      "url": "https://powerplanet.pk/product/w11-4477",
+      "source": "https://w11stop.com/solax-5kw-on-grid-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-3217",
+      "name": "Growatt 100Kw On Grid Solar Inverter",
+      "url": "https://powerplanet.pk/product/w11-3217",
+      "source": "https://w11stop.com/growatt-100kw-on-grid-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-32240",
+      "name": "Growatt 60Kw On Grid Solar Inverter",
+      "url": "https://powerplanet.pk/product/w11-32240",
+      "source": "https://w11stop.com/growatt-60kw-on-grid-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-16201",
+      "name": "ONYX 50KW 5G Series On-Grid Inverter SM-50K-G3P",
+      "url": "https://powerplanet.pk/product/w11-16201",
+      "source": "https://w11stop.com/onyx-50kw-5g-on-grid-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-3220",
+      "name": "Growatt 50Kw On Grid Solar Inverter",
+      "url": "https://powerplanet.pk/product/w11-3220",
+      "source": "https://w11stop.com/growatt-50kw-on-grid-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-16199",
+      "name": "ONYX 25KW 5G Series On-Grid Inverter SM-25K-G3P",
+      "url": "https://powerplanet.pk/product/w11-16199",
+      "source": "https://w11stop.com/onyx-25kw-5g-on-grid-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-16198",
+      "name": "ONYX 20KW 5G Series On-Grid Inverter SM-20K-G3P",
+      "url": "https://powerplanet.pk/product/w11-16198",
+      "source": "https://w11stop.com/onyx-20kw-5g-on-grid-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-3221",
+      "name": "Growatt 20Kw On Grid Solar Inverter",
+      "url": "https://powerplanet.pk/product/w11-3221",
+      "source": "https://w11stop.com/tesla-growatt-20kw-on-grid-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-16197",
+      "name": "ONYX 15KW 5G Series On-Grid Inverter SM-15K-G3P",
+      "url": "https://powerplanet.pk/product/w11-16197",
+      "source": "https://w11stop.com/onyx-15kw-5g-on-grid-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-16195",
+      "name": "ONYX 10KW On-Grid Inverter",
+      "url": "https://powerplanet.pk/product/w11-16195",
+      "source": "https://w11stop.com/onyx-10kw-on-grid-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-37312",
+      "name": "SAKO SUNPOLO 6KW Hybrid Solar Inverter",
+      "url": "https://powerplanet.pk/product/w11-37312",
+      "source": "https://w11stop.com/sako-sunpolo-6kw-hybrid-solar-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-39817",
+      "name": "Crown Solar Energy Yorker 6.6kW IP54 Hybrid Solar Inverter",
+      "url": "https://powerplanet.pk/product/w11-39817",
+      "source": "https://w11stop.com/crown-solar-energy-yorker-6-6kw-ip54-hybrid-solar-inverter",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-39604",
+      "name": "Itel Power Tank 500W AIO + 1000Wh Battery",
+      "url": "https://powerplanet.pk/product/w11-39604",
+      "source": "https://w11stop.com/itel-power-tank-500w-aio-1000wh-battery-price-in-pakistan",
+      "notes": [
+        "Possible name/spec power mismatch: name 500W, specs 1000W. Manual check required; heuristic, not an automatic correction."
+      ]
+    },
+    {
+      "id": "w11-39878",
+      "name": "EcoFlow DELTA 3 Ultra Portable Power Station (3072Wh)",
+      "url": "https://powerplanet.pk/product/w11-39878",
+      "source": "https://w11stop.com/ecoflow-delta-3-ultra-portable-power-station",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-39826",
+      "name": "EcoFlow DELTA 3 Portable Power Station (UPS)",
+      "url": "https://powerplanet.pk/product/w11-39826",
+      "source": "https://w11stop.com/ecoflow-delta-3-portable-power-station-ups",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-24424",
+      "name": "Trina 590W Mono Perc Solar Panel",
+      "url": "https://powerplanet.pk/product/w11-24424",
+      "source": "https://w11stop.com/trina-590w-mono-perc-solar-panel",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation.",
+        "Possible name/spec power mismatch: name 590W, specs 450W. Manual check required; heuristic, not an automatic correction."
+      ]
+    },
+    {
+      "id": "w11-24425",
+      "name": "Trina 600W Bi-Facial N Type Mono Solar Panel",
+      "url": "https://powerplanet.pk/product/w11-24425",
+      "source": "https://w11stop.com/trina-595w-bi-facial-mono-solar-panel",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation.",
+        "Possible name/spec power mismatch: name 600W, specs 485W. Manual check required; heuristic, not an automatic correction."
+      ]
+    },
+    {
+      "id": "w11-24430",
+      "name": "LONGI 550W Mono Perc Solar Panel",
+      "url": "https://powerplanet.pk/product/w11-24430",
+      "source": "https://w11stop.com/longi-550w-mono-perc-solar-panel",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation.",
+        "Possible name/spec power mismatch: name 550W, specs 545W. Manual check required; heuristic, not an automatic correction."
+      ]
+    },
+    {
+      "id": "w11-33216",
+      "name": "LONGI 585W Mono Perc Solar Panel",
+      "url": "https://powerplanet.pk/product/w11-33216",
+      "source": "https://w11stop.com/longi-585w-himo-6-mono-solar-panel",
+      "notes": [
+        "Possible name/spec power mismatch: name 585W, specs 580W. Manual check required; heuristic, not an automatic correction."
+      ]
+    },
+    {
+      "id": "w11-24035",
+      "name": "Jinko 560watt Mono Perc Solar Panel",
+      "url": "https://powerplanet.pk/product/w11-24035",
+      "source": "https://w11stop.com/jinko-550w-solar-panel",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-24034",
+      "name": "Jinko 585W N Type Bificial Solar Panel",
+      "url": "https://powerplanet.pk/product/w11-24034",
+      "source": "https://w11stop.com/jinko-585watt-n-type-bifacial-solar-panel",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation."
+      ]
+    },
+    {
+      "id": "w11-24422",
+      "name": "Canadian Solar 570W BI-FACIAL N Type Solar Panel",
+      "url": "https://powerplanet.pk/product/w11-24422",
+      "source": "https://w11stop.com/canadian-570w-mono-perc-solar-panel",
+      "notes": [
+        "Description under 80 characters; expand only from verified model documentation.",
+        "Possible name/spec power mismatch: name 570W, specs 655W. Manual check required; heuristic, not an automatic correction."
+      ]
+    },
+    {
+      "id": "w11-35462",
+      "name": "Astronergy 585W N-Type Bi-Facial PV Module",
+      "url": "https://powerplanet.pk/product/w11-35462",
+      "source": "https://w11stop.com/astronergy-580w-n-type-solar-panel",
+      "notes": [
+        "Possible name/spec power mismatch: name 585W, specs 580W. Manual check required; heuristic, not an automatic correction."
+      ]
+    }
+  ],
+  "duplicateDescriptions": [
+    [
+      "w11-39965",
+      "w11-39964"
+    ],
+    [
+      "w11-39902",
+      "w11-39900",
+      "w11-39899",
+      "w11-39898"
+    ],
+    [
+      "w11-26981",
+      "w11-26989"
+    ],
+    [
+      "w11-25548",
+      "w11-6668",
+      "w11-6671",
+      "w11-25550"
+    ],
+    [
+      "w11-4554",
+      "w11-4555",
+      "w11-4549",
+      "w11-4571",
+      "w11-4552"
+    ],
+    [
+      "w11-4557",
+      "w11-4556"
+    ],
+    [
+      "w11-32325",
+      "w11-32324"
+    ],
+    [
+      "w11-32322",
+      "w11-32321"
+    ],
+    [
+      "w11-4550",
+      "w11-4553"
+    ],
+    [
+      "w11-4574",
+      "w11-4573",
+      "w11-4570",
+      "w11-4568"
+    ],
+    [
+      "w11-4566",
+      "w11-4558"
+    ],
+    [
+      "w11-4551",
+      "w11-4564",
+      "w11-4561"
+    ],
+    [
+      "w11-4546",
+      "w11-4548"
+    ],
+    [
+      "w11-6893",
+      "w11-6891",
+      "w11-6890"
+    ],
+    [
+      "w11-36786",
+      "w11-36785",
+      "w11-36783"
+    ],
+    [
+      "w11-37192",
+      "w11-37201",
+      "w11-37200",
+      "w11-37196"
+    ],
+    [
+      "w11-10898",
+      "w11-10897"
+    ],
+    [
+      "w11-35476",
+      "w11-35475"
+    ],
+    [
+      "w11-38555",
+      "w11-38556"
+    ],
+    [
+      "w11-39943",
+      "w11-39942",
+      "w11-39941",
+      "w11-39940",
+      "w11-39939"
+    ],
+    [
+      "w11-7389",
+      "w11-7388",
+      "w11-7385",
+      "w11-7382",
+      "w11-15992",
+      "w11-7379"
+    ],
+    [
+      "w11-12620",
+      "w11-35450",
+      "w11-35449",
+      "w11-35448",
+      "w11-35447",
+      "w11-35446",
+      "w11-35445",
+      "w11-32110",
+      "w11-32109",
+      "w11-32107",
+      "w11-32105",
+      "w11-4483"
+    ],
+    [
+      "w11-32895",
+      "w11-32881"
+    ],
+    [
+      "w11-32894",
+      "w11-32886"
+    ],
+    [
+      "w11-32890",
+      "w11-32892"
+    ],
+    [
+      "w11-32884",
+      "w11-32888"
+    ],
+    [
+      "w11-32897",
+      "w11-32893",
+      "w11-32891"
+    ],
+    [
+      "w11-39924",
+      "w11-39923"
+    ],
+    [
+      "w11-15819",
+      "w11-15820"
+    ],
+    [
+      "w11-35473",
+      "w11-35472"
+    ],
+    [
+      "w11-39975",
+      "w11-39976"
+    ],
+    [
+      "w11-4471",
+      "w11-4475",
+      "w11-4474",
+      "w11-4473",
+      "w11-4472"
+    ],
+    [
+      "w11-3217",
+      "w11-32240",
+      "w11-3220"
+    ],
+    [
+      "w11-15510",
+      "w11-15507"
+    ],
+    [
+      "w11-39598",
+      "w11-39485"
+    ]
+  ]
+}

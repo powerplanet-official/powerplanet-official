@@ -5,7 +5,7 @@ import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import assert from 'node:assert/strict';
 const temp=mkdtempSync(join(tmpdir(),'powerplanet-browser-'));
-const env={...process.env,DB_PATH:join(temp,'store.sqlite'),PORT:'3006',API_PORT:'4000',ADMIN_EMAIL:'browser@example.com',ADMIN_PASSWORD:'Browser-testing-password-2026',SECURE_COOKIES:'false'};
+const env={...process.env,DB_PATH:join(temp,'store.sqlite'),PORT:'3006',API_PORT:'4000',BACKEND_URL:'http://127.0.0.1:4000',ADMIN_EMAIL:'browser@example.com',ADMIN_PASSWORD:'Browser-testing-password-2026',SECURE_COOKIES:'false'};
 const created=spawnSync(process.execPath,['scripts/create-admin.mjs'],{env,encoding:'utf8'});if(created.status!==0)throw Error(created.stderr);
 const proc=spawn(process.execPath,['scripts/start.mjs'],{env,stdio:['ignore','pipe','pipe']});let logs='';proc.stdout.on('data',b=>logs+=b);proc.stderr.on('data',b=>logs+=b);
 let browser;

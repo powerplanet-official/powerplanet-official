@@ -79,7 +79,14 @@ export function ListingCard({ p, add, wish, compare, wished, compared, inquiry }
           {imageError ? (
             <span className="photo-unavailable">Product photo unavailable</span>
           ) : (
-            <img src={p.image} alt={p.name} loading="lazy" onError={() => setImageError(true)} />
+            <img
+              src={p.image}
+              alt={p.name}
+              width="500"
+              height="500"
+              loading="lazy"
+              onError={() => setImageError(true)}
+            />
           )}
         </Link>
         <div className="reference-card-actions">
@@ -190,6 +197,12 @@ export default function SolarCatalog({
     ['min', 'max', 'page'].forEach((key) => next.delete(key));
     setPendingQuery(next.toString());
     router.push(`${pathname}${next.size ? '?' + next : ''}`, { scroll: false });
+  }
+  function pageHref(page) {
+    const next = new URLSearchParams(params);
+    next.delete('page');
+    if (page > 1) next.set('page', String(page));
+    return `${pathname}${next.size ? `?${next}` : ''}`;
   }
   const root = category?.parentId ? categories.find((c) => c.id === category.parentId) : category;
   // Only offer descendants of the current category; sibling filters would
@@ -470,33 +483,48 @@ export default function SolarCatalog({
             </span>
             {result.pages > 1 && (
               <nav aria-label="Product pagination">
-                <button
+                <Link
+                  href={pageHref(Math.max(1, result.page - 1))}
                   aria-label="Previous page"
-                  disabled={result.page === 1}
-                  onClick={() => update('page', String(result.page - 1))}
+                  aria-disabled={result.page === 1}
+                  tabIndex={result.page === 1 ? -1 : undefined}
+                  scroll={false}
+                  prefetch={false}
+                  onClick={(event) => {
+                    if (result.page === 1) event.preventDefault();
+                  }}
                 >
                   <ChevronLeft size={16} />
-                </button>
+                </Link>
                 {Array.from({ length: result.pages }, (_, i) => i + 1)
                   .filter((n) => n === 1 || n === result.pages || Math.abs(n - result.page) < 2)
                   .map((n, i, ns) => (
                     <span key={n}>
                       {i > 0 && n - ns[i - 1] > 1 && <span className="pagination-ellipsis">…</span>}
-                      <button
+                      <Link
+                        href={pageHref(n)}
                         aria-current={n === result.page ? 'page' : undefined}
-                        onClick={() => update('page', String(n))}
+                        aria-label={`Page ${n}`}
+                        scroll={false}
+                        prefetch={false}
                       >
                         {n}
-                      </button>
+                      </Link>
                     </span>
                   ))}
-                <button
+                <Link
+                  href={pageHref(Math.min(result.pages, result.page + 1))}
                   aria-label="Next page"
-                  disabled={result.page === result.pages}
-                  onClick={() => update('page', String(result.page + 1))}
+                  aria-disabled={result.page === result.pages}
+                  tabIndex={result.page === result.pages ? -1 : undefined}
+                  scroll={false}
+                  prefetch={false}
+                  onClick={(event) => {
+                    if (result.page === result.pages) event.preventDefault();
+                  }}
                 >
                   <ChevronRight size={16} />
-                </button>
+                </Link>
               </nav>
             )}
           </div>
@@ -620,7 +648,7 @@ export function SolarProductDetail({ p, categories, add, wish, inquiry }) {
       <div className="product-detail imported-product-detail">
         <div>
           <div className="detail-image">
-            <img src={photo} alt={p.name} />
+            <img src={photo} alt={p.name} width="500" height="500" fetchPriority="high" />
           </div>
           {p.images?.length > 1 && (
             <div className="product-gallery-thumbs">
@@ -631,7 +659,7 @@ export function SolarProductDetail({ p, categories, add, wish, inquiry }) {
                   aria-label={`Product photo ${i + 1}`}
                   aria-pressed={photo === src}
                 >
-                  <img src={src} alt="" />
+                  <img src={src} alt="" width="64" height="64" loading="lazy" />
                 </button>
               ))}
             </div>

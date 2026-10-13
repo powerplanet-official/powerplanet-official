@@ -1,0 +1,121 @@
+{
+  "base": "http://127.0.0.1:3022",
+  "capturedAt": "2026-10-13T07:35:50.526Z",
+  "note": "Single unthrottled lab samples. Event duration is not field INP; field Core Web Vitals require CrUX/Search Console.",
+  "pages": [
+    {
+      "path": "/",
+      "mobile": false,
+      "status": 200,
+      "title": "Solar Panels, Inverters & Batteries in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/",
+      "headings": [
+        "Solar Panels, Hybrid Solar Inverters, Lithium Batteries & ESS Energy"
+      ],
+      "productLinks": 40,
+      "overflow": false,
+      "lcp": 884,
+      "cls": 0.0008339706441829561,
+      "maxEventDuration": 168,
+      "ttfb": 575.3999999985099,
+      "domContentLoaded": 964.5999999977648,
+      "transferBytes": 2625670,
+      "errors": []
+    },
+    {
+      "path": "/category/solar-inverters",
+      "mobile": false,
+      "status": 200,
+      "title": "Solar Inverters in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/solar-inverters",
+      "headings": [
+        "Solar Inverters"
+      ],
+      "productLinks": 40,
+      "overflow": false,
+      "lcp": 476,
+      "cls": 0.00036416136188271607,
+      "maxEventDuration": null,
+      "ttfb": 278.69999999925494,
+      "domContentLoaded": 543.5999999977648,
+      "transferBytes": 814921,
+      "errors": []
+    },
+    {
+      "path": "/product/w11-35462",
+      "mobile": false,
+      "status": 200,
+      "title": "Astronergy 585W N-Type Bi-Facial PV Module | Powerplanet",
+      "canonical": "https://powerplanet.pk/product/w11-35462",
+      "headings": [
+        "Astronergy 585W N-Type Bi-Facial PV Module"
+      ],
+      "productLinks": 0,
+      "overflow": false,
+      "lcp": 320,
+      "cls": 0,
+      "maxEventDuration": null,
+      "ttfb": 133.89999999850988,
+      "domContentLoaded": 325.5,
+      "transferBytes": 598828,
+      "errors": []
+    },
+    {
+      "path": "/",
+      "mobile": true,
+      "status": 200,
+      "title": "Solar Panels, Inverters & Batteries in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/",
+      "headings": [
+        "Solar Panels, Hybrid Solar Inverters, Lithium Batteries & ESS Energy"
+      ],
+      "productLinks": 72,
+      "overflow": false,
+      "lcp": 416,
+      "cls": 0,
+      "maxEventDuration": 80,
+      "ttfb": 141.39999999850988,
+      "domContentLoaded": 500.3999999985099,
+      "transferBytes": 2233086,
+      "errors": []
+    },
+    {
+      "path": "/category/solar-inverters",
+      "mobile": true,
+      "status": 200,
+      "title": "Solar Inverters in Pakistan | Powerplanet",
+      "canonical": "https://powerplanet.pk/category/solar-inverters",
+      "headings": [
+        "Solar Inverters"
+      ],
+      "productLinks": 40,
+      "overflow": false,
+      "lcp": 348,
+      "cls": 0,
+      "maxEventDuration": null,
+      "ttfb": 111.39999999850988,
+      "domContentLoaded": 343.80000000074506,
+      "transferBytes": 803614,
+      "errors": []
+    },
+    {
+      "path": "/product/w11-35462",
+      "mobile": true,
+      "status": 200,
+      "title": "Astronergy 585W N-Type Bi-Facial PV Module | Powerplanet",
+      "canonical": "https://powerplanet.pk/product/w11-35462",
+      "headings": [
+        "Astronergy 585W N-Type Bi-Facial PV Module"
+      ],
+      "productLinks": 0,
+      "overflow": false,
+      "lcp": 272,
+      "cls": 0,
+      "maxEventDuration": null,
+      "ttfb": 108.40000000223517,
+      "domContentLoaded": 290.19999999925494,
+      "transferBytes": 653995,
+      "errors": []
+    }
+  ]
+}

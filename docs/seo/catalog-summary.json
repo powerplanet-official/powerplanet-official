@@ -1,0 +1,25 @@
+{
+  "source": "docs/seo/baseline/live-catalog.json.gz",
+  "publicProducts": 1099,
+  "categories": 47,
+  "brands": 93,
+  "sitemapUrls": 1237,
+  "mappedRoutes": 1248,
+  "uniqueTitles": 1248,
+  "uniqueDescriptions": 1248,
+  "emptyOrPrivateRoutes": [
+    "/cart",
+    "/checkout",
+    "/wishlist",
+    "/compare",
+    "/category/monocrystalline-panels",
+    "/category/portable-power-stations",
+    "/category/portable-solar-panels",
+    "/category/home-backup-systems",
+    "/category/mc4-connectors",
+    "/category/residential-solar-systems",
+    "/category/commercial-solar-systems"
+  ],
+  "catalogReviewRows": 231,
+  "duplicateDescriptionGroups": 35
+}

@@ -22,13 +22,15 @@ test('imported catalog metadata survives editing and minimum quantities are enfo
 test('default logo serves the supplied original bytes',async()=>{
  const logo=await req('/branding/logo');
  assert.match(logo.headers.get('content-type'),/image\/jpeg/);
+ assert.equal(logo.headers.get('x-robots-tag'),null);
  assert.deepEqual(Buffer.from(await logo.arrayBuffer()),readFileSync('public/images/powerplanet-logo-original.jpeg'));
 });
 test('logo upload requires admin and preserves the original image bytes',async()=>{
  const bytes=readFileSync('public/images/powerplanet-profile.jpg');
  assert.equal((await fetch(base+'/admin/branding/logo',{method:'PUT',headers:{'Content-Type':'image/jpeg'},body:bytes})).status,401);
  const upload=await fetch(base+'/admin/branding/logo',{method:'PUT',headers:{'Content-Type':'image/jpeg',cookie},body:bytes});assert.equal(upload.status,200);
- const logo=await req('/branding/logo');assert.match(logo.headers.get('content-type'),/image\/jpeg/);assert.deepEqual(Buffer.from(await logo.arrayBuffer()),bytes);
+ const logo=await req('/branding/logo');assert.match(logo.headers.get('content-type'),/image\/jpeg/);
+ assert.equal(logo.headers.get('x-robots-tag'),null);assert.deepEqual(Buffer.from(await logo.arrayBuffer()),bytes);
  const invalid=await fetch(base+'/admin/branding/logo',{method:'PUT',headers:{'Content-Type':'image/png',cookie},body:'<svg onload="alert(1)"></svg>'});assert.equal(invalid.status,400);
 });
 test('product image upload is authenticated, validated, persistent and usable in products', async () => {
@@ -59,3 +61,5 @@ test('product image upload is authenticated, validated, persistent and usable in
  assert.equal((await req('/product-images/' + '0'.repeat(64) + '.webp')).status, 404);
 });
 test('cross-site writes and logged-out sessions are rejected',async()=>{const r=await fetch(base+'/quotes',{method:'POST',headers:{'Content-Type':'application/json','Sec-Fetch-Site':'cross-site'},body:'{}'});assert.equal(r.status,403);assert.equal((await req('/auth/logout','POST')).status,200);assert.equal((await req('/admin/overview')).status,401);});
+
+test('compact catalog retains search and checkout data without import duplicates',async()=>{const full=await(await req('/store')).json();const compact=await(await req('/store?view=storefront')).json();assert.equal(compact.products.length,full.products.length);assert.deepEqual(compact.categories,full.categories);assert.equal(compact.faqs,undefined);for(const p of compact.products){const original=full.products.find(item=>item.id===p.id);assert.equal(p.price,original.price);assert.equal(p.specs,original.specs);assert.equal(p.source,undefined);}});

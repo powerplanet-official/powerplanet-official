@@ -649,7 +649,7 @@ button:focus-visible {
   color: #68735c;
 }
 .admin-sidebar > button.active,
-.reference-pagination button[aria-current='page'] {
+.reference-pagination a[aria-current='page'] {
   background: var(--brand-green);
   color: #203008;
   border-color: var(--brand-green);

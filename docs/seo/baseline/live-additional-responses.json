@@ -1,0 +1,31 @@
+[
+  {
+    "url": "http://powerplanet.pk/shop?brand=Solis",
+    "status": 308,
+    "location": "https://powerplanet.pk/shop?brand=Solis"
+  },
+  {
+    "url": "https://powerplanet.pk/category/solar-inverters",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 7425
+  },
+  {
+    "url": "https://powerplanet.pk/product/w11-35462",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 7411
+  },
+  {
+    "url": "https://powerplanet.pk/admin",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 7281
+  },
+  {
+    "url": "https://powerplanet.pk/shop?page=2",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 7420
+  }
+]

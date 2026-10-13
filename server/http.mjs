@@ -6,6 +6,11 @@ export function apiHeaders(req, res, next) {
   const requestId = randomUUID();
   res.set('X-Request-Id', requestId);
   res.set('X-Powerplanet-API', '1');
+  // JSON endpoints also exist on the separate API host. Product photos and the
+  // public logo must remain indexable for image search and structured data.
+  if (!/^\/(?:api\/)?(?:product-images\/|branding\/logo$)/.test(req.path)) {
+    res.set('X-Robots-Tag', 'noindex');
+  }
   // Never let shared proxies cache authentication, orders or error responses.
   res.set('Cache-Control', 'no-store');
   res.on('finish', () => {

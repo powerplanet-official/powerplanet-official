@@ -10,7 +10,7 @@ const {app}=await import('../server/app.mjs');const {db,put,all}=await import('.
 for(const product of all('products'))put('products',{...product,status:'draft'});
 const catalog=JSON.parse(readFileSync('data/catalog-source/solar-catalog.json','utf8'));for(const c of catalog.categories)put('categories',c);for(const p of catalog.products)put('products',{...p,minQuantity:1});
 const api=await new Promise(resolve=>{const s=app.listen(0,'127.0.0.1',()=>resolve(s));});const apiOrigin=`http://127.0.0.1:${api.address().port}`;
-const base='http://localhost:3008',web=spawn(process.execPath,['node_modules/next/dist/bin/next','start','--hostname','127.0.0.1','--port','3008'],{stdio:['ignore','pipe','pipe']});let logs='',browser;web.stdout.on('data',d=>logs+=d);web.stderr.on('data',d=>logs+=d);
+const base='http://localhost:3008',web=spawn(process.execPath,['node_modules/next/dist/bin/next','start','--hostname','127.0.0.1','--port','3008'],{env:{...process.env,BACKEND_URL:apiOrigin},stdio:['ignore','pipe','pipe']});let logs='',browser;web.stdout.on('data',d=>logs+=d);web.stderr.on('data',d=>logs+=d);
 try{
  for(let i=0;i<60;i++){try{if((await fetch(base)).ok)break;}catch{}if(i===59)throw Error(logs);await new Promise(r=>setTimeout(r,300));}
  browser=await chromium.launch({headless:true,executablePath:process.env.CHROMIUM_PATH||'/usr/bin/google-chrome',args:['--no-sandbox']});
@@ -129,9 +129,9 @@ try{
  await page.evaluate(()=>scrollTo(0,900));
  assert.equal(Math.round((await page.locator('.main-header').boundingBox()).y),0);
  await page.getByRole('button',{name:'Open categories',exact:true}).click();
- await page.locator('.solar-mega-menu').waitFor({state:'visible'});
+ await page.locator('.mobile-category-directory').waitFor({state:'visible'});
  await page.getByRole('button',{name:'Close categories',exact:true}).click();
- assert.equal(await page.locator('.solar-mega-menu').count(),0);
+ assert.equal(await page.locator('.mobile-category-directory').count(),0);
  for(let i=0;i<3;i++){
    await page.goto(base);await hero.waitFor();
    await collections.nth(i).locator('.solar-collection-banner').click();

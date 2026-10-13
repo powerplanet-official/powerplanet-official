@@ -47,6 +47,7 @@ test('API rate limits retain JSON, Retry-After, request identity and no-store', 
     const response = await fetch(url);
     assert.equal(response.status, 429);
     assert.equal(response.headers.get('cache-control'), 'no-store');
+    assert.equal(response.headers.get('x-robots-tag'), 'noindex');
     assert.ok(Number(response.headers.get('retry-after')) > 0);
     const body = await readApiResponse(response);
     assert.equal(body.code, 'RATE_LIMITED');
