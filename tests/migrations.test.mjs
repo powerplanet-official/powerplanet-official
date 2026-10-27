@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { DatabaseSync } from 'node:sqlite';
-import { migrateMinimumQuantities } from '../server/migrations.mjs';
+import { migrateMinimumQuantities, migrateAdminCredentials } from '../server/migrations.mjs';
 
 test('existing bulk minimums reset to one once; future admin limits survive', () => {
   const db = new DatabaseSync(':memory:');
@@ -34,3 +34,31 @@ test('existing bulk minimums reset to one once; future admin limits survive', ()
     db.close();
   }
 });
+
+test('administrator credentials migrate to configured admin and clean default local account', () => {
+  const db = new DatabaseSync(':memory:');
+  try {
+    db.exec(`
+      CREATE TABLE admins (email TEXT PRIMARY KEY, hash TEXT NOT NULL, salt TEXT NOT NULL);
+      CREATE TABLE sessions (token TEXT PRIMARY KEY, email TEXT NOT NULL, expires INTEGER NOT NULL);
+      CREATE TABLE meta (key TEXT PRIMARY KEY, value TEXT NOT NULL);
+    `);
+    db.prepare('INSERT INTO admins VALUES (?, ?, ?)').run('admin@powerplanet.local', 'oldhash', 'oldsalt');
+    db.prepare('INSERT INTO sessions VALUES (?, ?, ?)').run('token123', 'admin@powerplanet.local', Date.now() + 10000);
+
+    migrateAdminCredentials(db);
+
+    const admins = db.prepare('SELECT email FROM admins').all();
+    assert.equal(admins.length, 1);
+    assert.equal(admins[0].email, 'nishatahmed0301@gmail.com');
+
+    const sessions = db.prepare('SELECT token FROM sessions').all();
+    assert.equal(sessions.length, 0);
+
+    const meta = db.prepare('SELECT value FROM meta WHERE key=?').get('admin-credentials-nishat-v1');
+    assert.ok(meta);
+  } finally {
+    db.close();
+  }
+});
+

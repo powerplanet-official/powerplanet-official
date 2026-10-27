@@ -2,7 +2,7 @@ import { DatabaseSync } from 'node:sqlite';
 import { mkdirSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { categories, samples } from './catalog.mjs';
-import { migrateMinimumQuantities } from './migrations.mjs';
+import { migrateMinimumQuantities, migrateAdminCredentials } from './migrations.mjs';
 const path = process.env.DB_PATH || resolve('data/store.sqlite');
 mkdirSync(dirname(path),{recursive:true});
 export const db = new DatabaseSync(path);
@@ -29,3 +29,4 @@ if (!db.prepare('SELECT value FROM meta WHERE key=?').get('seeded')) {
  } catch(e) {db.exec('ROLLBACK');throw e;}
 }
 migrateMinimumQuantities(db);
+migrateAdminCredentials(db);
